@@ -50,25 +50,24 @@ void returnInvalid() {
 }
 
 
-//
-//void lowAP() {
-//    printf(" ANYA : ");
-//    switch(rng(4, 0)) {
-//        case 0:
-//            printf("Anya wants to sleep!");
-//            break;
-//        case 1:
-//            printf("Hmmmmmmmmm.... Noooo....");
-//            break;
-//        case 2:
-//            printf("Ughhhhhhh....");
-//            break;
-//        case 3:
-//            printf("No! Anya doesn't wanna!");
-//            break;
-//    }
-//    printf("\n\n");
-//}
+void lowAP() {
+    printf(" ANYA : ");
+    switch(rng(4, 0)) {
+        case 0:
+            printf("Anya wants to sleep!");
+            break;
+        case 1:
+            printf("Hmmmmmmmmm.... Noooo....");
+            break;
+        case 2:
+            printf("Ughhhhhhh....");
+            break;
+        case 3:
+            printf("No! Anya doesn't wanna!");
+            break;
+    }
+    printf("\n\n");
+}
 
 
 char *getVenue(int VENUE_INDEX) {
@@ -95,6 +94,7 @@ char *getRating(int RATING_INDEX) {
     }
 }
 
+
 char *getActivity(int ACTIVITY_INDEX) {
     switch(ACTIVITY_INDEX) {
         case 1: return "Annoy Damian!";
@@ -103,5 +103,3 @@ char *getActivity(int ACTIVITY_INDEX) {
         case 4: return "Go home!";
     }
 }
-
-

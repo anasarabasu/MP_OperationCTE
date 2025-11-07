@@ -35,7 +35,7 @@ ACKNOWLEDGEMENTS:
 #include "state.c"
 
 #include "Sections/outing.c"
-//#include "Sections/school.c"
+#include "Sections/school.c"
 
 #include "gameLoop.c"
 

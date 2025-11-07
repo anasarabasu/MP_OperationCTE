@@ -2,14 +2,14 @@
 void gameLoop() {
     bool showIntro = true;
 
-    int AP = 0;
+    int AP = 3;
     int mthLVL = 1, peLVL = 1;
     int BP_Damian = 0, BP_Becky = 0, BP_Henderson = 0, BP_Bond = 0;
     
+    int venue;
     int activity;
-
+    
     int camRolls = 5;
-    int currentVenue;
     int PH_1 = 1, PH_2 = 1, PH_3 = 1, PH_4 = 0, PH_5 = 0, PH_6 = 0, PH_7 = 0;
 
     
@@ -33,18 +33,22 @@ void gameLoop() {
                             // outingAfternoon(currentVenue);
                             //minigame
                             break;
-                        case 2:
-                        	displayVenues(BP_Damian, BP_Becky, BP_Henderson, BP_Bond);
-                        	printf("\n\nWhere would Anya like to go?\n\n");
-                            int input = inputInt(
-                            	0, 
+                        case 2: //evening - outing selection
+                        	printf("\n\nWhere would Anya like to go?\n");
+                        	displayOutingSelection(BP_Damian, BP_Becky, BP_Henderson, BP_Bond);
+                        	printf("\n\n");
+                        	
+                            venue = inputInt(
 								7,
-								0,
+                            	0, 
+								AP,
+								venue,
 								mthLVL, peLVL,
 								BP_Damian, BP_Becky, BP_Becky, BP_Bond,
 								PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
 							);
-							printf("ANYA: Anya decided she wants to go to the.... %s\n", getVenue(input));
+							printf("\tANYA : Anya decided she wants to go to the.... %s\n", getVenue(venue));
+							
                             break;
                     }
                     getchar();
@@ -54,14 +58,29 @@ void gameLoop() {
             else { //reg schooldays
                 switch(time) {
                 case 0:
-//                    morning_BPSelection(
-//                        &activity, &AP,
-//                        mthLVL, peLVL, 
-//                        BP_Damian, BP_Becky, BP_Henderson, BP_Bond,
-//                        currentVenue,
-//                        PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
-//                    );
-//                    bondingActivity(activity);
+                	printf("\n\nWhat should Anya do today?");
+                	displayMorningSelection();
+                	printf("\n\n");
+                	
+                	activity = inputInt(
+						4,
+						1,
+						AP,
+						venue,
+						mthLVL, peLVL,
+						BP_Damian, BP_Becky, BP_Becky, BP_Bond,
+						PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
+					);
+					printf("\tANYA : Anya will.... %s\n", getActivity(activity));
+					
+					bondingActivity(
+						activity, &AP,
+						&BP_Damian, peLVL,
+						&BP_Becky,
+						&BP_Henderson, mthLVL,
+						&BP_Bond
+					);
+					
                     break;
                 case 1:
                     // schoolAfternoon();

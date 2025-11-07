@@ -18,34 +18,26 @@ char *getTime(int TIME) {
     @AP - current AP player has
 */
 void ui(int DAY, int TIME, int AP) {
-    if(DAY != 0) {
-        printf("\n"
-            "   Day %d\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t AP: %d\n"
-            "   %s\n"
-            "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n", 
-            DAY, AP, getTime(TIME)
-        );
-    }
-    else {
-        printf("\n"
-            "   Day %d\n"
-            "   %s\n"
-            "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n", 
-            DAY, getTime(TIME)
-        );
-
-    }
+    printf("\n"
+        "   Day %d\n"
+        "   %s\n"
+        "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n", 
+        DAY, getTime(TIME)
+    );
 }
 
 
 /* shows the current stats */
 void viewStats(
-    int VENUE, 
+    int AP,
+	int VENUE, 
     int MATH, int PE, 
     int DAMIAN, int BECKY, int HENDERSON, int BOND,
     int PH_1, int PH_2, int PH_3, int PH_4, int PH_5, int PH_6, int PH_7) {
         printf(
             "\t============================= Status =============================\n\n"
+            "\t    CURRENT AP\n"
+			"\t       - %d\n\n"
             "\t    VENUE FOR OUTING\n"
             "\t       - %s\n\n"
             "\t    SKILL LEVEL\n"
@@ -60,7 +52,8 @@ void viewStats(
             "\t       - Park......................................%s\n"
             "\t       - City Hall.................................%s\n"
             "\t       - Ostania Beach.............................%s\n",
-            getVenue(VENUE),
+            AP,
+			getVenue(VENUE),
             MATH, PE, 
             DAMIAN, BECKY, HENDERSON, BOND,
             getRating(PH_1), getRating(PH_2), getRating(PH_3)

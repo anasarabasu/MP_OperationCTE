@@ -2,27 +2,35 @@ bool checkBP(int INPUT, int DAMIAN, int BECKY, int HENDERSON, int BOND) {
 	switch(INPUT) {
 		case 4:
 			if(DAMIAN != 4) 
-			return 1;
+			return false;
 		case 5:
 			if(BECKY != 4) 
-			return 1;
+			return false;
 		case 6:
 			if(HENDERSON != 4) 
-			return 1;
+			return false;
 		case 7:
 			if(BOND != 4) 
-			return 1;
+			return false;
 		default:
-			return 0;
+			return true;
 	}
+}
+
+bool checkAP(int INPUT, int AP) {
+	if(INPUT < 4 && AP == 0)
+		return false;
+	else 
+		return true;
 }
 
 /* handles the input for the selection menus 
 	@RETURNS the input once found valid
 */
 int inputInt(
-		int SECTION, //0: outing
 		int MAX,
+		int SECTION, //0: outing 1: morning slect
+	    int AP,
 		int VENUE,
 		int MATH, int PE,
 		int DAMIAN, int BECKY, int HENDERSON, int BOND, 
@@ -37,19 +45,20 @@ int inputInt(
 		else if(input < 0 || input > MAX) //number but not in range
 				returnInvalid();
 		else if(input == 0) //access stats
-			viewStats(VENUE, MATH, PE, DAMIAN, BECKY, HENDERSON, BOND, PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7);
-		else { //custom conditional
-			if(SECTION == 0 && checkBP(input, DAMIAN, BECKY, HENDERSON, BOND) == 1) //outing selection
+			viewStats(AP, VENUE, MATH, PE, DAMIAN, BECKY, HENDERSON, BOND, PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7);
+		else {
+			if(SECTION == 0 && checkBP(input, DAMIAN, BECKY, HENDERSON, BOND) == false) //outing selection
 				returnInvalid();
+			if(SECTION == 1 && checkAP(input, AP) == false) //morning activity selection
+				lowAP();
 			}
 		}
 	while(
 		input <= 0 || 
 		input > MAX || 
-		input == 4 && DAMIAN != 4 || 
-		input == 5 && BECKY != 4 || 
-		input == 6 && HENDERSON != 4 || 
-		input == 7 && BOND != 4);
+		SECTION == 0 && checkBP(input, DAMIAN, BECKY, HENDERSON, BOND) == false ||
+		SECTION == 1 && checkAP(input, AP) == false
+	);
 	
 	return input;
 }

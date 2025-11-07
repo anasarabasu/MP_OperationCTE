@@ -15,7 +15,7 @@ void outingAfternoon(int VENUE) {
     #HENDERSON - "
     @BOND - "
 */
-void displayVenues(int DAMIAN, int BECKY, int HENDERSON, int BOND) {
+void displayOutingSelection(int DAMIAN, int BECKY, int HENDERSON, int BOND) {
     printf(
         "\t[0] View Stats\n"
         "\t[1] Park\t\t\t"
