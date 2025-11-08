@@ -17,7 +17,7 @@ char *getTime(int TIME) {
     @TIME - current time of the game
     @AP - current AP player has
 */
-void ui(int DAY, int TIME, int AP) {
+void ui(int DAY, int TIME) {
     printf("\n"
         "   Day %d\n"
         "   %s\n"
@@ -35,23 +35,21 @@ void viewStats(
     int DAMIAN, int BECKY, int HENDERSON, int BOND,
     int PH_1, int PH_2, int PH_3, int PH_4, int PH_5, int PH_6, int PH_7) {
         printf(
-            "\t============================= Status =============================\n\n"
-            "\t    CURRENT AP\n"
-			"\t       - %d\n\n"
-            "\t    VENUE FOR OUTING\n"
-            "\t       - %s\n\n"
-            "\t    SKILL LEVEL\n"
-            "\t       - Math.........................................%d\n"
-            "\t       - PE...........................................%d\n\n"
-            "\t    RELATIONSHIPS\n"
-            "\t       - Damian.......................................%d\n"
-            "\t       - Becky........................................%d\n"
-            "\t       - Mr. Henderson................................%d\n"
-            "\t       - Bond.........................................%d\n\n"
-            "\t    PHOTOGRAPHS\n"
-            "\t       - Park......................................%s\n"
-            "\t       - City Hall.................................%s\n"
-            "\t       - Ostania Beach.............................%s\n",
+            "\t\t\t\t\t\t\t============================================= Status =============================================\n\n"
+            "\t\t\t\t\t\t\t\t\t    CURRENT AP\t\t\t    OUTING VENUE\n"
+			"\t\t\t\t\t\t\t\t\t       - %d\t\t\t       - %s\n"
+            "\t\t\t\t\t\t\t\t\t___________________________________________________________________\n\n"
+            "\t\t\t\t\t\t\t\t\t    SKILL LEVEL\n"
+            "\t\t\t\t\t\t\t\t\t       - Math................%d\t       - PE..................%d\n"
+            "\t\t\t\t\t\t\t\t\t___________________________________________________________________\n\n"
+            "\t\t\t\t\t\t\t\t\t    RELATIONSHIPS\n"
+            "\t\t\t\t\t\t\t\t\t       - Damian..............%d\t       - Becky...............%d\n"
+            "\t\t\t\t\t\t\t\t\t       - Mr. Henderson.......%d\t       - Bond................%d\n"
+            "\t\t\t\t\t\t\t\t\t___________________________________________________________________\n\n"
+            "\t\t\t\t\t\t\t\t\t    PHOTOGRAPHS\n"
+            "\t\t\t\t\t\t\t\t\t       - Park......................................%s\n"
+            "\t\t\t\t\t\t\t\t\t       - City Hall.................................%s\n"
+            "\t\t\t\t\t\t\t\t\t       - Ostania Beach.............................%s\n",
             AP,
 			getVenue(VENUE),
             MATH, PE, 
@@ -59,10 +57,10 @@ void viewStats(
             getRating(PH_1), getRating(PH_2), getRating(PH_3)
         );
         
-        if(PH_4 > 0) printf("\t║       - West Berlint Aquarium.....................%s\n", getRating(PH_4));
-        if(PH_5 > 0) printf("\t║       - Ostania Art Museum........................%s\n", getRating(PH_5));
-        if(PH_6 > 0) printf("\t║       - Berlint Mouseney Land.....................%s\n", getRating(PH_6));
-        if(PH_7 > 0) printf("\t║       - Park Avenue Dogland.......................%s\n", getRating(PH_7));
+        if(PH_4 > 0) printf("\t\t\t\t\t\t\t\t\t       - West Berlint Aquarium.....................%s\n", getRating(PH_4));
+        if(PH_5 > 0) printf("\t\t\t\t\t\t\t\t\t       - Ostania Art Museum........................%s\n", getRating(PH_5));
+        if(PH_6 > 0) printf("\t\t\t\t\t\t\t\t\t       - Berlint Mouseney Land.....................%s\n", getRating(PH_6));
+        if(PH_7 > 0) printf("\t\t\t\t\t\t\t\t\t       - Park Avenue Dogland.......................%s\n", getRating(PH_7));
         
-        printf("\n\t==================================================================\n\n");
+        printf("\n\t\t\t\t\t\t\t==================================================================================================\n\n");
 }

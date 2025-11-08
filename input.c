@@ -1,17 +1,21 @@
 bool checkBP(int INPUT, int DAMIAN, int BECKY, int HENDERSON, int BOND) {
 	switch(INPUT) {
 		case 4:
-			if(DAMIAN != 4) 
-			return false;
+			if(BECKY != 5) return false;
+			else return true;
+			break;
 		case 5:
-			if(BECKY != 4) 
-			return false;
+			if(HENDERSON != 5) return false;
+			else return true;
+			break;
 		case 6:
-			if(HENDERSON != 4) 
-			return false;
+			if(DAMIAN != 5) return false;
+			else return true;
+			break;
 		case 7:
-			if(BOND != 4) 
-			return false;
+			if(BOND != 5) return false;
+			else return true;
+			break;
 		default:
 			return true;
 	}
@@ -56,8 +60,8 @@ int inputInt(
 	while(
 		input <= 0 || 
 		input > MAX || 
-		SECTION == 0 && checkBP(input, DAMIAN, BECKY, HENDERSON, BOND) == false ||
-		SECTION == 1 && checkAP(input, AP) == false
+		(SECTION == 0 && checkBP(input, DAMIAN, BECKY, HENDERSON, BOND) == false) ||
+		(SECTION == 1 && checkAP(input, AP) == false)
 	);
 	
 	return input;

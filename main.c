@@ -25,7 +25,11 @@ ACKNOWLEDGEMENTS:
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <conio.h>
+
+#if defined(_WIN32) || defined(_WIN64)
+    #include <conio.h>
+#endif
+
 
 #include "Helpers/tools.c"
 #include "Helpers/art.c"

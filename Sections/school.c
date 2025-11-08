@@ -13,24 +13,63 @@ void displayMorningSelection() {
     @CHANCE
     @RETURNS
 */
-void gainBP(int LEVEL, int CHANCE, int *BP, int *AP) {
+void gainBP(int CHOICE, int LEVEL, int CHANCE, int *BP, int *AP) {
+    int random = rng(100, 0);
+
     if(*BP < 5) {
         if(LEVEL == 1) CHANCE *= 0;
-        //level == 2 is default chance val
+        if(LEVEL == 2) CHANCE += 0; //def value
         if(LEVEL == 3) CHANCE += 25;
         if(LEVEL == 4) CHANCE += 50;
         
-        if(rng(100, 0) < CHANCE) {
-            printf("Whooo");
-            *BP++;
+        if(random < CHANCE) {
+            printf(
+                "\n [ -1 AP ] [ +1 BP ]\n"
+                " >> Anya and %s grew a slighty more closer today!\n"
+                "%s\n\n"
+                " ANYA : Anya had a lot of fun today!\n", 
+                getName(CHOICE), bondingTip(1, CHOICE)
+            );
+            (*BP)++;
         }
         else {
-        	printf("meh");
+            printf(
+                "\n [ -1 AP ] [ -0 BP ]\n"
+                " >> Anya and %s spent time together, nothing much happened though....\n"
+                "%s\n\n"
+                " ANYA : Um.... Today was ok!\n",
+                getName(CHOICE), bondingTip(0, CHOICE)
+            );
 		}
-        *AP--;
+        (*AP)--;
+
+        if(*BP == 5) {//BP max reward
+            printf(
+                "\n [ +3 AP ]\n"
+                " >> Anya has reached the highest bond level with %s's!\n"
+                "%s\n",
+                getName(CHOICE), maxBondMessage(CHOICE)
+            );
+            (*AP) += 3;
+        }
     }
-    else if (rng(100, 0) < 50) { //max BP bonus chance
-        *AP += 2;
+    else { //max BP bonus chance
+        if (rng(100, 0) < 50) { 
+            printf(
+                "\n [ MAX BP ] [ +2 AP ]\n"
+                " >> Bonding with %s made Anya a little more motivated for the day!\n", 
+                getName(CHOICE)
+            );
+            *AP += 2; 
+        }
+        else {
+            printf(
+                "\n [ MAX BP ] [ -1 AP ]\n"
+                " >> Anya and %s spent time together, nothing much happened though\n",
+                getName(CHOICE)
+            );
+            (*AP)--;
+        }
     }
 }
 
@@ -39,20 +78,18 @@ void bondingActivity(
 		int *DAMIAN, int PE,
 		int *BECKY,
 		int *HENDERSON, int MATH,
-		int *BOND
-		) {
+		int *BOND) {
     switch(ACTIVITY) {
         case 1:
-        	printf("Dami");
-            gainBP(PE, 25, DAMIAN, AP);
+            gainBP(1, PE, 25, DAMIAN, AP);
             break;
         case 2:
-        	printf("Becky");
-            gainBP(0, 75, BECKY, AP);
+            gainBP(2, 2, 75, BECKY, AP);
             break;
         case 3:
-        	printf("Hender");
-            gainBP(MATH, 50, HENDERSON, AP);
+            gainBP(3, MATH, 50, HENDERSON, AP);
+            break;
+        case 4:
             break;
     }
 }

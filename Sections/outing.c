@@ -1,12 +1,12 @@
-/*  */
-void outingMorning(int VENUE) {
-}
+// /*  */
+// void outingMorning(int VENUE) {
+// }
 
 
-/*  */
-void outingAfternoon(int VENUE) {
+// /*  */
+// void outingAfternoon(int VENUE) {
 
-}
+// }
 
 
 /* displays a dynamic status of the venues 
@@ -23,8 +23,8 @@ void displayOutingSelection(int DAMIAN, int BECKY, int HENDERSON, int BOND) {
         "\t[3] Ostania Beach\n"
     );
     
-    printf("\t%s", (BECKY == 4) ? "[4] West Berlint Aquarium\t" : "[X] Locked\t\t\t");
-    printf("\t%s", (HENDERSON == 4) ? "[5] Ostania Art Museum\t\t" : "[X] Locked\t\t\t");
-    printf("\t%s", (DAMIAN == 4) ? "[6] Berlint Mouseney Land\t\t" : "[X] Locked\t\t\t");
-    printf("\t%s", (BOND == 4) ? "[7] Park Avenue Dogland\t\t" : "[X] Locked\t\t\t");
+    printf("\t%s", (BECKY == 5) ? "[4] West Berlint Aquarium\t" : "[X] LOCKED\t\t\t");
+    printf("\t%s", (HENDERSON == 5) ? "[5] Ostania Art Museum\t\t" : "[X] LOCKED\t\t\t");
+    printf("\t%s", (DAMIAN == 5) ? "[6] Berlint Mouseney Land\t\t" : "[X] LOCKED\t\t\t");
+    printf("\t%s", (BOND == 5) ? "[7] Park Avenue Dogland\t\t" : "[X] LOCKED\t\t\t");
 }
