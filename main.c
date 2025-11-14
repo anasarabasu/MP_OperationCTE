@@ -25,6 +25,7 @@ ACKNOWLEDGEMENTS:
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 #if defined(_WIN32) || defined(_WIN64)
     #include <conio.h>
@@ -39,17 +40,17 @@ ACKNOWLEDGEMENTS:
 
 #include "state.c"
 
-#include "Sections/display.c"
+#include "Sections/displayHandler.c"
 #include "Sections/bondHandler.c"
 
-#include "Sections/Minigames/math.c"
+#include "Minigames/math.c"
 
 #include "gameLoop.c"
 
-
 int main() {
     title();
-    gameLoop();   
+//    gameLoop();   
+playMath(2);
     // theEnd();
     return 0;
 }

@@ -13,7 +13,7 @@ void gameLoop() {
     // int mthEXP = 0, peEXP = 0;
     
     // int camRolls = 5;
-    int PH_1 = 1, PH_2 = 1, PH_3 = 1, PH_4 = 3, PH_5 = 3, PH_6 = 3, PH_7 = 3;
+    int PH_1 = 1, PH_2 = 1, PH_3 = 1, PH_4 = 0, PH_5 = 0, PH_6 = 0, PH_7 = 0;
 
     int time = 0;
     int day = 0;

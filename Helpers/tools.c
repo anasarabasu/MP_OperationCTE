@@ -97,17 +97,18 @@ char *getRating(int INDEX) {
 
 char *getActivity(int INDEX) {
     switch(INDEX) {
-        case 1: return "Annoy Damian!";
-        case 2: return "Play with Becky!";
-        case 3: return "Talk to Mr. Henderson!";
-        case 4: return "Go home!";
-        case 5: return "Study with papa!";
-        case 6: return "Train with mama!";
-        case 7: return "Play with Bond!";
-        case 8: return "Slack off!";
+        case 1: return "Annoy Damian";
+        case 2: return "Play with Becky";
+        case 3: return "Talk to Mr. Henderson";
+        case 4: return "Go home";
+        case 5: return "Study with papa";
+        case 6: return "Train with mama";
+        case 7: return "Play with Bond";
+        case 8: return "Slack off";
         default: return 0;
     }
 }
+
 
 char *getName(int INDEX) {
     switch(INDEX) {
@@ -119,12 +120,13 @@ char *getName(int INDEX) {
     }
 }
 
+
 char *maxBondMessage(int INDEX) {
     switch(INDEX) {
         case 1: 
-            return " DAMIAN : DAMIAN: Hmph… you're not completely hopeless, I suppose. If you insist, I guess we could go to Mouseney Land—just don't expect me to hold back my superiority.";
+            return " DAMIAN : DAMIAN: Hmph.... you're not completely hopeless, I suppose. I guess I can introduce you to Mouseney Land. You might enjoy it there....";
         case 2: 
-            return " BECKY : Yayyy! It's decided! We're going to the aquarium, and it's going to be soooo much fun—I can already see the penguins!";
+            return " BECKY : Hey! I think you'll like it there at the West Berlint Aquarium! There's penguins!";
         case 3: 
             return " MR. HENDERSON : My, what refinement you've displayed. Perhaps a visit to the Ostania Art Museum would provide a most suitable enrichment for your talents.";
         case 4: 
@@ -133,11 +135,12 @@ char *maxBondMessage(int INDEX) {
     }
 }
 
+
 char *bondingTip(int SUCCEED, int INDEX) {
     if(SUCCEED) 
         switch(INDEX) {
             case 1:
-                return " DAMIAN: Hmph… not bad. You actually managed to keep up. I suppose I can tolerate your efforts a little more.\n ANYA : Hehe! Take that, Sy-on-boy! Don't get too proud!";
+                return " DAMIAN: Hmph.... not bad. You actually managed to keep up. I suppose I can tolerate your efforts a little more.\n ANYA : Hehe! Take that, Sy-on-boy! Don't get too proud!";
             case 2:
                 return " BECKY : Ahaha! That was so much fun! Let's do this again sometime!\n ANYA : Yosh! Let's play again next time!";
             case 3:
@@ -149,7 +152,7 @@ char *bondingTip(int SUCCEED, int INDEX) {
     else
         switch(INDEX) {
             case 1:
-                return " DAMIAN : Hmph… you might want to focus on improving your PE skills first. Do try to keep up.\n ANYA : Huuhh! Meanie! Does Sy-on boy wanna get punched again?";
+                return " DAMIAN : Hmph.... you might want to focus on improving your PE skills first. Do try to keep up.\n ANYA : Huuhh! Meanie! Does Sy-on boy wanna get punched again?";
             case 2:
                 return " BECKY : Hehe! Sorry, I'm not quite up for it right now… but let's try this again soon!\n ANYA : Okay… Next time we'll make it super fun!";
             case 3:
@@ -158,4 +161,35 @@ char *bondingTip(int SUCCEED, int INDEX) {
                 return " BOND : Borf!\n YOR : Hmmm.... Bond doesn't seem to be in the mood today. Maybe miss Anya can try again next time?\n ANYA : Okay mama....";
             default: return 0;
         }
+}
+
+
+char *mathQuestion(int OPERATION, int INDEX) {
+	switch(OPERATION) {
+		case 0: //add
+			switch(INDEX) {
+				case 0: return "What would you get if you add %d and %d?";
+				case 1: return "%d and %d combined is?";
+				case 2: return "What is %d + %d?";
+				case 3: return "The sum of %d and %d is?";
+			}
+			break;
+		case 1: //sub
+			switch(INDEX) {
+				case 0: return "What would you get if you subtract %d and %d?";
+				case 1: return "%d subtracted by %d is?";
+				case 2: return "What is %d - %d?";
+				case 3: return "The difference of %d and %d?";
+			}
+			break;
+		case 2: //mul
+			switch(INDEX) {
+				case 0: return "What would you get if you multiply %d and %d?";
+				case 1: return "%d multiplied by %d is?";
+				case 2: return "What is %d x %d?";
+				case 3: return "The product of %d and %d?";
+			}
+			break;
+		default: return 0;
+	}
 }
