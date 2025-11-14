@@ -49,8 +49,7 @@ ACKNOWLEDGEMENTS:
 
 int main() {
     title();
-//    gameLoop();   
-playMath(2);
+    gameLoop();   
     // theEnd();
     return 0;
 }

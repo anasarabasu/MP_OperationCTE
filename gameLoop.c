@@ -10,7 +10,7 @@ void gameLoop() {
     int BP_Damian = 0, BP_Becky = 0, BP_Henderson = 0, BP_Bond = 0;
     
     int mthLVL = 1, peLVL = 1;
-    // int mthEXP = 0, peEXP = 0;
+     int mthEXP = 0, peEXP = 0;
     
     // int camRolls = 5;
     int PH_1 = 1, PH_2 = 1, PH_3 = 1, PH_4 = 0, PH_5 = 0, PH_6 = 0, PH_7 = 0;
@@ -102,14 +102,13 @@ void gameLoop() {
                         );
                         printf(" ANYA : Anya will.... %s!\n", getActivity(activity+4));
                         
-                        
-
                         switch(activity) {
                             case 1:
                                 getchar();
                                 wipeScreen();
 
-                                playMath(mthLVL);
+                                int score = playMath(mthLVL);
+                                mathFinish(score, getQuestionAmount(mthLVL), &AP, &EXP);
                                 break;
                             case 2:
                                 getchar();

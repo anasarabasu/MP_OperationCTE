@@ -43,7 +43,7 @@ void returnInvalid() {
             printf("....");
             break;
         case 3:
-            printf("Anya doesn't think that's right....");
+            printf("Anya is confused....");
             break;
     }
     printf("\n\n");
