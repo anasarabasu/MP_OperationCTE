@@ -108,7 +108,7 @@ void gameLoop() {
                                 wipeScreen();
 
                                 int score = playMath(mthLVL);
-                                mathFinish(score, getQuestionAmount(mthLVL), &AP, &EXP);
+                                mathFinish(score, getQuestionAmount(mthLVL), &AP, &mthEXP);
                                 break;
                             case 2:
                                 getchar();

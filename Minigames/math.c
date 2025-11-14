@@ -43,7 +43,7 @@ void mathFinish(int SCORE, int QUESTIONS, int *AP, int *EXP) {
 		);
 	}
 	else if(percent < 100) {
-		*EP += 2;
+		*EXP += 2;
 		(*AP)--;
 		printf(
 			" [ +2 EXP ] [ -1 AP ]\n"
@@ -52,7 +52,7 @@ void mathFinish(int SCORE, int QUESTIONS, int *AP, int *EXP) {
 		);
 	}
 	else {
-		*EP += 3;
+		*EXP += 3;
 		if(rng(100, 0) < 50) { //ap consumption chance
 			(*AP)--;
 			printf(" [ +3 EXP ] [ +1 AP ]\n");
