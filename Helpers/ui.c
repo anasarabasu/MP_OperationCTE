@@ -11,7 +11,6 @@ char *getTime(int TIME) {
     }
 }
 
-
 /* shows the current day, time, and AP at the top part of the terminal
     @DAY - current day of the game
     @TIME - current time of the game

@@ -33,7 +33,7 @@ bool checkAP(int INPUT, int AP) {
 */
 int inputInt(
 		int MAX,
-		int SECTION, //0: outing 1: morning slect
+		int SECTION, //0:outing    1:morning & afternoon select
 	    int AP,
 		int VENUE,
 		int MATH, int PE,

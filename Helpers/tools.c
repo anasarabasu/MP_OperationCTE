@@ -1,6 +1,6 @@
 /* clears the screen to move onto the next scene */
 void wipeScreen() {
-    printf("\n\n------------------------------------------------------------------------------------------> PRESS ANY KEY TO CONTINUE <------------------------------------------------------------------------------------------\n");
+    printf("\n------------------------------------------------------------------------------------------> PRESS ANY KEY TO CONTINUE <------------------------------------------------------------------------------------------\n");
     
     #if defined(_WIN32) || defined(_WIN64)
     getch();
@@ -101,8 +101,12 @@ char *getActivity(int INDEX) {
         case 2: return "Play with Becky!";
         case 3: return "Talk to Mr. Henderson!";
         case 4: return "Go home!";
+        case 5: return "Study with papa!";
+        case 6: return "Train with mama!";
+        case 7: return "Play with Bond!";
+        case 8: return "Slack off!";
+        default: return 0;
     }
-    return 0;
 }
 
 char *getName(int INDEX) {
@@ -110,7 +114,8 @@ char *getName(int INDEX) {
         case 1: return "Damian";
         case 2: return "Becky";
         case 3: return "Mr. Henderson";
-        default: return "Bond";
+        case 4: return "Bond";
+        default: return 0;
     }
 }
 
@@ -122,8 +127,9 @@ char *maxBondMessage(int INDEX) {
             return " BECKY : Yayyy! It's decided! We're going to the aquarium, and it's going to be soooo much fun—I can already see the penguins!";
         case 3: 
             return " MR. HENDERSON : My, what refinement you've displayed. Perhaps a visit to the Ostania Art Museum would provide a most suitable enrichment for your talents.";
-        default: 
+        case 4: 
             return " BOND : Borf!\n LOID : Haha… looks like Bond's ready for a little adventure at Dogland!";
+        default: return 0;
     }
 }
 
@@ -136,8 +142,9 @@ char *bondingTip(int SUCCEED, int INDEX) {
                 return " BECKY : Ahaha! That was so much fun! Let's do this again sometime!\n ANYA : Yosh! Let's play again next time!";
             case 3:
                 return " HENDERSON : Excellent work! Your performance shows considerable refinement. Truly admirable.\n ANYA : Yahooo! That was fun, even if he said boring stuff....";
-            default:
-                return " BOND : Borf! *wags tail*\n YOR: Hmmm… Bond seems very pleased! Maybe miss Anya can try again later and keep this up!\n ANYA : Hehe! Bond likes me!";
+            case 4:
+                return " BOND : Borf! *wags tail*\n YOR: Hmmm… Bond seems very pleased! Maybe miss Anya can try again later and keep this up!\n ANYA : Hehe! Bond likes me mama!";
+            default: return 0;
         }
     else
         switch(INDEX) {
@@ -147,7 +154,8 @@ char *bondingTip(int SUCCEED, int INDEX) {
                 return " BECKY : Hehe! Sorry, I'm not quite up for it right now… but let's try this again soon!\n ANYA : Okay… Next time we'll make it super fun!";
             case 3:
                 return " HENDERSON : My, perhaps honing your math skills would be a most prudent endeavor before progressing further.\n ANYA : I don't wanna go to school anymore....";
-            default:
+            case 4:
                 return " BOND : Borf!\n YOR : Hmmm.... Bond doesn't seem to be in the mood today. Maybe miss Anya can try again next time?\n ANYA : Okay mama....";
+            default: return 0;
         }
 }

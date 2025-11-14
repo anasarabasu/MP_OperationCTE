@@ -34,12 +34,15 @@ ACKNOWLEDGEMENTS:
 #include "Helpers/tools.c"
 #include "Helpers/art.c"
 #include "Helpers/ui.c"
+
 #include "input.c"
 
 #include "state.c"
 
-#include "Sections/outing.c"
-#include "Sections/school.c"
+#include "Sections/display.c"
+#include "Sections/bondHandler.c"
+
+#include "Sections/Minigames/math.c"
 
 #include "gameLoop.c"
 

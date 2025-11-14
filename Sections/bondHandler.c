@@ -1,24 +1,9 @@
-void displayMorningSelection() {
-	printf(
-	    "\t[0] View Stats\n"
-	    "\t[1] Annoy Damian\t\t"
-	    "\t[2] Play with Becky\t\t"
-	    "\t[3] Talk to Mr. Henderson\t\t"
-	    "\t[4] Go home\n\n"
-	);	
-}
-
-/*----------------------------------------
-    @LEVEL 
-    @CHANCE
-    @RETURNS
-*/
 void gainBP(int CHOICE, int LEVEL, int CHANCE, int *BP, int *AP) {
     int random = rng(100, 0);
 
     if(*BP < 5) {
         if(LEVEL == 1) CHANCE *= 0;
-        if(LEVEL == 2) CHANCE += 0; //def value
+        if(LEVEL == 2) CHANCE += 0; //also for conditional bond requirement
         if(LEVEL == 3) CHANCE += 25;
         if(LEVEL == 4) CHANCE += 50;
         
@@ -73,12 +58,11 @@ void gainBP(int CHOICE, int LEVEL, int CHANCE, int *BP, int *AP) {
     }
 }
 
-void bondingActivity(
+void bondingActivity( 
 		int ACTIVITY, int *AP,
 		int *DAMIAN, int PE,
 		int *BECKY,
-		int *HENDERSON, int MATH,
-		int *BOND) {
+		int *HENDERSON, int MATH) {
     switch(ACTIVITY) {
         case 1:
             gainBP(1, PE, 25, DAMIAN, AP);
@@ -89,13 +73,5 @@ void bondingActivity(
         case 3:
             gainBP(3, MATH, 50, HENDERSON, AP);
             break;
-        case 4:
-            break;
     }
 }
-//
-//
-//
-//void afternoon_ActivitySelection() {}
-//
-//void schoolEvening() {}
