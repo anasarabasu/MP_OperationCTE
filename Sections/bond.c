@@ -12,7 +12,7 @@ void gainBP(int CHOICE, int LEVEL, int CHANCE, int *BP, int *AP) {
                 "\n >> Anya and %s grew a slighty more closer today!\n"
                 " [ -1 AP ] [ +1 BP ]\n\n"
                 "%s\n",
-                getName(CHOICE), bondingTip(1, CHOICE)
+                getName(CHOICE), bondingTip(true, CHOICE)
             );
             (*BP)++;
         }
@@ -21,7 +21,7 @@ void gainBP(int CHOICE, int LEVEL, int CHANCE, int *BP, int *AP) {
                 "\n >> Anya and %s spent time together, nothing much happened though....\n"
                 " [ -1 AP ] [ -0 BP ]\n\n"
                 "%s\n",
-                getName(CHOICE), bondingTip(0, CHOICE)
+                getName(CHOICE), bondingTip(false, CHOICE)
             );
 		}
         (*AP)--;
@@ -29,7 +29,7 @@ void gainBP(int CHOICE, int LEVEL, int CHANCE, int *BP, int *AP) {
         if(*BP == 5) {//BP max reward
             printf(
                 "\n >> Anya has reached the highest bond level with %s!\n"
-                " [ +3 AP BONUS ]\n\n"
+                " [ +3 AP BONUS ] [ UNLOCKED OUTING LOCATION ]\n\n"
                 "%s\n"
 				" ANYA : Waku waku!\n",
                 getName(CHOICE), maxBondMessage(CHOICE)

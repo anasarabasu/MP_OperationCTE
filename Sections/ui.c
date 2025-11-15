@@ -39,11 +39,11 @@ void viewStats(
 			"\t\t\t\t\t\t\t\t\t       > %d\t\t\t       > %s\n"
             "\t\t\t\t\t\t\t\t\t___________________________________________________________________\n\n"
             "\t\t\t\t\t\t\t\t\t    SKILL LEVEL\n"
-            "\t\t\t\t\t\t\t\t\t       > Math................%d\t       > PE..................%d\n"
+            "\t\t\t\t\t\t\t\t\t       > Math..............%s\t       > PE................%s\n"
             "\t\t\t\t\t\t\t\t\t___________________________________________________________________\n\n"
             "\t\t\t\t\t\t\t\t\t    RELATIONSHIPS\n"
-            "\t\t\t\t\t\t\t\t\t       > Damian..............%d\t       > Becky...............%d\n"
-            "\t\t\t\t\t\t\t\t\t       > Mr. Henderson.......%d\t       > Bond................%d\n"
+            "\t\t\t\t\t\t\t\t\t       > Damian............%s\t       > Becky.............%s\n"
+            "\t\t\t\t\t\t\t\t\t       > Mr. Henderson.....%s\t       > Bond..............%s\n"
             "\t\t\t\t\t\t\t\t\t___________________________________________________________________\n\n"
             "\t\t\t\t\t\t\t\t\t    PHOTOGRAPHS\n"
             "\t\t\t\t\t\t\t\t\t       > Park......................................%s\n"
@@ -51,8 +51,8 @@ void viewStats(
             "\t\t\t\t\t\t\t\t\t       > Ostania Beach.............................%s\n",
             AP,
 			getVenue(VENUE),
-            MATH, PE, 
-            DAMIAN, BECKY, HENDERSON, BOND,
+            getNum(MATH, true), getNum(PE, true), 
+            getNum(DAMIAN, false), getNum(BECKY, false), getNum(HENDERSON, false), getNum(BOND, false),
             getRating(PH_1), getRating(PH_2), getRating(PH_3)
         );
         

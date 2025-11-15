@@ -34,7 +34,9 @@ ACKNOWLEDGEMENTS:
 
 #include "Helpers/tools.c"
 #include "Helpers/displayArt.c"
-#include "Helpers/ui.c"
+
+#include "Sections/ui.c"
+
 #include "Helpers/inputHandler.c"
 
 #include "state.c"

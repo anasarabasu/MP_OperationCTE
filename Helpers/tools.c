@@ -156,6 +156,23 @@ char *getVenue(int INDEX) {
 }
 
 
+char *getNum(int NUM, bool IS_SKILL) {
+	switch(NUM) {
+		case 0: return "..0";
+		case 1: return "..1";
+		case 2: return "..2";
+		case 3: return "..3";
+		case 4: 
+			if(IS_SKILL)
+				return "MAX";
+			else
+				return "..4";
+    	case 5: return "MAX";
+    	default: return 0;
+	}
+}
+
+
 char *getRating(int INDEX) {
     switch(INDEX) {
         case 1: return "NOT GOOD";
@@ -200,7 +217,7 @@ char *maxBondMessage(int INDEX) {
         case 2: 
             return " BECKY : Hey! I think you'll like it there at the West Berlint Aquarium! There's penguins!";
         case 3: 
-            return " MR. HENDERSON : My, what refinement you've displayed. Perhaps a visit to the Ostania Art Museum would provide a most suitable enrichment for your talents.";
+            return " MR. HENDERSON : My, what such elegance you've displayed! Perhaps a visit to the Ostania Art Museum would provide a most suitable enrichment for your talents.";
         case 4: 
             return " BOND : Borf!\n LOID : Haha.... looks like Bond's ready for a little adventure at Dogland!";
         default: return 0;
@@ -208,7 +225,7 @@ char *maxBondMessage(int INDEX) {
 }
 
 
-char *bondingTip(int SUCCEED, int INDEX) {
+char *bondingTip(bool SUCCEED, int INDEX) {
     if(SUCCEED) 
         switch(INDEX) {
             case 1:
@@ -266,21 +283,38 @@ char *mathQuestion(int OPERATION, int INDEX) {
 	}
 }
 
-int levelUp(int EXP) {
+void levelUp(int *LVL, int EXP) {
+	printf("\n");
+	
 	if(EXP < 5) 
-		printf(" >> Anya needs %d more to level up!", 5-EXP);
-	else if(EXP == 5)
-		return 2;
-	else if(EXP < 15)
-		printf(" >> Anya needs %d more to level up!", 15-EXP);
-	else if(EXP == 15)
-		return 3;
-	else if(EXP < 30)
-		printf(" >> Anya needs %d more to level up!", 30-EXP);
-	else if(EXP == 30) 
-		return 4;
-	else
+		printf(" >> Anya needs %d more to get to the next level", 5-EXP);
+	else if(EXP < 15) {
+		if(*LVL == 1) {
+			printf(
+				" [ LEVEL UP ]\n"
+				" >> Anya's is now level 2!\n"
+			);
+			*LVL = 2;
+		}
+		printf(" >> Anya needs %d more to get to the next level", 15-EXP);
+	}
+	else if(EXP < 30) {
+		if(*LVL == 2) {
+			printf(
+				" [ LEVEL UP ]\n"
+				" >> Anya's is now level 3!\n"
+			);
+			*LVL = 3;
+		}
+		printf(" >> Anya needs %d more to get to the next level", 30-EXP);
+	}
+	else if(EXP >= 30) {
+		if(*LVL == 3) {
+			printf(" [ LEVEL UP ]\n");
+			*LVL = 4; 
+		}
 		printf(" >> Anya has reached the max level!");
+	}
 		
 	printf("\n");
 }

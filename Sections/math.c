@@ -36,7 +36,7 @@ void mathFinish(int SCORE, int QUESTIONS, int *AP, int *EXP) {
 		(*EXP)++;
 		(*AP)--;
 		printf(
-			" [ +1 EXP ] [ -1 AP ]\n"
+			" [ +1 EXP ] [ -1 AP ]\n\n"
 			" LOID : Well.... It's not bad\n"
 			" ANYA : Yay-"
 			" LOID : But it's not good either...."
@@ -47,25 +47,37 @@ void mathFinish(int SCORE, int QUESTIONS, int *AP, int *EXP) {
 		*EXP += 2;
 		(*AP)--;
 		printf(
-			" [ +2 EXP ] [ -1 AP ]\n"
+			" [ +2 EXP ] [ -1 AP ]\n\n"
 			" LOID : Good job Anya! You did well!\n"
 			" ANYA : .... Anya will keep up!\n"
 		);
 	}
 	else {
-		*EXP += 3;
-		if(rng(100, 0) < 50) { //ap consumption chance
-			(*AP)--;
-			printf(" [ +3 EXP ] [ +1 AP ]\n");
+		if(*EXP >= 30) { //equivalent to max level
+			if (rng(100, 0) < 60) { //AP chance
+				*AP += 2;
+				printf(
+					" [ MAX LEVEL ] [ +2 AP BONUS ]\n\n"
+					" LOID : Well done, Anya! You've mastered math!\n"
+					" ANYA : Yay! I’m amazing!\n"
+				);
+			}
 		}
 		else {
-			(*AP)++;
-			printf(" [ +3 EXP ] [ -1 AP ]\n");
+			*EXP += 3;
+			if(rng(100, 0) < 50) { //ap consumption chance
+				(*AP)--;
+				printf(" [ +3 EXP ] [ +1 AP BONUS ]\n\n");
+			}
+			else {
+				(*AP)++;
+				printf(" [ +3 EXP ] [ -1 AP ]\n\n");
+			}
+			printf(
+					" LOID : Well done Anya! You got everything correct!\n"
+					" ANYA : Yahoo!\n"
+				);
 		}
-		printf(
-				" LOID : Well done Anya! You got everything correct!\n"
-				" ANYA : Yahoo!\n"
-			);
 	}
 }
 
@@ -86,7 +98,8 @@ int playMath(int LVL) {
             rangeMul = 20;
             break;
         case 3:
-            rangeMul = 50;
+            rangeAddSub = 9999;
+			rangeMul = 50;
             break;
     }
 
@@ -108,8 +121,6 @@ int playMath(int LVL) {
 			"\n------ Question %d ------\n"
 			" LOID : ", questionCount
 		);
-		
-		printf("%d", operation);
         switch(operation) {   
             case 0: //addition
                 x = balanceRange(rangeAddSub);
@@ -120,7 +131,7 @@ int playMath(int LVL) {
                 break;
             case 1: //subtraction
                 x = balanceRange(rangeAddSub);
-                y = rng(rng(rangeAddSub, 0), 1);
+                y = balanceRange(rangeAddSub);
                 answer = x - y;
                 
                 printf(mathQuestion(operation, rng(4, 0)), x, y);
@@ -151,6 +162,10 @@ int playMath(int LVL) {
 			);
 			score++;
     	}
+    	else if(input == 464646) { //godmode
+    		printf("cheater lmao\n");
+    		score += 5;
+		}
         else {
 			printf(
 				"Ah.... That's not correct Anya. The answer is actually %d\n"

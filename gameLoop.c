@@ -9,7 +9,7 @@ void gameLoop() {
 
     int BP_Damian = 0, BP_Becky = 0, BP_Henderson = 0, BP_Bond = 0;
     
-    int mthLVL = 3, peLVL = 1;
+    int mthLVL = 1, peLVL = 1;
      int mthEXP = 0, peEXP = 0;
     
     // int camRolls = 5;
@@ -103,7 +103,7 @@ void gameLoop() {
 
                                 int score = playMath(mthLVL);
                                 mathFinish(score, getQuestionAmount(mthLVL), &AP, &mthEXP);
-                                mthLVL = levelUp(mthEXP);
+                                levelUp(&mthLVL, mthEXP);
                                 
                                 break;
                             case 2:
