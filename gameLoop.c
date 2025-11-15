@@ -9,7 +9,7 @@ void gameLoop() {
 
     int BP_Damian = 0, BP_Becky = 0, BP_Henderson = 0, BP_Bond = 0;
     
-    int mthLVL = 1, peLVL = 1;
+    int mthLVL = 3, peLVL = 1;
      int mthEXP = 0, peEXP = 0;
     
     // int camRolls = 5;
@@ -23,7 +23,7 @@ void gameLoop() {
         for(time = 0; time != 3; time++) { //am nn pm iterator
             ui(day, time);
             
-            if(day%4 == 0) { //outing days
+            if(day % 4 == 0) { //outing days
                 if(showIntro) {
                     introduction(); //DO THIS AT THE LAST-ish WEEK
                     showIntro = false;
@@ -52,14 +52,8 @@ void gameLoop() {
                                 PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
                             );
                             printf(" ANYA : Anya decided she wants to go to the.... %s!\n", getVenue(venue));
-                            
-                            if(AP <= 3) AP = 3;
                             break;
                     }
-                    
-                    
-                    getchar();
-                    wipeScreen();
                 }
             }
             else { //reg schooldays
@@ -85,6 +79,7 @@ void gameLoop() {
                             &BP_Becky,
                             &BP_Henderson, mthLVL
                         );
+						wipeScreen();
 
                         break;
                     case 1: //afternoon - minigame / bond
@@ -104,32 +99,28 @@ void gameLoop() {
                         
                         switch(activity) {
                             case 1:
-                                getchar();
                                 wipeScreen();
 
                                 int score = playMath(mthLVL);
                                 mathFinish(score, getQuestionAmount(mthLVL), &AP, &mthEXP);
+                                mthLVL = levelUp(mthEXP);
+                                
                                 break;
                             case 2:
-                                getchar();
                                 wipeScreen();
                                 
                                 break;
                             case 3:
                                 gainBP(4, 2, 100, &BP_Bond, &AP);
                                 break;
-                        }
-
+                    	}
                         //compute exp
-                        time++
-                        ;
+                        time++;
                         break;
                 }
-                getchar();
-                wipeScreen();
             }
-            // system("clear");
         }
+		endDay(day, &AP);
         day++;
     }
 }

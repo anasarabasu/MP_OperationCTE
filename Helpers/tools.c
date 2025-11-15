@@ -14,6 +14,39 @@ void wipeScreen() {
 }
 
 
+void endDay(int DAY, int *AP) {
+	printf("\n------------------------------------------------------------------------------------------> PRESS ANY KEY TO CONTINUE <------------------------------------------------------------------------------------------\n");
+   
+    #if defined(_WIN32) || defined(_WIN64)
+    getch();
+    
+	#else
+	getchar();
+	
+	#endif
+	
+	printf("\n [ DAY END ]"
+		);
+    if(DAY % 4 == 0) {
+    	if(*AP <= 3) {
+			*AP =  3;
+			printf(" [ AP RESET TO 3 ]");
+		} 
+		else printf(" [ AP UNCHANGED ]");
+	}
+    else if(DAY % 3 != 0) {
+		*AP++;
+    	printf(" [ +1 AP ]");
+	}
+	else printf(" [ AP UNCHANGED ]");	
+	
+	printf("\n");
+	
+	//maybe add a randomised text? lol
+	wipeScreen();
+}
+
+
 /* randomiser
 	@MAX - sets the range of the randomiser
 	@OFFSET - whether to ofset the random selection
@@ -67,6 +100,45 @@ void lowAP() {
             break;
     }
     printf("\n\n");
+}
+
+
+void displayOutingSelection(int DAMIAN, int BECKY, int HENDERSON, int BOND) {
+    printf(
+        "\t[0] View Stats\n"
+        "\t[1] Park\t\t\t"
+        "\t[2] City Mall\t\t\t"
+        "\t[3] Ostania Beach\n"
+    );
+    
+    printf("\t%s", (BECKY == 5) ? "[4] West Berlint Aquarium\t" : "[X] LOCKED\t\t\t");
+    printf("\t%s", (HENDERSON == 5) ? "[5] Ostania Art Museum\t\t" : "[X] LOCKED\t\t\t");
+    printf("\t%s", (DAMIAN == 5) ? "[6] Berlint Mouseney Land\t\t" : "[X] LOCKED\t\t\t");
+    printf("\t%s", (BOND == 5) ? "[7] Park Avenue Dogland\t\t" : "[X] LOCKED\t\t\t");
+
+    printf("\n\n");
+}
+
+
+void displayMorningSelection() {
+	printf(
+	    "\t[0] View Stats\n"
+	    "\t[1] Annoy Damian\t\t"
+	    "\t[2] Play with Becky\t\t"
+	    "\t[3] Talk to Mr. Henderson\t\t"
+	    "\t[4] Go home\n\n"
+	);	
+}
+
+
+void displayAfternoonSelection() {
+    printf(
+	    "\t[0] View Stats\n"
+        "\t[1] Study with Loid\t\t"
+        "\t[2] Train with Yor\t\t"
+        "\t[3] Play with Bond\t\t"
+        "\t[4] Slack off\n\n"
+    );
 }
 
 
@@ -130,7 +202,7 @@ char *maxBondMessage(int INDEX) {
         case 3: 
             return " MR. HENDERSON : My, what refinement you've displayed. Perhaps a visit to the Ostania Art Museum would provide a most suitable enrichment for your talents.";
         case 4: 
-            return " BOND : Borf!\n LOID : Haha… looks like Bond's ready for a little adventure at Dogland!";
+            return " BOND : Borf!\n LOID : Haha.... looks like Bond's ready for a little adventure at Dogland!";
         default: return 0;
     }
 }
@@ -146,7 +218,7 @@ char *bondingTip(int SUCCEED, int INDEX) {
             case 3:
                 return " HENDERSON : Excellent work! Your performance shows considerable refinement. Truly admirable.\n ANYA : Yahooo! That was fun, even if he said boring stuff....";
             case 4:
-                return " BOND : Borf! *wags tail*\n YOR: Hmmm… Bond seems very pleased! Maybe miss Anya can try again later and keep this up!\n ANYA : Hehe! Bond likes me mama!";
+                return " BOND : Borf! *wags tail*\n YOR: Hmmm... Bond seems very pleased! Maybe miss Anya can try again later and keep this up!\n ANYA : Hehe! Bond likes me mama!";
             default: return 0;
         }
     else
@@ -154,7 +226,7 @@ char *bondingTip(int SUCCEED, int INDEX) {
             case 1:
                 return " DAMIAN : Hmph.... you might want to focus on improving your PE skills first. Do try to keep up.\n ANYA : Huuhh! Meanie! Does Sy-on boy wanna get punched again?";
             case 2:
-                return " BECKY : Hehe! Sorry, I'm not quite up for it right now… but let's try this again soon!\n ANYA : Okay… Next time we'll make it super fun!";
+                return " BECKY : Hehe! Sorry, I'm not quite up for it right now.... but let's try this again soon!\n ANYA : Okay.... Next time we'll make it super fun!";
             case 3:
                 return " HENDERSON : My, perhaps honing your math skills would be a most prudent endeavor before progressing further.\n ANYA : I don't wanna go to school anymore....";
             case 4:
@@ -192,4 +264,23 @@ char *mathQuestion(int OPERATION, int INDEX) {
 			break;
 		default: return 0;
 	}
+}
+
+int levelUp(int EXP) {
+	if(EXP < 5) 
+		printf(" >> Anya needs %d more to level up!", 5-EXP);
+	else if(EXP == 5)
+		return 2;
+	else if(EXP < 15)
+		printf(" >> Anya needs %d more to level up!", 15-EXP);
+	else if(EXP == 15)
+		return 3;
+	else if(EXP < 30)
+		printf(" >> Anya needs %d more to level up!", 30-EXP);
+	else if(EXP == 30) 
+		return 4;
+	else
+		printf(" >> Anya has reached the max level!");
+		
+	printf("\n");
 }

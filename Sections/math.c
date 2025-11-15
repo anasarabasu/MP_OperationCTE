@@ -18,17 +18,18 @@ int balanceRange(int RANGE) {
 
 
 void mathFinish(int SCORE, int QUESTIONS, int *AP, int *EXP) {
+	int percent = SCORE * 100 / QUESTIONS;
 	printf(
-		"\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
-		" LOID : Looks like you got %d out of %d right\n\n", SCORE, QUESTIONS
+		"\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+		" >> Anya achieved an overall score of %d%%\n", percent
 	);
-	int percent = SCORE / QUESTIONS * 100;
 	if(percent < 60) {
 		(*AP)--;
 		printf(
-			" [ +0 EXP ] [ -1 AP ]\n"
+			" [ +0 EXP ] [ -1 AP ]\n\n"
 			" LOID : This.... is not good Anya....\n"
-			" ANYA : Um! Anya promises to do better next time papa!\n"
+			" ANYA : Um! Anya promises to do better next time papa!\n",
+			percent
 		);
 	}
 	else if(percent < 80) {
@@ -107,6 +108,8 @@ int playMath(int LVL) {
 			"\n------ Question %d ------\n"
 			" LOID : ", questionCount
 		);
+		
+		printf("%d", operation);
         switch(operation) {   
             case 0: //addition
                 x = balanceRange(rangeAddSub);
@@ -131,13 +134,13 @@ int playMath(int LVL) {
                 break;
         }
 
-        printf("\n ANYA >> ");
+        printf("\n >> ");
         
 		while(scanf("%d", &input) != 1) {
     		returnInvalid(); 
 			printf(" LOID : That doesn't seem right let's try again\n LOID : ");
 			printf(mathQuestion(operation, rng(4, 0)), x, y);
-    		printf("\n ANYA >> ");
+    		printf("\n >> ");
 		}
 		
     	printf("\n LOID : ");
@@ -160,3 +163,4 @@ int playMath(int LVL) {
     
     return score;
 }
+
