@@ -253,6 +253,14 @@ char *bondingTip(bool SUCCEED, int INDEX) {
 }
 
 
+int getTotal(int LVL) {
+	if(LVL == 1) 
+		return 5;
+	else 
+		return 10;
+}
+
+
 char *mathQuestion(int OPERATION, int INDEX) {
 	switch(OPERATION) {
 		case 0: //add
@@ -266,7 +274,7 @@ char *mathQuestion(int OPERATION, int INDEX) {
 		case 1: //sub
 			switch(INDEX) {
 				case 0: return "What would you get if you subtract %d and %d?";
-				case 1: return "%d subtracted by %d is?";
+				case 1: return "%d minus %d is?";
 				case 2: return "What is %d - %d?";
 				case 3: return "The difference of %d and %d?";
 			}

@@ -3,14 +3,6 @@ void display() {
 }
 
 
-int getQuestionAmount(int LVL) {
-	if(LVL == 1) 
-		return 5;
-	else 
-		return 10;
-}
-
-
 //because the randomiser prefers to pick mostly 3 digits
 int balanceRange(int RANGE) {
 	return rng(RANGE % (int)pow(10, rng(3, 1)), 1);
@@ -87,8 +79,9 @@ int playMath(int LVL) {
     printf("Current level: %d\n", LVL);
 
 	int score = 0;
-    int totalQuestions = getQuestionAmount(LVL);
+    int totalQuestions = getTotal(LVL);
 	int rangeAddSub, rangeMul;
+    
     switch(LVL) {
         case 1:
             rangeAddSub = 999;
@@ -111,7 +104,7 @@ int playMath(int LVL) {
 		" ANYA : Yes! Anya will do her best!\n\n", totalQuestions
 	);
     
-    int questionCount = 1;
+    int index = 1;
 	do {
         int x, y, answer;
         int input;
@@ -119,7 +112,7 @@ int playMath(int LVL) {
         
         printf(
 			"\n------ Question %d ------\n"
-			" LOID : ", questionCount
+			" LOID : ", index
 		);
         switch(operation) {   
             case 0: //addition
@@ -172,9 +165,9 @@ int playMath(int LVL) {
 				" ANYA : Awww....\n\n", answer
 			);
 		}
-    	questionCount++;
+    	index++;
     }
-    while(questionCount <= totalQuestions);
+    while(index <= totalQuestions);
     
     return score;
 }
