@@ -27,29 +27,26 @@ ACKNOWLEDGEMENTS:
 #include <stdlib.h>
 #include <math.h>
 
+//this is here for cross compatibility testing because im on linux :)
 #if defined(_WIN32) || defined(_WIN64)
     #include <conio.h>
 #endif
 
 
-#include "Helpers/tools.c"
-#include "Helpers/displayArt.c"
+#include "Tools/helpers.c"
+#include "Tools/displayArt.c"
+#include "Tools/ui.c"
+#include "Tools/selection.c"
 
-#include "Sections/ui.c"
-
-#include "Helpers/inputHandler.c"
+#include "Sections/bond.c"
+#include "Sections/math.c"
+#include "Sections/pe.c"
 
 #include "state.c"
 
-#include "Sections/bond.c"
-// #include "Sections/math.c"
-#include "Sections/pe.c"
-
-// #include "gameLoop.c"
-
 int main() {
     title();
-    // gameLoop();   
+    gameLoop();   
     // theEnd();
 
     return 0;

@@ -1,7 +1,7 @@
-char generatePrompt(int LEVEL) {
+char generatePrompt(int LVL) {
 	int random = 4;
-	if(LEVEL == 2) random = 8;
-	if(LEVEL >= 3) random = 16;
+	if(LVL == 2) random = 8;
+	if(LVL >= 3) random = 16;
 
 	switch(rng(random, 0)) {
 		//lvl 1
@@ -61,9 +61,9 @@ char generatePrompt(int LEVEL) {
 	return 0;
 }
 
-bool checkPrompt(char INPUT, char PROMPT, int LEVEL) {
+bool checkPrompt(char INPUT, char PROMPT, int LVL) {
 	char input = INPUT;
-	if(LEVEL < 3) 
+	if(LVL < 3) 
 		input = (char) tolower(INPUT); //because i dont wanna type the a || A thing lol
 		// if(INPUT >= 65 && INPUT <= 90) input += 32; //caveman syntax lololol
 
@@ -72,7 +72,7 @@ bool checkPrompt(char INPUT, char PROMPT, int LEVEL) {
 }
 
 
-int playPE(int LVL) {
+int startPEMini(int LVL) {
 	printf("Current level : %d\n\n", LVL);
 	
 	int score = 0;
@@ -96,9 +96,9 @@ int playPE(int LVL) {
 
 		printf("\n >> ");    	
 		#if defined(_WIN32) || defined(_WIN64)
-			input = getch();
+		input = getch();
 		#else
-			scanf(" %c", &input);
+		scanf(" %c", &input);
 		#endif
 
 		printf("\n YOR : ");

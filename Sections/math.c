@@ -1,80 +1,53 @@
-void display() {
-    printf("Counting with Papa (Spy Edition)\n");
+/* RETURN the math problem message string based on the OPERATION*/
+char *mathQuestion(int OPERATION) {
+	switch(OPERATION) {
+		case 0: //add
+			switch(rng(4, 0)) { 
+				case 0: return "What would you get if you add %d and %d?";
+				case 1: return "%d and %d combined is?";
+				case 2: return "What is %d + %d?";
+				case 3: return "The sum of %d and %d is?";
+			}
+			break;
+		case 1: //sub
+			switch(rng(4, 0)) {
+				case 0: return "What would you get if you subtract %d and %d?";
+				case 1: return "%d minus %d is?";
+				case 2: return "What is %d - %d?";
+				case 3: return "The difference of %d and %d?";
+			}
+			break;
+		case 2: //mul
+			switch(rng(4, 0)) {
+				case 0: return "What would you get if you multiply %d and %d?";
+				case 1: return "%d multiplied by %d is?";
+				case 2: return "What is %d x %d?";
+				case 3: return "The product of %d and %d?";
+			}
+			break;
+    }
+    return 0;
 }
 
 
-//because the randomiser prefers to pick mostly 3 digits
+/* to "even it out" because the rng prefers to pick mostly 3 digits :( */
 int balanceRange(int RANGE) {
 	return rng(RANGE % (int)pow(10, rng(3, 1)), 1);
 }
 
 
-void mathFinish(int SCORE, int QUESTIONS, int *AP, int *EXP) {
-	int percent = SCORE * 100 / QUESTIONS;
-	printf(
-		"\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
-		" >> Anya achieved an overall score of %d%%\n", percent
-	);
-	if(percent < 60) {
-		(*AP)--;
-		printf(
-			" [ +0 EXP ] [ -1 AP ]\n\n"
-			" LOID : This.... is not good Anya....\n"
-			" ANYA : Um! Anya promises to do better next time papa!\n"
-		);
-	}
-	else if(percent < 80) {
-		(*EXP)++;
-		(*AP)--;
-		printf(
-			" [ +1 EXP ] [ -1 AP ]\n\n"
-			" LOID : Well.... It's not bad\n"
-			" ANYA : Yay-"
-			" LOID : But it's not good either...."
-			" ANYA : .... Anya promises to do better next time papa!\n"
-		);
-	}
-	else if(percent < 100) {
-		*EXP += 2;
-		(*AP)--;
-		printf(
-			" [ +2 EXP ] [ -1 AP ]\n\n"
-			" LOID : Good job Anya! You did well!\n"
-			" ANYA : .... Anya will keep up!\n"
-		);
-	}
-	else {
-		if(*EXP >= 30) { //equivalent to max level
-			if (rng(100, 0) < 60) { //AP chance
-				*AP += 2;
-				printf(
-					" [ MAX LEVEL ] [ +2 AP BONUS ]\n\n"
-					" LOID : Well done, Anya! You've mastered math!\n"
-					" ANYA : Yay! I’m amazing!\n"
-				);
-			}
-		}
-		else {
-			*EXP += 3;
-			if(rng(100, 0) < 50) { //ap consumption chance
-				(*AP)--;
-				printf(" [ +3 EXP ] [ +1 AP BONUS ]\n\n");
-			}
-			else {
-				(*AP)++;
-				printf(" [ +3 EXP ] [ -1 AP ]\n\n");
-			}
-			printf(
-					" LOID : Well done Anya! You got everything correct!\n"
-					" ANYA : Yahoo!\n"
-				);
-		}
-	}
-}
+/* the math minigame
+	numbers are randomly generated based on the current math level
+	math operations are also dependent on the math level
 
+	PRECONDITION : must be non-negative
 
-int playMath(int LVL) {
-    display();
+	@LVL - current math level
+
+	@RETURN the score achieved during the minigame
+*/
+int startMathMini(int LVL) {
+    printf("Counting with Papa (Spy Edition)\n");
     printf("Current level: %d\n", LVL);
 
 	int score = 0;
@@ -89,13 +62,13 @@ int playMath(int LVL) {
             rangeAddSub = 9999;
             rangeMul = 20;
             break;
-        case 3:
+		default: //for lvls 3 & 4(MAX)
             rangeAddSub = 9999;
 			rangeMul = 50;
             break;
     }
 
-    int operationUnlocked= 2;
+    int operationUnlocked = 2;
     if(LVL > 1) operationUnlocked = 3;
     
     printf(
@@ -103,7 +76,7 @@ int playMath(int LVL) {
 		" ANYA : Yes! Anya will do her best papa!\n\n", totalQuestions
 	);
     
-    int index = 1;
+    int questionIndex = 1;
 	do {
         int x, y, answer;
         int input;
@@ -112,7 +85,7 @@ int playMath(int LVL) {
         printf(
 			"\n------ Question #%d ------\n"
 			" LOID : ", 
-			index
+			questionIndex
 		);
         switch(operation) {   
             case 0: //addition
@@ -120,30 +93,31 @@ int playMath(int LVL) {
                 y = balanceRange(rangeAddSub);
                 answer = x + y;
 
-                printf(mathQuestion(operation, rng(4, 0)), x, y);
+                printf(mathQuestion(operation), x, y);
                 break;
             case 1: //subtraction
                 x = balanceRange(rangeAddSub);
                 y = balanceRange(rangeAddSub);
                 answer = x - y;
                 
-                printf(mathQuestion(operation, rng(4, 0)), x, y);
+                printf(mathQuestion(operation), x, y);
                 break;
             case 2: //multiplication
                 x = rng(rangeMul, 1);
                 y = rng(rangeMul, 1);
                 answer = x * y;
                                 
-                printf(mathQuestion(operation, rng(4, 0)), x, y);
+                printf(mathQuestion(operation), x, y);
                 break;
         }
 
         printf("\n >> ");
         
-		while(scanf("%d", &input) != 1) {
+		while(scanf("%d", &input) != 1) { //user input is not a number
     		returnInvalid(); 
+
 			printf(" LOID : That doesn't seem right let's try again\n LOID : ");
-			printf(mathQuestion(operation, rng(4, 0)), x, y);
+			printf(mathQuestion(operation), x, y);
     		printf("\n >> ");
 		}
 		
@@ -155,7 +129,7 @@ int playMath(int LVL) {
 			);
 			score++;
     	}
-    	else if(input == 464646) { //godmode
+    	else if(input == 464646) { //godmode because im not doing all that ^^
     		printf("cheater lmao\n");
     		score += 5;
 		}
@@ -165,10 +139,9 @@ int playMath(int LVL) {
 				" ANYA : Awww....\n\n", answer
 			);
 		}
-    	index++;
+    	questionIndex++;
     }
-    while(index <= totalQuestions);
+    while(questionIndex <= totalQuestions);
     
     return score;
 }
-
