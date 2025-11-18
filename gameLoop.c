@@ -12,7 +12,6 @@ void gameLoop() {
     int mthLVL = 1, mthEXP = 0;
     int peLVL = 1, peEXP = 0;
     
-    // int camRolls = 5;
     int PH_1 = 1, PH_2 = 1, PH_3 = 1, PH_4 = 0, PH_5 = 0, PH_6 = 0, PH_7 = 0;
 
     int time = 0;

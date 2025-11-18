@@ -66,13 +66,3 @@ int inputInt(
 	
 	return input;
 }
-
-//char inputChar() {
-//	char input;
-//	do {
-//		printf(" >> ");
-//	}
-//	while 
-//	
-//	return input;
-//}

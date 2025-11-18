@@ -20,8 +20,7 @@ void mathFinish(int SCORE, int QUESTIONS, int *AP, int *EXP) {
 		printf(
 			" [ +0 EXP ] [ -1 AP ]\n\n"
 			" LOID : This.... is not good Anya....\n"
-			" ANYA : Um! Anya promises to do better next time papa!\n",
-			percent
+			" ANYA : Um! Anya promises to do better next time papa!\n"
 		);
 	}
 	else if(percent < 80) {
@@ -82,7 +81,7 @@ int playMath(int LVL) {
     int totalQuestions = getTotal(LVL);
 	int rangeAddSub, rangeMul;
     
-    switch(LVL) {
+    switch(LVL) { //return the num range
         case 1:
             rangeAddSub = 999;
             break;
@@ -101,7 +100,7 @@ int playMath(int LVL) {
     
     printf(
 		" LOID : Alright Anya, I'm going to ask you %d questions. Are you ready?\n"
-		" ANYA : Yes! Anya will do her best!\n\n", totalQuestions
+		" ANYA : Yes! Anya will do her best papa!\n\n", totalQuestions
 	);
     
     int index = 1;
@@ -111,8 +110,9 @@ int playMath(int LVL) {
         int operation = rng(operationUnlocked, 0);    
         
         printf(
-			"\n------ Question %d ------\n"
-			" LOID : ", index
+			"\n------ Question #%d ------\n"
+			" LOID : ", 
+			index
 		);
         switch(operation) {   
             case 0: //addition

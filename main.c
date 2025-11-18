@@ -21,7 +21,7 @@ ACKNOWLEDGEMENTS:
         - asciiart
 */
 
-
+#include <ctype.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,13 +42,15 @@ ACKNOWLEDGEMENTS:
 #include "state.c"
 
 #include "Sections/bond.c"
-#include "Sections/math.c"
+// #include "Sections/math.c"
+#include "Sections/pe.c"
 
-#include "gameLoop.c"
+// #include "gameLoop.c"
 
 int main() {
     title();
-    gameLoop();   
+    // gameLoop();   
     // theEnd();
+
     return 0;
 }

@@ -35,7 +35,7 @@ void endDay(int DAY, int *AP) {
 		else printf(" [ AP UNCHANGED ]");
 	}
     else if(DAY % 3 != 0) {
-		*AP++;
+		(*AP)++;
     	printf(" [ +1 AP ]");
 	}
 	else printf(" [ AP UNCHANGED ]");	
@@ -264,7 +264,7 @@ int getTotal(int LVL) {
 char *mathQuestion(int OPERATION, int INDEX) {
 	switch(OPERATION) {
 		case 0: //add
-			switch(INDEX) {
+			switch(INDEX) { 
 				case 0: return "What would you get if you add %d and %d?";
 				case 1: return "%d and %d combined is?";
 				case 2: return "What is %d + %d?";
@@ -287,9 +287,14 @@ char *mathQuestion(int OPERATION, int INDEX) {
 				case 3: return "The product of %d and %d?";
 			}
 			break;
-		default: return 0;
-	}
+    }
+    return 0;
 }
+
+// char *peQuestion() {
+    
+//     return: "Anya-san! ";
+// }
 
 void levelUp(int *LVL, int EXP) {
 	printf("\n");
