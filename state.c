@@ -97,7 +97,7 @@ void gameLoop() {
                             &BP_Becky,
                             &BP_Henderson, mthLVL
                         );
-                        // getchar();
+                        getchar(); //possible linux-specific bug?
 						wipeScreen();
 
                         break;
