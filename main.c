@@ -41,6 +41,7 @@ ACKNOWLEDGEMENTS:
 #include "Sections/bond.c"
 #include "Sections/math.c"
 #include "Sections/pe.c"
+#include "Sections/photo.c"
 
 #include "state.c"
 

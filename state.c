@@ -21,17 +21,24 @@ void introduction() { //henderson  talking about the exam and the project or som
 void gameLoop() {
     bool showIntro = true;
 
-    int venue;
-    int activity;
-    
     int AP = 0;
+    
+    int activity;
 
     int BP_Damian = 0, BP_Becky = 0, BP_Henderson = 0, BP_Bond = 0;
     
     int mthLVL = 1, mthEXP = 0;
     int peLVL = 1, peEXP = 0;
     
+    int venue;
     int PH_1 = 1, PH_2 = 1, PH_3 = 1, PH_4 = 0, PH_5 = 0, PH_6 = 0, PH_7 = 0;
+    int PH_1_Key = generateVenueKey();
+    int PH_2_Key = generateVenueKey();
+    int PH_3_Key = generateVenueKey();
+    int PH_4_Key = generateVenueKey();
+    int PH_5_Key = generateVenueKey();
+    int PH_6_Key = generateVenueKey();
+    int PH_7_Key = generateVenueKey();
 
     int time = 0;
     int day = 0;
@@ -54,6 +61,16 @@ void gameLoop() {
                         case 0: //morning segway
                             break;
                         case 1: //minigame
+                            int *venueRating = getVenueRating(
+                                venue,
+                                &PH_1, &PH_2, &PH_3, &PH_4, &PH_5, &PH_6, &PH_7);
+
+                            int venueKey = getVenueKey(
+                                venue,
+                                PH_1_Key, PH_2_Key, PH_3_Key, PH_4_Key, PH_5_Key, PH_6_Key, PH_7_Key);
+
+                            *venueRating = startPhotoMini(venue, venueKey, &AP);
+
                             break;
                         case 2: //venue selection
                             printf(" ANYA : Hmmmm.... where should Anya go?\n");
@@ -69,6 +86,7 @@ void gameLoop() {
                                 PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
                             );
                             printf(" ANYA : Anya decided she wants to go to the.... %s!\n", getVenue(venue));
+
                             break;
                     }
                 }
@@ -117,28 +135,33 @@ void gameLoop() {
                         printf(" ANYA : Anya will.... %s!\n", getActivity(activity+4));
                         
                         switch(activity) {
-                            case 1:
-                                wipeScreen();
+                            case 1: {
 
+                                wipeScreen();
+                                
                                 int score = startMathMini(mthLVL);
                                 finishMini(score, getTotal(mthLVL), &AP, &mthEXP, 0);
                                 levelUp(&mthLVL, mthEXP);
                                 
                                 break;
-                            case 2:
+                            }
+                            case 2: {
+
                                 wipeScreen();
                                 
-//                                int score = startPEMini(peLVL);
-//                                peFinish(score, getTotal(peLVL), &AP, &peEXP);
-//                                levelUp(&peLVL, peEXP);
+                                int score = startPEMini(peLVL);
+                                finishMini(score, getTotal(peLVL), &AP, &peEXP, 1);
+                                levelUp(&peLVL, peEXP);
                                 
                                 break;
+                            }
                             case 3:
                                 gainBP(4, 2, 100, &BP_Bond, &AP);
                                 break;
                     	}
                         //compute exp
                         time++;
+
                         break;
                 }
             }

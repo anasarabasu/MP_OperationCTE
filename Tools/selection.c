@@ -109,7 +109,7 @@ int checkSelection(
 			if(SECTION == 0 && checkBP(input, DAMIAN, BECKY, HENDERSON, BOND) == false) returnInvalid();
 
 			//school activity selection
-			// if(SECTION == 1 && checkAP(input, AP) == false) lowAP();
+			if(SECTION == 1 && checkAP(input, AP) == false) lowAP();
 		}
 	}
 	while(
