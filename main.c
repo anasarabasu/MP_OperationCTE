@@ -35,7 +35,7 @@ ACKNOWLEDGEMENTS:
 
 
 #include "Tools/helpers.c"
-#include "Tools/displayArt.c"
+#include "Tools/art.c"
 #include "Tools/ui.c"
 #include "Tools/selection.c"
 
@@ -47,6 +47,7 @@ ACKNOWLEDGEMENTS:
 #include "state.c"
 
 int main() {
+	SetConsoleOutputCP(65001); //for the ascii art
 	srand(time(NULL)); //i noticed that randomly generated numbers are the same across several runs, this should fix it
 	
     title();
