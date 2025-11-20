@@ -1,3 +1,6 @@
+
+
+
 /* RETURN the math problem message string based on the OPERATION*/
 char *mathQuestion(int OPERATION) {
 	switch(OPERATION) {
@@ -36,6 +39,11 @@ int balanceRange(int RANGE) {
 }
 
 
+void mathIntro() {
+	
+}
+
+
 /* the math minigame
 	numbers are randomly generated based on the current math level
 	math operations are also dependent on the math level
@@ -47,8 +55,7 @@ int balanceRange(int RANGE) {
 	@RETURN the score achieved during the minigame
 */
 int startMathMini(int LVL) {
-    printf("Counting with Papa (Spy Edition)\n");
-    printf("Current level: %d\n", LVL);
+	mathArt(LVL);
 
 	int score = 0;
     int totalQuestions = getTotal(LVL);
@@ -71,19 +78,41 @@ int startMathMini(int LVL) {
     int operationUnlocked = 2;
     if(LVL > 1) operationUnlocked = 3;
     
+    int input;
+    
     printf(
 		" LOID : Alright Anya, I'm going to ask you %d questions. Are you ready?\n"
-		" ANYA : Yes! Anya will do her best papa!\n\n", totalQuestions
+		"\t[Y] Start\t\t\t\t[N] View instructions\n\n >> ",
+		totalQuestions
 	);
+	
+	scanf(" %c", &input);
+	if((char) tolower(input) == 'y')
+		printf(" ANYA : Yes! Anya will do her best papa!\n");
+	else if((char) tolower(input) == 'n') {
+		printf(" ANYA : Ummmm.... What will Anya do again? Hehe\n");
+		displayInstructions(0);
+		printf(" ANYA : Yes! Anya will do her best papa!\n");
+	}
+	else {	
+		printf(
+			" ANYA : Uhhhh....?\n\n"
+			" LOID : Huh?\n"
+			" LOID : I’ll take it that you’re asking for instructions\n"
+		);
+		displayInstructions(0);
+		printf(" ANYA : Yes! Anya will do her best papa!\n");
+	} 
+	
+	awaitInput();
     
     int questionIndex = 1;
 	do {
         int x, y, answer;
-        int input;
         int operation = rng(operationUnlocked, 0);    
         
         printf(
-			"\n------ Question #%d ------\n"
+			"\n QUESTION %d\n"
 			" LOID : ", 
 			questionIndex
 		);
@@ -139,6 +168,7 @@ int startMathMini(int LVL) {
 				" ANYA : Awww....\n\n", answer
 			);
 		}
+		printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
     	questionIndex++;
     }
     while(questionIndex <= totalQuestions);

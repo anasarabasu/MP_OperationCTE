@@ -1,3 +1,18 @@
+/* waits for key press before proceeding */
+void awaitInput() {
+    printf("\n------------------------------------------------------------------------------------------> PRESS ANY KEY TO CONTINUE <------------------------------------------------------------------------------------------\n");
+    
+    //this is here for cross compatibility testing because im on linux :)
+    #if defined(_WIN32) || defined(_WIN64)
+	getch();
+    
+	#else
+	getchar();
+	
+	#endif
+}
+
+
 /* clears the screen to move onto the next scene */
 void wipeScreen() {
     printf("\n------------------------------------------------------------------------------------------> PRESS ANY KEY TO CONTINUE <------------------------------------------------------------------------------------------\n");
@@ -235,7 +250,8 @@ void levelUp(int *LVL, int EXP) {
 void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 	int percent = SCORE * 100 / TOTAL;
 	printf(
-		"\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+		"\t\t\t\t\t\t\t\t\t\t\t\tF  I  N  I  S  H !\n"
+        "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
 		" >> Anya achieved an overall score of %d%%\n", percent
 	);
 

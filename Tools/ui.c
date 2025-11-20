@@ -133,3 +133,32 @@ void displayAfternoonSelection() {
         "\t[4] Slack off\n\n"
     );
 }
+
+
+/* displays the instructions of the minigame*/
+void displayInstructions(int INDEX) {
+	switch(INDEX) {
+		case 0: //math
+			printf(
+				"\t\t\t\t\t\t\t========================================== Instructions ==========================================\n\n"
+				"\t\t\t\t\t\t\t\t\t    Try your best to guide Anya in her math studies!\n\n"
+				"\t\t\t\t\t\t\t\t\t    Your current Math Skill Level will determine the number, \n"
+				"\t\t\t\t\t\t\t\t\t    type, and difficulty of the math problems generated.\n\n"
+				"\t\t\t\t\t\t\t\t\t    You have 30 seconds to enter your answer!\n\n"
+				"\t\t\t\t\t\t\t\t\t    Numbers only or else ^^\n\n"
+				"\t\t\t\t\t\t\t=================================================================================================\n\n"
+			);
+			break;
+		case 1: //pe
+			printf(
+				"\t\t\t\t\t\t\t========================================== Instructions ==========================================\n\n"
+				"\t\t\t\t\t\t\t\t\t    Try your best to guide Anya in her math studies!\n\n"
+				"\t\t\t\t\t\t\t\t\t    Your current PE Skill Level will determine the number, \n"
+				"\t\t\t\t\t\t\t\t\t    type, and difficulty of the math problems generated.\n\n"
+				"\t\t\t\t\t\t\t\t\t    You have 30 seconds to enter your answer!\n\n"
+				"\t\t\t\t\t\t\t\t\t    Numbers only or else ^^\n\n"
+				"\t\t\t\t\t\t\t=================================================================================================\n\n"
+			);
+			break;
+	}
+}

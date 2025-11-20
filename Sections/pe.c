@@ -73,22 +73,45 @@ bool checkPrompt(char INPUT, char PROMPT, int LVL) {
 
 
 int startPEMini(int LVL) {
-	printf("Current level : %d\n\n", LVL);
+	peArt(LVL);
 	
 	int score = 0;
 	int totalPrompts = getTotal(LVL);
 
+	char input;
+
 	printf(
-		" YOR : Anya, I have %d things for you to do. Are you ready?\n"
-		" ANYA : Anya will give it her all mama!\n\n", totalPrompts
+		" YOR : Miss Anya, I have %d things for you to do. Are you ready?\n"
+		"\t[Y] Start\t\t\t\t[N] View instructions\n\n >> ",
+		totalPrompts
 	);
+	
+	scanf(" %c", &input);
+	if((char) tolower(input) == 'y')
+		printf(" ANYA : Anya will give it her all mama!\n");
+	else if((char) tolower(input) == 'n') {
+		printf(" ANYA : Ummmm.... What will Anya do again? Hehe\n");
+		displayInstructions(1);
+		printf(" ANYA : Anya will give it her all mama!\n");
+	}
+	else {	
+		printf(
+			" ANYA : Uhhhh....?\n\n"
+			" YOR : Huh?\n"
+			" YOR : O-oh! Um.... I’m guessing you’d like the instructions?\n"
+		);
+		displayInstructions(1);
+		printf(" ANYA : Anya will give it her all mama!\n");
+	} 
+	
+	awaitInput();
 	
 	int index = 1;
 	do {
-		char prompt, input; 
+		char prompt; 
 		
 		printf(
-			"\n------ Prompt #%d ------\n"
+			"\n PROMPT %d\n"
 			" YOR : ",
 			index
 		);
