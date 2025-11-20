@@ -26,6 +26,7 @@ ACKNOWLEDGEMENTS:
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <time.h>
 
 //this is here for cross compatibility testing because im on linux :)
 #if defined(_WIN32) || defined(_WIN64)
@@ -46,6 +47,8 @@ ACKNOWLEDGEMENTS:
 #include "state.c"
 
 int main() {
+	srand(time(NULL)); //i noticed that randomly generated numbers are the same across several runs, this should fix it
+	
     title();
     gameLoop();   
     // theEnd();

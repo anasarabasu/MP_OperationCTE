@@ -1,8 +1,5 @@
 int generateVenueKey() {
     int key = rng(1000, 1);
-
-    printf("%d\n", key);
-
     return key;
 }
 
@@ -18,7 +15,6 @@ int *getVenueRating(
         case 6: return V6;
         case 7: return V7;
         default: return 0;
-
     }
 }
 
@@ -38,13 +34,28 @@ int getVenueKey(
     }
 }
 
-int startPhotoMini(int VENUE, int KEY, int *AP) {
-    int rating;
-    int camRolls = 5;
 
-    printf("Guess!");
+void rememberInput(int GUESS, int *STORED_GUESS, int KEY) {
+	int distanceCurrent = abs(KEY - GUESS);
+	int distanceStored = abs(KEY - *STORED_GUESS);
+	
+	if(distanceCurrent < distanceStored) 
+		*STORED_GUESS = GUESS;
+}
+
+
+int startPhotoMini(int VENUE, int KEY, int *GUESS_MEMORY, int *AP) {
+    bool isFinish = false;
+	
+	int rating;
+    int camRolls = 5;
+    
+    printf("%d", KEY);
+    printf("Best Guess: %d\n", *GUESS_MEMORY);
+
+    printf("Guess!\n");
     do{
-        int input;
+		int input;
 
         while(scanf(" %d", &input) != 1) {
             returnInvalid();
@@ -54,32 +65,43 @@ int startPhotoMini(int VENUE, int KEY, int *AP) {
         }
 
         if(input == KEY) {
+            isFinish = true;
             rating = 4;
-            printf("PERFECT");
+            
+            printf("PERFECT\n");
         }
-        else if(input > KEY + 10 || input < KEY - 10) {
-            rating = 3;
-            printf("v good");
+        else if(input <= KEY + 10 && input >= KEY - 10) {
+            if(rating <= 3) rating = 3;
+            printf("Looks good! Just an inch closer\n");
         }
-        else if(input > KEY + 100 || input < KEY - 100) {
-            rating = 2;
-            printf("okay");
+        else if(input <= KEY + 100 && input >= KEY - 100) {
+            if(rating <= 2) rating = 2;
+            printf("Okay.... maybe a little bit to the left\n");
         }
         else if(input == 464646) {
             rating = 4;
-            camRolls = 0;
+            isFinish = true;
 
     		printf("cheater lmao\n");
         }
         else {
-            rating = 1;
-            printf("eh");
+        	if(rating == 1) rating = 1;
+            printf("That is way too far off....\n");
         }
-
+        
+        rememberInput(input, GUESS_MEMORY, KEY);
         camRolls--;
         (*AP)--;
+		printf("%d\n", *AP);
     }
-    while(camRolls > 0 || *AP > 0);
+    while(camRolls > 0 && *AP > 0 && !isFinish);
+    
+    printf("Best Guess: %d\n", *GUESS_MEMORY);
+    
+    if(camRolls == 0)
+    	printf(" ANYA : Ah! Anya ran out of camera rolls!\n");
+    if(*AP == 0)
+    	printf(" ANYA : Huff! Anya is tired!\n");
 
     return rating;
 }

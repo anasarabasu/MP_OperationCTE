@@ -31,6 +31,7 @@ void gameLoop() {
     int peLVL = 1, peEXP = 0;
     
     int venue;
+    int venueBestGuess = 0;
     int PH_1 = 1, PH_2 = 1, PH_3 = 1, PH_4 = 0, PH_5 = 0, PH_6 = 0, PH_7 = 0;
     int PH_1_Key = generateVenueKey();
     int PH_2_Key = generateVenueKey();
@@ -59,22 +60,43 @@ void gameLoop() {
                 else {
                     switch(time) {
                         case 0: //morning segway
+                        	printf("Shall we go to the outing?\n");
+                        	displayOutingMorningSelection();
+                        	
+                        	int action = checkSelection(
+                        		2,
+                        		1,
+                        		AP,
+                        		venue,
+                                mthLVL, peLVL,
+                                BP_Damian, BP_Becky, BP_Henderson, BP_Bond,
+                                PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
+							);
+							printf(" ANYA : Anya will.... %s!\n", getActivity(action + 8));
+							
+							if(action == 2) time++;
+                        	
+							wipeScreen();
+							
                             break;
-                        case 1: //minigame
+                        case 1: { //minigame
                             int *venueRating = getVenueRating(
                                 venue,
                                 &PH_1, &PH_2, &PH_3, &PH_4, &PH_5, &PH_6, &PH_7);
-
+//
                             int venueKey = getVenueKey(
                                 venue,
                                 PH_1_Key, PH_2_Key, PH_3_Key, PH_4_Key, PH_5_Key, PH_6_Key, PH_7_Key);
 
-                            *venueRating = startPhotoMini(venue, venueKey, &AP);
+                            *venueRating = startPhotoMini(venue, venueKey, &venueBestGuess, &AP);
+
+							wipeScreen();
 
                             break;
+						}
                         case 2: //venue selection
                             printf(" ANYA : Hmmmm.... where should Anya go?\n");
-                            displayOutingSelection(BP_Damian, BP_Becky, BP_Henderson, BP_Bond);
+                            displayOutingVenueSelection(BP_Damian, BP_Becky, BP_Henderson, BP_Bond);
                             
                             venue = checkSelection(
                                 7,
@@ -115,7 +137,8 @@ void gameLoop() {
                             &BP_Becky,
                             &BP_Henderson, mthLVL
                         );
-                        getchar(); //possible linux-specific bug?
+                        //getchar(); //possible linux-specific bug? YES WTF
+						
 						wipeScreen();
 
                         break;

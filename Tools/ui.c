@@ -78,13 +78,23 @@ void viewStats(
 }
 
 
+/* displays the actions for the morning section of the outing day */
+void displayOutingMorningSelection() {
+	printf(
+		"\t[0] View Stats\n"
+		"\t[1] Proceed with outing\n"
+		"\t[2] Go home\n\n"
+	);
+}
+
+
 /* displays the available venues to choose from
     PRECONDITION : must be non-negative
 
     @DAMIAN, BECKY, HENDERSON, BOND - current bond level that determines whether certain locations are unlocked
 
 */
-void displayOutingSelection(int DAMIAN, int BECKY, int HENDERSON, int BOND) {
+void displayOutingVenueSelection(int DAMIAN, int BECKY, int HENDERSON, int BOND) {
     printf(
         "\t[0] View Stats\n"
         "\t[1] Park\t\t\t"

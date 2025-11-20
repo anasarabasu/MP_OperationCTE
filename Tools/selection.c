@@ -38,8 +38,8 @@ bool checkBP(int INPUT, int DAMIAN, int BECKY, int HENDERSON, int BOND) {
 
 	@RETURN a bool about the input's validity
 */
-bool checkAP(int INPUT, int AP) {
-	if(INPUT < 4 && AP == 0) return false;
+bool checkAP(int INPUT, int MAX, int AP) {
+	if(INPUT < MAX && AP == 0) return false;
 	else return true;
 }
 
@@ -108,15 +108,15 @@ int checkSelection(
 			//outing venue election
 			if(SECTION == 0 && checkBP(input, DAMIAN, BECKY, HENDERSON, BOND) == false) returnInvalid();
 
-			//school activity selection
-			if(SECTION == 1 && checkAP(input, AP) == false) lowAP();
+			//school activity selection & outing morning selection
+			if(SECTION == 1 && checkAP(input, MAX, AP) == false) lowAP();
 		}
 	}
 	while(
 		input <= 0 || 
 		input > MAX || 
 		(SECTION == 0 && checkBP(input, DAMIAN, BECKY, HENDERSON, BOND) == false) ||
-		(SECTION == 1 && checkAP(input, AP) == false)
+		(SECTION == 1 && checkAP(input, MAX, AP) == false)
 	);
 	
 	return input;
