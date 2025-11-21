@@ -141,10 +141,11 @@ void displayInstructions(int INDEX) {
 		case 0: //math
 			printf(
 				"\t\t\t\t\t\t\t========================================== Instructions ==========================================\n\n"
-				"\t\t\t\t\t\t\t\t\t    Try your best to guide Anya in her math studies!\n\n"
+				"\t\t\t\t\t\t\t\t\t    Try your best to guide Anya in her Math studies!\n\n"
 				"\t\t\t\t\t\t\t\t\t    Your current Math Skill Level will determine the number, \n"
-				"\t\t\t\t\t\t\t\t\t    type, and difficulty of the math problems generated.\n\n"
-				"\t\t\t\t\t\t\t\t\t    You have 30 seconds to enter your answer!\n\n"
+				"\t\t\t\t\t\t\t\t\t    type, and difficulty of the questions generated.\n\n"
+                "\t\t\t\t\t\t\t\t\t    To answer, simply type in a number and hit enter.\n\n"
+				//"\t\t\t\t\t\t\t\t\t    You have 30 seconds to enter your answer!\n\n"
 				"\t\t\t\t\t\t\t\t\t    Numbers only or else ^^\n\n"
 				"\t\t\t\t\t\t\t=================================================================================================\n\n"
 			);
@@ -152,11 +153,16 @@ void displayInstructions(int INDEX) {
 		case 1: //pe
 			printf(
 				"\t\t\t\t\t\t\t========================================== Instructions ==========================================\n\n"
-				"\t\t\t\t\t\t\t\t\t    Try your best to guide Anya in her math studies!\n\n"
+				"\t\t\t\t\t\t\t\t\t    Try your best to guide Anya in her PE studies!\n\n"
 				"\t\t\t\t\t\t\t\t\t    Your current PE Skill Level will determine the number, \n"
-				"\t\t\t\t\t\t\t\t\t    type, and difficulty of the math problems generated.\n\n"
+				"\t\t\t\t\t\t\t\t\t    type, and difficulty of the prompts generated.\n\n"
+                "\t\t\t\t\t\t\t\t\t    To answer:
+                "\t\t\t\t\t\t\t\t\t    press [w | a | s | d] for [UP | LEFT | DOWN | RIGHT]\n
+                "\t\t\t\t\t\t\t\t\t    press [8 | 4 | 2 | 6] for [NORTH | WEST | SOUTH | EAST]\n
+                "\t\t\t\t\t\t\t\t\t    press [W | A | S | D] for [UP-AHEAD | TO-THE-LEFT | BEHIND-YOU | TO-THE-RIGHT]\n
+                "\t\t\t\t\t\t\t\t\t    press [7 | 9 | 1 | 3] for [NORTH-WEST | NORTH-EAST | SOUTH-WEST | SOUTH-EAST]\n\n
 				"\t\t\t\t\t\t\t\t\t    You have 30 seconds to enter your answer!\n\n"
-				"\t\t\t\t\t\t\t\t\t    Numbers only or else ^^\n\n"
+				"\t\t\t\t\t\t\t\t\t    Directions only or else ^^\n\n"
 				"\t\t\t\t\t\t\t=================================================================================================\n\n"
 			);
 			break;
