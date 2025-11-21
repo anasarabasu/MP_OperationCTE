@@ -106,40 +106,46 @@ int startPEMini(int LVL) {
 	
 	awaitInput();
 	
-	int index = 1;
+	int promptIndex = 1;
 	do {
 		char prompt; 
 		
 		printf(
 			"\n PROMPT %d\n"
 			" YOR : ",
-			index
+			promptIndex
 		);
 		prompt = generatePrompt(LVL);
 
 		printf("\n >> ");    	
 		#if defined(_WIN32) || defined(_WIN64)
-		input = getch();
+		input = getche();
 		#else
 		scanf(" %c", &input);
 		#endif
 
-		printf("\n YOR : ");
+		printf("\n\n YOR : ");
 		if(checkPrompt(input, prompt, LVL)) {
-			printf("Correct!");
+			printf(
+				"Good job!\n"
+				" ANYA : Anya is doing great at PE!\n\n"
+			);
 			score++;
 		}
 		else if(input == '!') { //godmode
-    		printf("cheater lmao\n");
+    		printf("cheater lmao\n\n");
     		score += 5;
 		}
 		else {
-			printf("Incorrect!");
+			printf(
+				"Oh no! Miss Anya that's not the right direction!\n"
+				" ANYA :  AH! Anya got confused!\n\n"
+			);
 		}
-
-		index++;
+		printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+		promptIndex++;
 	}
-	while(index <= totalPrompts);
+	while(promptIndex <= totalPrompts);
 	
 	return score;
 }

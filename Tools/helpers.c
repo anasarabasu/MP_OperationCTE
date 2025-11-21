@@ -184,6 +184,124 @@ int getTotal(int LVL) {
 }
 
 
+/* ends the mini by displaying the score total, level-up status, and the stat changes 
+	determines how much EXP is gained, as well as the chance of the bonus reward
+
+	PRECONDITION 
+		- must be non-negative
+		- SKILL must be a valid value [0 or 1]
+
+	@SCORE - score achieved during the minigame
+	@TOTAL - total questions based on the math level
+	@AP - pointer to AP
+	@EXP - pointer to EXP
+	@SKILL - determines to display math or pe specific messages
+
+*/
+void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
+	int percent = SCORE * 100 / TOTAL;
+	printf(
+		"\t\t\t\t\t\t\t\t\t\t\t\tF  I  N  I  S  H !\n"
+        "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+		" ANYA : Huff.... Anya is tired!\n\n"
+		" >> Anya achieved an overall score of %d%%\n", percent
+	);
+
+	//fail
+	if(percent < 60) {
+		(*AP)--;
+		printf(" [ +0 EXP ] [ -1 AP ]\n\n");
+
+		//math
+		if(SKILL == 0)
+			printf(
+				" LOID : This.... is not good Anya....\n"
+				" ANYA : Um! Anya promises to do better next time papa!\n"
+			);
+		//pe
+		else
+			printf(
+				" YOR : Oh no.... I'm sure Miss Anya will do better next time!\n"
+				" ANYA : Yes! Anya promises mama!\n"
+			);
+	}
+
+	//mediocre
+	else if(percent < 80) {
+		(*EXP)++;
+		(*AP)--;
+		printf(" [ +1 EXP ] [ -1 AP ]\n\n");
+
+		//math
+		if(SKILL == 0)
+			printf(
+				" LOID : Well.... It's not bad\n"
+				" ANYA : Yay-\n"
+				" LOID : But it's not good either....\n"
+				" ANYA : .... Anya promises to do better next time papa!\n"
+			);
+		//pe
+		else
+			printf(
+				" YOR : Miss Anya did all right!\n"
+				" ANYA : Yay-\n"
+				" YOR : But, hmmmm.... I think you can do better!\n"
+				" ANYA : .... Anya promises to do better next time mama!\n"
+			);
+	}
+	
+	//good
+	else if(percent < 100) {
+		*EXP += 2;
+		(*AP)--;
+		printf(" [ +2 EXP ] [ -1 AP ]\n\n");
+
+		//math
+		if(SKILL == 0) printf(" LOID : Good job Anya! You did well!\n");
+
+		//pe
+		else printf(" YOR : Good job Miss Anya! You most of it right!\n");
+			
+		printf(" ANYA : .... Anya will keep up!\n");
+	}
+
+	//perfect
+	else {
+		if(*EXP >= 30) { //equivalent to max math level
+			if (rng(100, 0) < 60) {
+				*AP += 2;
+				printf(" [ MAX LEVEL ] [ +2 AP BONUS ]\n\n");
+				
+				//math
+				if(SKILL == 0) printf(" LOID : Well done, Anya! You've mastered math!\n");
+				
+				//pe
+				else printf(" YOR : Congratulations Mis Anya! You've masterd PE!\n");
+			}
+			printf(" ANYA : Yay! I’m amazing!\n");
+		}
+		else {
+			*EXP += 3;
+			if(rng(100, 0) < 50) { //ap consumption chance
+				(*AP)--;
+				printf(" [ +3 EXP ] [ +1 AP BONUS ]\n\n");
+			}
+			else {
+				(*AP)++;
+				printf(" [ +3 EXP ] [ -1 AP ]\n\n");
+			}
+			//math
+			if(SKILL == 0) printf(" LOID : Well done Anya! You got everything correct!\n");
+			
+			//pe
+			else printf(" YOR: Wow! Miss Anya got everything right!\n");
+			
+			printf(" ANYA : Yahoo!\n");
+		}
+	}
+}
+
+
 /* determines whether to increase the chosen skill level
 	PRECONDITION : must be a non-negative value
 
@@ -230,118 +348,4 @@ void levelUp(int *LVL, int EXP) {
 	}
 		
 	printf("\n");
-}
-
-
-/* ends the mini by displaying the score total, level-up status, and the stat changes 
-	determines how much EXP is gained, as well as the chance of the bonus reward
-
-	PRECONDITION 
-		- must be non-negative
-		- SKILL must be a valid value [0 or 1]
-
-	@SCORE - score achieved during the minigame
-	@TOTAL - total questions based on the math level
-	@AP - pointer to AP
-	@EXP - pointer to EXP
-	@SKILL - determines to display math or pe specific messages
-
-*/
-void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
-	int percent = SCORE * 100 / TOTAL;
-	printf(
-		"\t\t\t\t\t\t\t\t\t\t\t\tF  I  N  I  S  H !\n"
-        "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
-		" >> Anya achieved an overall score of %d%%\n", percent
-	);
-
-	//fail
-	if(percent < 60) {
-		(*AP)--;
-		printf(" [ +0 EXP ] [ -1 AP ]\n\n");
-
-		//math
-		if(SKILL == 0)
-			printf(
-				" LOID : This.... is not good Anya....\n"
-				" ANYA : Um! Anya promises to do better next time papa!\n"
-			);
-		//pe
-		//else
-	}
-
-	//mediocre
-	else if(percent < 80) {
-		(*EXP)++;
-		(*AP)--;
-		printf(" [ +1 EXP ] [ -1 AP ]\n\n");
-
-		//math
-		if(SKILL == 0)
-			printf(
-				" LOID : Well.... It's not bad\n"
-				" ANYA : Yay-"
-				" LOID : But it's not good either...."
-				" ANYA : .... Anya promises to do better next time papa!\n"
-			);
-
-		//pe
-		//else
-	}
-	
-	//good
-	else if(percent < 100) {
-		*EXP += 2;
-		(*AP)--;
-		printf(" [ +2 EXP ] [ -1 AP ]\n\n");
-
-		//math
-		if(SKILL == 0)
-			printf(
-				" LOID : Good job Anya! You did well!\n"
-				" ANYA : .... Anya will keep up!\n"
-			);
-
-		//pe
-		//else
-	}
-
-	//perfect
-	else {
-		if(*EXP >= 30) { //equivalent to max math level
-			if (rng(100, 0) < 60) {
-				*AP += 2;
-				printf(" [ MAX LEVEL ] [ +2 AP BONUS ]\n\n");
-				
-				//math
-				if(SKILL == 0)
-					printf(
-						" LOID : Well done, Anya! You've mastered math!\n"
-						" ANYA : Yay! I’m amazing!\n"
-					);
-				
-				//pe
-				//else
-			}
-		}
-		else {
-			*EXP += 3;
-			if(rng(100, 0) < 50) { //ap consumption chance
-				(*AP)--;
-				printf(" [ +3 EXP ] [ +1 AP BONUS ]\n\n");
-			}
-			else {
-				(*AP)++;
-				printf(" [ +3 EXP ] [ -1 AP ]\n\n");
-			}
-			//math
-			if(SKILL == 0)
-				printf(
-						" LOID : Well done Anya! You got everything correct!\n"
-						" ANYA : Yahoo!\n"
-					);
-			//pe
-			//else
-		}
-	}
 }

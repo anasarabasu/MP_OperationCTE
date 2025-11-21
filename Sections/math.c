@@ -159,7 +159,7 @@ int startMathMini(int LVL) {
 			score++;
     	}
     	else if(input == 464646) { //godmode because im not doing all that ^^
-    		printf("cheater lmao\n");
+    		printf("cheater lmao\n\n");
     		score += 5;
 		}
         else {
