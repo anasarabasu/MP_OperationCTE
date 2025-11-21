@@ -48,9 +48,13 @@ ACKNOWLEDGEMENTS:
 #include "state.c"
 
 int main() {
-	displayInstructions(0);
+	displayInstructions(1);
 	
+    #if defined(_WIN32) || defined(_WIN64)
 	SetConsoleOutputCP(65001); //for the ascii art
+    #endif
+
+
 	srand(time(NULL)); //i noticed that randomly generated numbers are the same across several runs, this should fix it
 	
     title();

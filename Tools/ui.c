@@ -156,11 +156,11 @@ void displayInstructions(int INDEX) {
 				"\t\t\t\t\t\t\t\t\t    Try your best to guide Anya in her PE studies!\n\n"
 				"\t\t\t\t\t\t\t\t\t    Your current PE Skill Level will determine the number, \n"
 				"\t\t\t\t\t\t\t\t\t    type, and difficulty of the prompts generated.\n\n"
-                "\t\t\t\t\t\t\t\t\t    To answer:
-                "\t\t\t\t\t\t\t\t\t    press [w | a | s | d] for [UP | LEFT | DOWN | RIGHT]\n
-                "\t\t\t\t\t\t\t\t\t    press [8 | 4 | 2 | 6] for [NORTH | WEST | SOUTH | EAST]\n
-                "\t\t\t\t\t\t\t\t\t    press [W | A | S | D] for [UP-AHEAD | TO-THE-LEFT | BEHIND-YOU | TO-THE-RIGHT]\n
-                "\t\t\t\t\t\t\t\t\t    press [7 | 9 | 1 | 3] for [NORTH-WEST | NORTH-EAST | SOUTH-WEST | SOUTH-EAST]\n\n
+                "\t\t\t\t\t\t\t\t\t    To answer:\n"
+                "\t\t\t\t\t\t\t\t\t     press [ w | a | s | d ] for axis directions : ↑ ← ↓ → \n"
+                "\t\t\t\t\t\t\t\t\t     press [ 8 | 4 | 2 | 6 ] for cardinal directions : N W E S\n"
+                "\t\t\t\t\t\t\t\t\t     press [ W | A | S | D ] for relative directions : UA TTR BY TTL\n"
+                "\t\t\t\t\t\t\t\t\t     press [ 7 | 9 | 1 | 3 ] for ordinal directions : NW NE SW SE\n\n"
 				"\t\t\t\t\t\t\t\t\t    You have 30 seconds to enter your answer!\n\n"
 				"\t\t\t\t\t\t\t\t\t    Directions only or else ^^\n\n"
 				"\t\t\t\t\t\t\t=================================================================================================\n\n"
