@@ -44,6 +44,7 @@ ACKNOWLEDGEMENTS:
 #include "Sections/math.c"
 #include "Sections/pe.c"
 #include "Sections/photo.c"
+#include "Sections/theEnd.c"
 
 #include "state.c"
 
@@ -51,9 +52,11 @@ int main() {
 	SetConsoleOutputCP(65001); //for the ascii art lol
 	srand(time(NULL)); //i noticed that randomly generated numbers are the same across several runs, this should fix it
 
+	int ending;
+
     title();
-    gameLoop();   
-    // theEnd();
+    gameLoop(&ending);   
+    theEnd(ending);
 
     return 0;
 }

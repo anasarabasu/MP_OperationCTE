@@ -25,9 +25,56 @@ void displayHeader(int DAY, int TIME) {
     printf("\n"
         "   Day %d\n"
         "   %s\n"
-        "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n", 
+        "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n", 
         DAY, getTime(TIME)
     );
+}
+
+
+/* introduction scene of the game */
+void introduction() { //henderson  talking about the exam and the project or something echeche
+    //introArt();
+    printf(
+    	"\t\t\t\t\t\t\t\t\t\t\t     I N T R O D U C T I O N\n"
+    	"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+        " MR. HENDERSON : Ladies and gentlemen of Edn Academy, your attention, if I may....\n"
+		"                 Each of you has been assigned an undertaking of considerabl educational value!\n\n"
+		" ANYA : Uh oh! Fancy teacher word means big homework!\n"
+		" >> PRESS ANY KEY TO CONTINUE"
+	);
+	getch();
+	printf(
+		"\n\n MR. HENDERSON : You are to create a photo college, one that captures meaningful moments spent among your perers and respective communities\n"
+		"                 This collage must demonstrate the elegance befitting stuents of our esteemed insitution\n\n"
+		" ANYA : Elegance....?\n"
+		" >>"
+	);
+	getch();
+	printf(
+		"\n\n MR. HENDERSON : In addition....\n"
+		"                 I must remind you of the upcoming series of assessments, evaluating both your mathematical prowess\n"
+		"                 and physical capabilities\n\n"
+		" ANYA : Math AND Exercise!? This is double scary!\n"
+		" >>"
+	);
+	getch();
+	printf(
+		"\n\n MR. HENDERSON : Your performance in these examinations, combined with the quality of your collage, will determine which among you\n"
+		"                 shall be deemed worthy of receiving a Stella Star\n\n"
+		" ANYA : ....But Stella Star means papa happy!\n"
+		"        So Anya must! Try very! very! Hard!\n"
+		" >>"
+	);
+	getch();
+	printf(
+		"\n\n MR. HENDERSON : You are allotted precisely 40 days to complete this project\n"
+		"                 I expect all of you to approach this task with diligence, decorum, and above all....\n"
+		"                 Elegance\n\n"
+		" ANYA : Forty days.... Okay!\n"
+		"        Anya will make the most elegant collage ever!\n"
+    );
+
+    wipeScreen();
 }
 
 
@@ -81,6 +128,8 @@ void viewStats(
 /* displays the actions for the morning section of the outing day */
 void displayOutingMorningSelection() {
 	printf(
+		"\t\t\t\t\t\t\t\t\t\t\t   O  U  T  I  N  G    D  A  Y\n"
+		"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
 		" LOID : Anya are you ready for the outing?\n"
 		" ANYA : Anya will.... uhhhh....\n\n"
 		"\t[0] View Stats\n"
@@ -98,7 +147,15 @@ void displayOutingMorningSelection() {
 */
 void displayOutingVenueSelection(int DAMIAN, int BECKY, int HENDERSON, int BOND) {
     printf(
-        " ANYA : Hmmmm.... where should Anya go?\n\n"
+        "\t\t\t\t\t\t\t\t\t\t   F  A  M  I  L  Y     M  E  E  T  I  N  G  !\n"
+		"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+        " LOID : Alright, Anya. Where would you like our outing venue to be?\n"
+		"        Just choose whichever option you like best\n\n"
+        " ANYA : Uhhhh.... Ummmm....\n\n"
+        " YOR : These are some places that seem good to go to....\n\n"
+        " BOND : Borf!\n\n"
+		"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+		" ANYA : Hmmmm.... where should Anya go?\n\n"
 		"\t[0] View Stats\n"
         "\t[1] Park\t\t\t"
         "\t[2] City Mall\t\t\t"
@@ -117,12 +174,17 @@ void displayOutingVenueSelection(int DAMIAN, int BECKY, int HENDERSON, int BOND)
 /* displays the morning activity to choose from */
 void displayMorningSelection() {
 	printf(
-	    " ANYA : Uhhhh.... What should Anya do?\n\n"
+		"\t\t\t\t\t\t\t\t\t\t\tE  D  E  N    A  C  A  D  E  M  Y\n"
+		"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+		" %s\n\n"		
+		"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"		
+		" ANYA : Uhhhh.... What should Anya do?\n\n"
 		"\t[0] View Stats\n"
 	    "\t[1] Annoy Damian\t\t"
 	    "\t[2] Play with Becky\t\t"
 	    "\t[3] Talk to Mr. Henderson\t\t"
-	    "\t[4] Go home\n\n"
+	    "\t[4] Go home\n\n",
+	    getSelectionMessage(1)
 	);	
 }
 
@@ -130,12 +192,20 @@ void displayMorningSelection() {
 /* displays the afternoon activty to choose from */
 void displayAfternoonSelection() {
     printf(
-	    " ANYA : Hmmmm.... What should Anya do?\n\n"
+		"\t\t\t\t\t\t\t\t\t\t\t\t    H  O  M  E\n"
+		"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+        " YOR : Welcome back, Anya! Were you safe today? No injuries? No suspicious people following you?\n\n"
+        " LOID : Welcome home. How was school? Did anything.... noteworthy happen?\n\n"
+        " ANYA : Ah.... Finally home! Couch!\n\n"
+        " %s\n\n"
+	    "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+		" ANYA : Hmmmm.... What should Anya do?\n\n"
 		"\t[0] View Stats\n"
         "\t[1] Study with Loid\t\t"
         "\t[2] Train with Yor\t\t"
         "\t[3] Play with Bond\t\t"
-        "\t[4] Slack off\n\n"
+        "\t[4] Slack off\n\n",
+        getSelectionMessage(3)
     );
 }
 

@@ -34,6 +34,7 @@ void wipeScreen() {
 void endDay(int DAY, int *AP) {
 	printf("\n------------------------------------------------------------------------------------------> PRESS ANY KEY TO CONTINUE <------------------------------------------------------------------------------------------\n");
    
+   
     //this is here for cross compatibility testing because im on linux :)
     #if defined(_WIN32) || defined(_WIN64)
 	getch();
@@ -43,21 +44,22 @@ void endDay(int DAY, int *AP) {
 	
 	#endif
 	
-	printf("\n [ DAY END ]"
-		);
-    if(DAY % 4 == 0) {
-    	if(*AP <= 3) {
-			*AP =  3;
-			printf(" [ AP RESET TO 3 ]");
-		} 
-		else printf(" [ AP UNCHANGED ]");
-	}
-    else if(DAY % 3 != 0) {
-		(*AP)++;
-    	printf(" [ +1 AP ]");
-	}
-	else printf(" [ AP UNCHANGED ]");	
+	printf("\n [ DAY END ]");
 	
+	if(DAY < 40) {
+	    if(DAY % 4 == 0) {
+	    	if(*AP <= 3) {
+				*AP =  3;
+				printf(" [ AP RESET TO 3 ]");
+			} 
+			else printf(" [ AP UNCHANGED ]");
+		}
+	    else if(DAY % 3 != 0) {
+			(*AP)++;
+	    	printf(" [ +1 AP ]");
+		}
+		else printf(" [ AP UNCHANGED ]");	
+	}
 	printf("\n");
 	
 	wipeScreen();
@@ -176,6 +178,20 @@ char *getName(int INDEX) {
     }
 }
 
+/* RETURN a randomised message */
+char *getSelectionMessage(int INDEX) {
+	switch(rng(3, 0) + INDEX) {
+		//1
+		case 0: return "LOID : Anya, remember to behave properly at school today\n\n ANYA : Okay! Anya will do her best.... probably";
+		case 1: return "YOR : Good luck, Anya! I hope you have a safe and peaceful day!\n\n ANYA : Mama, Anya will survive!";
+		case 2: return "BOND : Borf!\n\n ANYA : Bond can’t come to school, but Anya will tell him everything later!";
+		
+		//2
+		case 3: return "BOND : Borf!";
+		case 4: return "YOR : W-wait, Anya! Maybe.... not at a full sprint toward the couch? You might get hurt!";
+		case 5: return "LOID : Maybe.... slow down a little?";
+	}
+}
 
 /* RETURN the number of questions based on the current skill LVLV*/
 int getTotal(int LVL) {

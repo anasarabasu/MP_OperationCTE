@@ -81,7 +81,7 @@ int startPEMini(int LVL) {
 	char input;
 
 	printf(
-		" YOR : Miss Anya, I have %d things for you to do. Are you ready?\n"
+		" YOR : Miss Anya, I have %d things for you to do. Are you ready?\n\n"
 		"\t[Y] Yes\t\t\t\t[N] No, view instructions\n\n >> ",
 		totalPrompts
 	);

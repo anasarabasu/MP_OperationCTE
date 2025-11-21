@@ -177,8 +177,8 @@ int startPhotoMini(int VENUE, int KEY, int *GUESS_MEMORY, int *AP) {
 	if(isFinish) {
 		printf(
 			" ANYA : Anya took super good photo! Heh-heh!\n"
-			" YOR : Oh my— that’s amazing, Anya! You're really talented!\n\n"
-			" LOID : Impressive work. You captured the moment perfectly.... well done, Anya\n"
+			" YOR : Oh my— that’s amazing, Anya! You're really talented!\n"
+			" LOID : Impressive work. You captured the moment perfectly.... well done, Anya\n\n"
 			" >> Guessed the special number perfectly!\n"
 		);
 	}
@@ -188,7 +188,7 @@ int startPhotoMini(int VENUE, int KEY, int *GUESS_MEMORY, int *AP) {
 	    else if(camRolls == 0) printf(" ANYA : Ah! Anya ran out of camera rolls!\n\n");
 	
 		printf(
-			" LOID : Good job, Anya\n"
+			" LOID : Good job Anya, but it's time to go home\n"
 			" ANYA : But! Anya wants MORE photos! For mission....\n"
 			" YOR : Ah.... um.... M-Miss Anya, maybe you should rest a bit? We can take more another time\n"
 			" ANYA : Okayyyy....\n\n"

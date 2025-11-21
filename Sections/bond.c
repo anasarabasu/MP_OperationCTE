@@ -3,25 +3,25 @@ char *bondingTip(bool SUCCEED, int INDEX) {
     if(SUCCEED) 
         switch(INDEX) {
             case 1:
-                return " DAMIAN: Hmph.... not bad. You actually managed to keep up. I suppose I can tolerate your efforts a little more.\n ANYA : Hehe! Take that, Sy-on-boy! Don't get too proud!";
+                return " DAMIAN: Hmph.... not bad. You actually managed to keep up\n        I suppose I can tolerate your efforts a little more\n\n ANYA : Hehe! Take that, Sy-on-boy! Don't get too proud!";
             case 2:
-                return " BECKY : Ahaha! That was so much fun! Let's do this again sometime!\n ANYA : Yosh! Let's play again next time!";
+                return " BECKY : Ahaha! That was so much fun! Let's do this again sometime!\n\n ANYA : Yosh! Let's play again next time!";
             case 3:
-                return " HENDERSON : Excellent work! Your performance shows considerable refinement. Truly admirable.\n ANYA : Yahooo! That was fun, even if he said boring stuff....";
+                return " HENDERSON : Excellent work! Your performance shows considerable refinement\n             Truly admirable\n\n ANYA : Yahooo! That was fun, even if he said boring stuff....";
             case 4:
-                return " BOND : Borf! *wags tail*\n YOR: Hmmm... Bond seems very pleased! Maybe miss Anya can try again later and keep this up!\n ANYA : Hehe! Bond likes me mama!";
+                return " BOND : Borf! *wags tail*\n YOR: Hmmm... Bond seems very pleased! Maybe miss Anya can try again later and keep this up!\n\n ANYA : Hehe! Bond likes me mama!";
             default: return 0;
         }
     else
         switch(INDEX) {
             case 1:
-                return " DAMIAN : Hmph.... you might want to focus on improving your PE skills first. Do try to keep up.\n ANYA : Huuhh! Meanie! Does Sy-on boy wanna get punched again?";
+                return " DAMIAN : Hmph.... you might want to focus on improving your PE skills first\n          Do try to keep up\n\n ANYA : Huuhh! Meanie! Does Sy-on boy wanna get punched again?";
             case 2:
-                return " BECKY : Hehe! Sorry, I'm not quite up for it right now.... but let's try this again soon!\n ANYA : Okay.... Next time we'll make it super fun!";
+                return " BECKY : Hehe! Sorry, I'm not quite up for it right now.... \n         But let's try this again soon!\n\n ANYA : Okay.... Next time we'll make it super fun!";
             case 3:
-                return " HENDERSON : My, perhaps honing your math skills would be a most prudent endeavor before progressing further.\n ANYA : I don't wanna go to school anymore....";
+                return " HENDERSON : My, perhaps honing your math skills would be a most prudent endeavor before progressing further\n\n ANYA : I don't wanna go to school anymore....";
             case 4:
-                return " BOND : Borf!\n YOR : Hmmm.... Bond doesn't seem to be in the mood today. Maybe miss Anya can try again next time?\n ANYA : Okay mama....";
+                return " BOND : Borf!\n\n YOR : Hmmm.... Bond doesn't seem to be in the mood today\n       Maybe miss Anya can try again next time?\n\n ANYA : Okay mama....";
             default: return 0;
         }
 }
@@ -31,13 +31,13 @@ char *bondingTip(bool SUCCEED, int INDEX) {
 char *maxBondMessage(int INDEX) {
     switch(INDEX) {
         case 1: 
-            return " DAMIAN : DAMIAN: Hmph.... you're not completely hopeless, I suppose. I guess I can introduce you to Mouseney Land. You might enjoy it there....";
+            return " DAMIAN : DAMIAN: Hmph.... you're not completely hopeless, I suppose\n        I guess I can introduce you to Mouseney Land. You might enjoy it there....";
         case 2: 
             return " BECKY : Hey! I think you'll like it there at the West Berlint Aquarium! There's penguins!";
         case 3: 
-            return " MR. HENDERSON : My, what such elegance you've displayed! Perhaps a visit to the Ostania Art Museum would provide a most suitable enrichment for your talents.";
+            return " MR. HENDERSON : My, what such elegance you've displayed!\n             Perhaps a visit to the Ostania Art Museum would provide a most suitable enrichment for your talents.";
         case 4: 
-            return " BOND : Borf!\n LOID : Haha.... looks like Bond's ready for a little adventure at Dogland!";
+            return " BOND : Borf!\n\n LOID : Haha.... looks like Bond's ready for a little adventure at Dogland!";
         default: return 0;
     }
 }
