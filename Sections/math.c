@@ -82,11 +82,12 @@ int startMathMini(int LVL) {
     
     printf(
 		" LOID : Alright Anya, I'm going to ask you %d questions. Are you ready?\n"
-		"\t[Y] Start\t\t\t\t[N] View instructions\n\n >> ",
+		"\t[Y] Yes\t\t\t\t[N] No, view instructions\n\n >> ",
 		totalQuestions
 	);
 	
 	scanf(" %c", &input);
+	
 	if((char) tolower(input) == 'y')
 		printf(" ANYA : Yes! Anya will do her best papa!\n");
 	else if((char) tolower(input) == 'n') {
@@ -112,7 +113,7 @@ int startMathMini(int LVL) {
         int operation = rng(operationUnlocked, 0);    
         
         printf(
-			"\n QUESTION %d\n"
+			"\n QUESTION %d\n\n"
 			" LOID : ", 
 			questionIndex
 		);

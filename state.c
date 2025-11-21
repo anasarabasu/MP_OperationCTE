@@ -32,7 +32,10 @@ void gameLoop() {
     
     int venue;
     int venueBestGuess = 0;
-    int PH_1 = 1, PH_2 = 1, PH_3 = 1, PH_4 = 0, PH_5 = 0, PH_6 = 0, PH_7 = 0;
+    
+    int PH_1 = 0, PH_2 = 0, PH_3 = 0, PH_4 = 0, PH_5 = 0, PH_6 = 0, PH_7 = 0;
+    int PH_1_Mem = 0, PH_2_Mem = 0, PH_3_Mem = 0, PH_4_Mem = 0, PH_5_Mem = 0, PH_6_Mem = 0, PH_7_Mem = 0;
+    
     int PH_1_Key = generateVenueKey();
     int PH_2_Key = generateVenueKey();
     int PH_3_Key = generateVenueKey();
@@ -48,19 +51,18 @@ void gameLoop() {
         
         //am nn pm iterator
         for(time = 0; time != 3; time++) { 
-            displayHeader(day, time);
+        	if(day % 4 != 0 || ( day % 4 == 0 && time != 1)) displayHeader(day, time);
             
             //outing days
             if(day % 4 == 0) { 
                 if(showIntro) {
-                    introduction(); //DO THIS AT THE LAST-ish WEEK
+                    introduction();
                     showIntro = false;
                     time++;
                 }
                 else {
                     switch(time) {
                         case 0: //morning segway
-                        	printf("Shall we go to the outing?\n");
                         	displayOutingMorningSelection();
                         	
                         	int action = checkSelection(
@@ -72,30 +74,33 @@ void gameLoop() {
                                 BP_Damian, BP_Becky, BP_Henderson, BP_Bond,
                                 PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
 							);
-							printf(" ANYA : Anya will.... %s!\n", getActivity(action + 8));
+							printf(" ANYA : Anya will.... %s\n", getActivity(action + 8));
 							
 							if(action == 2) time++;
                         	
-							wipeScreen();
-							
+                        	wipeScreen();
+                        	
                             break;
                         case 1: { //minigame
-                            int *venueRating = getVenueRating(
-                                venue,
-                                &PH_1, &PH_2, &PH_3, &PH_4, &PH_5, &PH_6, &PH_7);
-//
+                        	
                             int venueKey = getVenueKey(
                                 venue,
                                 PH_1_Key, PH_2_Key, PH_3_Key, PH_4_Key, PH_5_Key, PH_6_Key, PH_7_Key);
 
-                            *venueRating = startPhotoMini(venue, venueKey, &venueBestGuess, &AP);
+							int *venueMem = getVenueMem(
+								venue,
+								&PH_1_Mem, &PH_2_Mem, &PH_3_Mem, &PH_4_Mem, &PH_5_Mem, &PH_6_Mem, &PH_7_Mem);
+
+                            int *venueRating = getVenueRating(
+                                venue,
+                                &PH_1, &PH_2, &PH_3, &PH_4, &PH_5, &PH_6, &PH_7);
+                            *venueRating = startPhotoMini(venue, venueKey, venueMem, &AP);
 
 							wipeScreen();
 
                             break;
 						}
                         case 2: //venue selection
-                            printf(" ANYA : Hmmmm.... where should Anya go?\n");
                             displayOutingVenueSelection(BP_Damian, BP_Becky, BP_Henderson, BP_Bond);
                             
                             venue = checkSelection(
@@ -117,7 +122,6 @@ void gameLoop() {
             else { 
                 switch(time) {
                     case 0: //bonding activity
-                        printf(" ANYA : Hmmmm.... What should Anya do?\n");
                         displayMorningSelection();
                         
                         activity = checkSelection(
@@ -143,7 +147,6 @@ void gameLoop() {
 
                         break;
                     case 1: //minigame (or bonding activity with the dog)
-                        printf(" ANYA : Hmmmm.... What should Anya do?\n");
                         displayAfternoonSelection();
                         
                         activity = checkSelection(

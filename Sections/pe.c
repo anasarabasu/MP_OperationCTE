@@ -82,7 +82,7 @@ int startPEMini(int LVL) {
 
 	printf(
 		" YOR : Miss Anya, I have %d things for you to do. Are you ready?\n"
-		"\t[Y] Start\t\t\t\t[N] View instructions\n\n >> ",
+		"\t[Y] Yes\t\t\t\t[N] No, view instructions\n\n >> ",
 		totalPrompts
 	);
 	
@@ -111,7 +111,7 @@ int startPEMini(int LVL) {
 		char prompt; 
 		
 		printf(
-			"\n PROMPT %d\n"
+			"\n PROMPT %d\n\n"
 			" YOR : ",
 			promptIndex
 		);

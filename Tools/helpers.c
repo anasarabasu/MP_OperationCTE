@@ -158,8 +158,8 @@ char *getActivity(int INDEX) {
         case 6: return "Train with mama";
         case 7: return "Play with Bond";
         case 8: return "Slack off";
-        case 9: return "Go to the ooting";
-        case 10: return "Skip on the ooting";
+        case 9: return "Go to the ooting!";
+        case 10: return "Stay home.... Anya is tired....";
         default: return 0;
     }
 }

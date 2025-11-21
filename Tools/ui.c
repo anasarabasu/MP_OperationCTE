@@ -81,9 +81,11 @@ void viewStats(
 /* displays the actions for the morning section of the outing day */
 void displayOutingMorningSelection() {
 	printf(
+		" LOID : Anya are you ready for the outing?\n"
+		" ANYA : Anya will.... uhhhh....\n\n"
 		"\t[0] View Stats\n"
 		"\t[1] Proceed with outing\n"
-		"\t[2] Go home\n\n"
+		"\t[2] Stay home\n\n"
 	);
 }
 
@@ -96,7 +98,8 @@ void displayOutingMorningSelection() {
 */
 void displayOutingVenueSelection(int DAMIAN, int BECKY, int HENDERSON, int BOND) {
     printf(
-        "\t[0] View Stats\n"
+        " ANYA : Hmmmm.... where should Anya go?\n\n"
+		"\t[0] View Stats\n"
         "\t[1] Park\t\t\t"
         "\t[2] City Mall\t\t\t"
         "\t[3] Ostania Beach\n"
@@ -114,7 +117,8 @@ void displayOutingVenueSelection(int DAMIAN, int BECKY, int HENDERSON, int BOND)
 /* displays the morning activity to choose from */
 void displayMorningSelection() {
 	printf(
-	    "\t[0] View Stats\n"
+	    " ANYA : Uhhhh.... What should Anya do?\n\n"
+		"\t[0] View Stats\n"
 	    "\t[1] Annoy Damian\t\t"
 	    "\t[2] Play with Becky\t\t"
 	    "\t[3] Talk to Mr. Henderson\t\t"
@@ -126,7 +130,8 @@ void displayMorningSelection() {
 /* displays the afternoon activty to choose from */
 void displayAfternoonSelection() {
     printf(
-	    "\t[0] View Stats\n"
+	    " ANYA : Hmmmm.... What should Anya do?\n\n"
+		"\t[0] View Stats\n"
         "\t[1] Study with Loid\t\t"
         "\t[2] Train with Yor\t\t"
         "\t[3] Play with Bond\t\t"
@@ -156,12 +161,28 @@ void displayInstructions(int INDEX) {
 				"\t\t\t\t\t\t\t\t\t    Your current PE Skill Level will determine the number, \n"
 				"\t\t\t\t\t\t\t\t\t    type, and difficulty of the prompts generated.\n\n"
                 "\t\t\t\t\t\t\t\t\t    Key Guide:\n"
-                "\t\t\t\t\t\t\t\t\t    press [ w | a | s | d ] for axis directions : U L D R \n"
-                "\t\t\t\t\t\t\t\t\t    press [ 8 | 4 | 2 | 6 ] for cardinal directions : N W E S\n"
-                "\t\t\t\t\t\t\t\t\t    press [ W | A | S | D ] for relative directions : UA TTL BY TTR\n"
-                "\t\t\t\t\t\t\t\t\t    press [ 7 | 9 | 1 | 3 ] for ordinal directions : NW NE SW SE\n\n"
+                "\t\t\t\t\t\t\t\t\t    press [ w | a | s | d ] for axis directions.......U L D R \n"
+                "\t\t\t\t\t\t\t\t\t    press [ 8 | 4 | 2 | 6 ] for cardinal directions...N W E S\n"
+                "\t\t\t\t\t\t\t\t\t    press [ W | A | S | D ] for relative directions...UA TTL BY TTR\n"
+                "\t\t\t\t\t\t\t\t\t    press [ 7 | 9 | 1 | 3 ] for ordinal directions....NW NE SW SE\n\n"
                 "\t\t\t\t\t\t\t\t\t    [!] NO NEED TO HIT ENTER\n\n"
-				"\t\t\t\t\t\t\t\t\t    You have 30 seconds to enter your answer!\n\n"
+                "\t\t\t\t\t\t\t\t\t    [!] ENABLE NUM LOCK\n\n"
+//				"\t\t\t\t\t\t\t\t\t    You have 30 seconds to enter your answer!\n\n"
+				"\t\t\t\t\t\t\t=================================================================================================\n\n"
+			);
+			break;
+		case 2: //photo
+			printf(
+				"\t\t\t\t\t\t\t========================================== Instructions ==========================================\n\n"
+				"\t\t\t\t\t\t\t\t\t    Try your best to guide Anya in taking photos!\n\n"
+				"\t\t\t\t\t\t\t\t\t    You have to guess the special number from 1-1000\n"
+				"\t\t\t\t\t\t\t\t\t    Your number of attempts depend on your current AP and \n"
+				"\t\t\t\t\t\t\t\t\t    camera rolls\n\n"
+                "\t\t\t\t\t\t\t\t\t    Rating Guide:\n"
+                "\t\t\t\t\t\t\t\t\t    NOT GOOD....Too far of range\n"
+                "\t\t\t\t\t\t\t\t\t    OKAY........Within a range of 100 from the special number\n"
+                "\t\t\t\t\t\t\t\t\t    VERY GOOD...Within a range of 10 from the special number\n"
+                "\t\t\t\t\t\t\t\t\t    PERFECT.....Exactly the special number \n\n"
 				"\t\t\t\t\t\t\t=================================================================================================\n\n"
 			);
 			break;
