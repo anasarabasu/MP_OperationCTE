@@ -1,7 +1,7 @@
 /* decidees which ending to display
     PRECONDITION : must be valid values [1 0 -1]
 
-    @PENDING - the integer that decides it all
+    @PENDING - the int that decides it all
 */
 void theEnd(int ENDING) {
 	switch(ENDING) {

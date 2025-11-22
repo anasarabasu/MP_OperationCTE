@@ -1,3 +1,10 @@
+/* Random prompt generator
+	PRECONDITION: must be valid value [1 - 4]
+
+	@LVL - current level that will determine the prompt type
+
+	@RETURNS a char representing the prompt direction
+*/
 char generatePrompt(int LVL) {
 	int random = 4;
 	if(LVL == 2) random = 8;
@@ -61,6 +68,17 @@ char generatePrompt(int LVL) {
 	return 0;
 }
 
+
+/* checks if input is the same as the generated prompt
+i did it like this because i dont wanna do a huge switch block lololol
+
+	@INPUT - the user input
+	@PROMPT - the generated prompt
+	@LVL - used to differentiate the WASD and wasd from lvl 1 & 2 from lvl 3 % 4
+
+	@RETURNS bool value of the input and prompt comparison
+
+*/
 bool checkPrompt(char INPUT, char PROMPT, int LVL) {
 	char input = INPUT;
 	if(LVL < 3) 
@@ -72,6 +90,16 @@ bool checkPrompt(char INPUT, char PROMPT, int LVL) {
 }
 
 
+/* the pe minigame
+	directions are randomly generated based on the current pe level
+	type of directions are also dependent on the pe level
+
+	PRECONDITION : must be non-negative
+
+	@LVL - current pe level
+
+	@RETURN the score achieved during the minigame
+*/
 int startPEMini(int LVL) {
 	peArt(LVL);
 	
@@ -81,27 +109,27 @@ int startPEMini(int LVL) {
 	char input;
 
 	printf(
-		" YOR : Miss Anya, I have %d things for you to do. Are you ready?\n\n"
-		"\t[Y] Yes\t\t\t\t[N] No, view instructions\n\n >> ",
+		"\033[31m YOR : \033[0mMiss Anya, I have %d things for you to do. Are you ready?\n\n"
+		"\033[32m\t[Y] \033[0mYes\t\t\t\t\033[31m[N] \033[0mNo, view instructions\n\n >> ",
 		totalPrompts
 	);
 	
 	scanf(" %c", &input);
 	if((char) tolower(input) == 'y')
-		printf(" ANYA : Anya will give it her all mama!\n");
+		printf("\033[1;31m ANYA : \033[0mAnya will give it her all mama!\n");
 	else if((char) tolower(input) == 'n') {
-		printf(" ANYA : Ummmm.... What will Anya do again? Hehe\n");
+		printf("\033[1;31m ANYA : \033[0mUmmmm.... What will Anya do again? Hehe\n");
 		displayInstructions(1);
-		printf(" ANYA : Anya will give it her all mama!\n");
+		printf("\033[1;31m ANYA : \033[0mAnya will give it her all mama!\n");
 	}
 	else {	
 		printf(
-			" ANYA : Uhhhh....?\n\n"
-			" YOR : Huh?\n"
-			" YOR : O-oh! Um.... I’m guessing you’d like the instructions?\n"
+			"\033[1;31m ANYA : \033[0m Uhhhh....?\n\n"
+			"\033[31m YOR : \033[0mHuh?\n"
+			"\033[31m YOR : \033[0mO-oh! Um.... I’m guessing you’d like the instructions?\n"
 		);
 		displayInstructions(1);
-		printf(" ANYA : Anya will give it her all mama!\n");
+		printf("\033[1;31m ANYA : \033[0mAnya will give it her all mama!\n");
 	} 
 	
 	awaitInput();
@@ -112,23 +140,25 @@ int startPEMini(int LVL) {
 		
 		printf(
 			"\n PROMPT %d\n\n"
-			" YOR : ",
+			"\033[31m YOR : \033[0m",
 			promptIndex
 		);
 		prompt = generatePrompt(LVL);
 
 		printf("\n >> ");    	
 		#if defined(_WIN32) || defined(_WIN64)
-		input = getche();
+			input = getche();
+		
 		#else
-		scanf(" %c", &input);
+			scanf(" %c", &input);
+		
 		#endif
 
-		printf("\n\n YOR : ");
+		printf("\n\n\033[31m YOR : \033[0m");
 		if(checkPrompt(input, prompt, LVL)) {
 			printf(
 				"Good job!\n"
-				" ANYA : Anya is doing great at PE!\n\n"
+				"\033[1;31m ANYA : \033[0mAnya is doing great at PE!\n\n"
 			);
 			score++;
 		}
@@ -139,7 +169,7 @@ int startPEMini(int LVL) {
 		else {
 			printf(
 				"Oh no! Miss Anya that's not the right direction!\n"
-				" ANYA :  AH! Anya got confused!\n\n"
+				"\033[1;31m ANYA : \033[0mAh! Anya got confused!\n\n"
 			);
 		}
 		printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");

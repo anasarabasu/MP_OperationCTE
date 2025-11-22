@@ -21,7 +21,6 @@ void gameLoop(int *END) {
     int peLVL = 1, peEXP = 0;
     
     int venue;
-    int venueBestGuess = 0;
     
     int PH_1 = 0, PH_2 = 0, PH_3 = 0, PH_4 = 0, PH_5 = 0, PH_6 = 0, PH_7 = 0;
     int PH_1_Mem = 0, PH_2_Mem = 0, PH_3_Mem = 0, PH_4_Mem = 0, PH_5_Mem = 0, PH_6_Mem = 0, PH_7_Mem = 0;
@@ -64,7 +63,7 @@ void gameLoop(int *END) {
                                 BP_Damian, BP_Becky, BP_Henderson, BP_Bond,
                                 PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
 							);
-							printf(" ANYA : Anya will.... %s\n", getActivity(action + 8));
+							printf("\033[1;31m ANYA : \033[0mAnya will.... %s\n", getActivity(action + 8));
 							
 							if(action == 2) time++;
                         	
@@ -107,8 +106,12 @@ void gameLoop(int *END) {
 	                                BP_Damian, BP_Becky, BP_Henderson, BP_Bond,
 	                                PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
 	                            );
-	                            printf(" ANYA : Anya decided she wants to go to the.... %s!\n", getVenue(venue));
+	                            printf("\033[1;31m ANYA : \033[0mAnya decided she wants to go to the.... %s!\n", getVenue(venue));
 							}
+                                                    //possible linux-specific bug? YES WTF
+                            #if !defined(_WIN32) || !defined(_WIN64)
+                                getchar();
+                            #endif
                             break;
                     	}
                     }
@@ -129,7 +132,7 @@ void gameLoop(int *END) {
                             BP_Damian, BP_Becky, BP_Henderson, BP_Bond,
                             PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
                         );
-                        printf(" ANYA : Anya will.... %s!\n", getActivity(activity));
+                        printf("\033[1;31m ANYA : \033[0mAnya will.... %s!\n", getActivity(activity));
                         
                         bondingActivity(
                             activity, &AP,
@@ -137,7 +140,11 @@ void gameLoop(int *END) {
                             &BP_Becky,
                             &BP_Henderson, mthLVL
                         );
-                        //getchar(); //possible linux-specific bug? YES WTF
+
+                        //possible linux-specific bug? YES WTF
+                        #if !defined(_WIN32) || !defined(_WIN64)
+	                        getchar();
+                        #endif
 						
 						wipeScreen();
                         break;
@@ -155,9 +162,14 @@ void gameLoop(int *END) {
                             PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
                         );
                         printf(
-							" ANYA : Anya will.... %s!\n",
+							"\033[1;31m ANYA : \033[0m Anya will.... %s!\n",
 							getActivity(activity+4)
 						);
+
+                        //possible linux-specific bug? YES WTF
+                        #if !defined(_WIN32) || !defined(_WIN64)
+	                        getchar();
+                        #endif
 							
                         switch(activity) {
                             case 1: {

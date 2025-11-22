@@ -46,7 +46,7 @@ bool checkAP(int INPUT, int MAX, int AP) {
 
 /* displays message for low AP */
 void lowAP() {
-    printf(" ANYA : ");
+    printf(" \033[1;31m ANYA : \033[0m ");
     switch(rng(4, 0)) {
         case 0:
             printf("Anya wants to sleep!");
