@@ -96,7 +96,7 @@ void gameLoop() {
                             int *venueRating = getVenueRating(
                                 venue,
                                 &PH_1, &PH_2, &PH_3, &PH_4, &PH_5, &PH_6, &PH_7);
-                            *venueRating = startPhotoMini(venue, venueKey, venueMem, &AP);
+                            *venueRating = startPhotoMini(venueKey, venueMem, &AP);
 							
 							wipeScreen();
                         	

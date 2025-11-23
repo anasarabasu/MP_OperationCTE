@@ -7,8 +7,10 @@ PROGRAMMBED BY:
     Ashana Rivera Monsanto
 
 LAST MODIFIED:
+    24 Novenmber 2025
 
-VERSION:
+VERSION: 
+
 
 ACKNOWLEDGEMENTS:
     Programming
@@ -23,21 +25,33 @@ ACKNOWLEDGEMENTS:
 */
 
 #include <ctype.h>
+#include <math.h>
+#include <pthread.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-#include <time.h>
 #include <string.h>
+#include <time.h>
 
 //this is here for cross compatibility testing because im on linux :)
 #if defined(_WIN32) || defined(_WIN64)
     #include <conio.h>
+
     #define strcasecmp _stricmp
+
     #define CLEAR_SCREEN() system("cls");
+
+    #include <windows.h>
+    #define sleep(seconds) Sleep((seconds)*1000)
+
 #else 
     #define getch getchar
+
     #define CLEAR_SCREEN() system("clear");
+
+    #include <unistd.h>
+    #define sleep(seconds) sleep(seconds)
+
 #endif
 
 #include "Tools/helpers.c"
@@ -52,6 +66,7 @@ ACKNOWLEDGEMENTS:
 
 #include "state.c"
 
+
 int main() {
     #if defined(_WIN32) || defined(_WIN64)
 	    SetConsoleOutputCP(65001); //for the ascii art lol
@@ -59,9 +74,10 @@ int main() {
 
 	srand(time(NULL)); //i noticed that randomly generated numbers are the same across several runs, this should fix it
 
+    
     printf("Please set the window to full screen\nAdjust the zoom\nAnd the terminal colour scheme to One Half Dark ^^\n");
     wipeScreen();
-
+    
     title();
     gameLoop();   
 

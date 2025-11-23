@@ -74,7 +74,7 @@ void rememberInput(int GUESS, int *STORED_GUESS, int KEY) {
 	@AP - used to count down the photo retries
 
 */
-int startPhotoMini(int VENUE, int KEY, int *GUESS_MEMORY, int *AP) {
+int startPhotoMini(int KEY, int *GUESS_MEMORY, int *AP) {
 	photoArt(*GUESS_MEMORY);
 	
     bool isFinish = false;

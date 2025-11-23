@@ -307,7 +307,7 @@ void momentOfTruth(int ENDING) {
         "\033[33m\t\t\t\t\t\t\t\t\t\t\tE  D  E  N    A  C  A  D  E  M  Y\n"
 		"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
 		"\033[34m MR. HENDERSON : \033[0mStudents.... it is time\n"
-        "                 Please \033[33mSUBMIT\033[0m\ your collage with elegance\n\n"
+        "                 Please \033[33mSUBMIT\033[0m your collage with elegance\n\n"
         "\033[1;30m [ TYPE SUBMIT ] \033[0m>> "
     );
 

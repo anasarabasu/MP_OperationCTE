@@ -135,21 +135,21 @@ int startMathMini(int LVL) {
                 break;
         }
 
-        printf("\n >> ");
+        printf("\n\n >> ");
         
 		while(scanf("%d", &input) != 1) { //user input is not a number
     		returnInvalid(); 
 
 			printf("\033[32m LOID : \033[0mThat doesn't seem right let's try again\n \033[32mLOID : \033[0m");
 			printf(mathQuestion(operation), x, y);
-    		printf("\n >> ");
+    		printf("\n\n >> ");
 		}
 		
     	printf("\n\033[32m LOID : \033[0m");
         if(input == answer) {
             printf(
 				"You're right!\n"
-				"\033[1;31m ANYA : \033[0m Anya is doing great at math!\n\n"
+				"\033[1;31m ANYA : \033[0mAnya is doing great at math!\n\n"
 			);
 			score++;
     	}
@@ -160,7 +160,7 @@ int startMathMini(int LVL) {
         else {
 			printf(
 				"Ah.... That's not correct Anya. The answer is actually %d\n"
-				"\033[1;31m ANYA : \033[0m Awww....\n\n", answer
+				"\033[1;31m ANYA : \033[0mAwww....\n\n", answer
 			);
 		}
 		printf("\033[1;30m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\033[0m\n");

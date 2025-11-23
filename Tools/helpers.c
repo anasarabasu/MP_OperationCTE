@@ -300,7 +300,7 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 			if(SKILL == 0) printf("\033[32m LOID : \033[0mWell done Anya! You got everything correct!\n");
 			
 			//pe
-			else printf("\033[31m YOR: \033[0m\Wow! Miss Anya got everything right!\n");
+			else printf("\033[31m YOR: \033[0mWow! Miss Anya got everything right!\n");
 			
 			printf("\033[1;31m ANYA : \033[0mYahoo!\n");
 		}
@@ -357,6 +357,7 @@ void levelUp(int *LVL, int EXP) {
 }
 
 
+/* RETURNS the text fluff specific to certain endings */
 char *getEndingThoughts(int INDEX, int CHAR) {
 	switch(INDEX + CHAR) {
 		//anya
@@ -374,6 +375,7 @@ char *getEndingThoughts(int INDEX, int CHAR) {
 }
 
 
+/* RETURNS the ending banner text*/
 char *getEndingBanner(int INDEX) {
 	switch(INDEX) {
 		case 1: return "\033[32m\t\t\t\t\t\t\t\t\t\t     P  E  R  F  E  C  T    E  N  D  I  N  G\n";
