@@ -4,8 +4,8 @@ char *bondingTip(bool SUCCEED, int INDEX, int LVL) {
         switch(INDEX) {
             case 1:
                 return 
-                    "\033[32m DAMIAN : \033[0m Hmph.... not bad. You actually managed to keep up\n"
-                    "          I suppose I can tolerate your efforts a little more\n\n"
+                    "\033[33m DAMIAN : \033[0m Hmph.... not bad. You actually managed to keep up\n"
+                    "           I suppose I can tolerate your efforts a little more\n\n"
                     "\033[1;31mm ANYA : \033[0mHehe! Take that, Sy-on-boy! Don't get too proud!";
             case 2:
                 return 
@@ -62,11 +62,11 @@ char *bondingTip(bool SUCCEED, int INDEX, int LVL) {
 char *maxBondMessage(int INDEX) {
     switch(INDEX) {
         case 1: 
-            return "\033[33m DAMIAN : \033[0mDAMIAN: Hmph.... you're not completely hopeless, I suppose\n        I guess I can introduce you to Mouseney Land. You might enjoy it there....";
+            return "\033[33m DAMIAN : \033[0mDAMIAN: Hmph.... you're not completely hopeless, I suppose\n          I guess I can introduce you to Mouseney Land. You might enjoy it there....";
         case 2: 
             return "\033[35m BECKY : \033[0mHey! I think you'll like it there at the West Berlint Aquarium! There's penguins!";
         case 3: 
-            return "\033[34m\n\n MR. HENDERSON : \033[0mMy, what such elegance you've displayed!\n             Perhaps a visit to the Ostania Art Museum would provide a most suitable enrichment for your talents.";
+            return "\033[34m\n\n MR. HENDERSON : \033[0mMy, what such elegance you've displayed!\n                 Perhaps a visit to the Ostania Art Museum would provide a most suitable enrichment for your talents.";
         case 4: 
             return "\033[1;30m BOND : \033[0mBorf!\n\n\033[32m LOID : \033[0mHaha.... looks like Bond's ready for a little adventure at Dogland!";
         default: return 0;
@@ -99,13 +99,24 @@ void gainBP(int CHOICE, int LVL, int CHANCE, int *BP, int *AP) {
         if(LVL == 4) CHANCE += 50;
         
         if(random < CHANCE) {
-            printf(
-                "\n >> Anya and %s grew a slighty more closer today!\n"
-                "\033[31m [ -1 AP ]\033[32m [ +1 BP ]\n\n"
-                "%s\n",
-                getName(CHOICE), bondingTip(true, CHOICE, LVL)
-            );
-            (*BP)++;
+            if(*BP == 4 && LVL < 5) {
+                printf(
+                    "\n >> Anya and %s spent time together, nothing much happened though....\n"
+                    "\033[31m [ -1 AP ]\033[1;30m [ -0 BP ]\n\n"
+                    "%s\n",
+                    getName(CHOICE), bondingTip(false, CHOICE, LVL)
+                );
+                
+            }
+            else {
+                printf(
+                    "\n >> Anya and %s grew a slighty more closer today!\n"
+                    "\033[31m [ -1 AP ]\033[32m [ +1 BP ]\n\n"
+                    "%s\n",
+                    getName(CHOICE), bondingTip(true, CHOICE, LVL)
+                );
+                (*BP)++;
+            }
         }
         else {
             printf(
@@ -120,9 +131,9 @@ void gainBP(int CHOICE, int LVL, int CHANCE, int *BP, int *AP) {
         //BP max reward
         if(*BP == 5) {
             printf(
-                "\n >> Anya has reached the highest bond level with %s!\n"
-                "\033[32m [ +3 AP BONUS ] [ UNLOCKED OUTING LOCATION ]\n\n"
-                "%s\n"
+                "\n\n >> Anya has reached the highest bond level with %s!\n"
+                "\033[32m [ +3 AP BONUS ] [ UNLOCKED OUTING LOCATION ]\n"
+                "%s\n\n"
 				"\033[1;31m ANYA : \033[0mWaku waku!\n",
                 getName(CHOICE), maxBondMessage(CHOICE)
             );

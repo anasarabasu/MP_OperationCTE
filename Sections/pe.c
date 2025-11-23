@@ -133,6 +133,8 @@ int startPEMini(int LVL) {
 	} 
 	
 	awaitInput();
+	scanf("%*[^\n]"); 
+    getchar();
 	
 	int promptIndex = 1;
 	do {

@@ -74,7 +74,7 @@ int startMathMini(int LVL) {
     
     printf(
 		" \033[32m LOID : \033[0mAlright Anya, I'm going to ask you %d questions. Are you ready?\n\n"
-		"\033[32m\t[Y] Yes\t\t\t\t\033[31m[N] No, view instructions\n\n >> ",
+		"\033[32m\t[Y] Yes\t\t\t\t\033[31m[N]\033[0m No, view instructions\n\n >> ",
 		totalQuestions
 	);
 	
@@ -98,7 +98,9 @@ int startMathMini(int LVL) {
 	} 
 	
 	awaitInput();
-    
+	scanf("%*[^\n]"); 
+    getchar();
+	
     int questionIndex = 1;
 	do {
         int x, y, answer;
@@ -138,7 +140,7 @@ int startMathMini(int LVL) {
 		while(scanf("%d", &input) != 1) { //user input is not a number
     		returnInvalid(); 
 
-			printf("\033[32m LOID : \033[0mThat doesn't seem right let's try again\n \033[32m LOID : \033[0m");
+			printf("\033[32m LOID : \033[0mThat doesn't seem right let's try again\n \033[32mLOID : \033[0m");
 			printf(mathQuestion(operation), x, y);
     		printf("\n >> ");
 		}

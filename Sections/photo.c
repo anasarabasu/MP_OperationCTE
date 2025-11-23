@@ -109,6 +109,8 @@ int startPhotoMini(int VENUE, int KEY, int *GUESS_MEMORY, int *AP) {
 	} 
 	
 	awaitInput();
+	scanf("%*[^\n]"); 
+    getchar();
 	
 	int attempt = 1;
     do{
@@ -146,7 +148,7 @@ int startPhotoMini(int VENUE, int KEY, int *GUESS_MEMORY, int *AP) {
             
             printf(
             	"\033[34m [ VERY GOOD ]\n\n"
-				"\033[1;31m ANYA : \033[0m Looks good! Just a bit to the....um...."
+				"\033[1;31m ANYA : \033[0mLooks good! Just a bit to the....um...."
 			);
 			if(input > KEY) printf("left?\n\n");
             if(input < KEY) printf("right?\n\n");
@@ -156,7 +158,7 @@ int startPhotoMini(int VENUE, int KEY, int *GUESS_MEMORY, int *AP) {
             
             printf(
             	"\033[33m [ OKAY ]\n\n"
-				"\033[1;31m ANYA : \033[0m Okay.... maybe a little bit to the....Hmmmm...."
+				"\033[1;31m ANYA : \033[0mOkay.... maybe a little bit to the....Hmmmm...."
 			);
             if(input > KEY) printf("left?\n\n");
             if(input < KEY) printf("right?\n\n");
@@ -171,12 +173,12 @@ int startPhotoMini(int VENUE, int KEY, int *GUESS_MEMORY, int *AP) {
         	if(rating <= 1) rating = 1;
             printf(
             	"\033[31m [ NOT GOOD ]\n\n"
-				"\033[1;31m ANYA : \033[0m Ah! That is way too far off....\n\n"
+				"\033[1;31m ANYA : \033[0mAh! That is way too far off....\n\n"
 			);
         }
         rememberInput(input, GUESS_MEMORY, KEY);
         
-		printf("\033[1;30m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\033[0m\n");
+		printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
         camRolls--;
         (*AP)--;
         attempt++;
@@ -190,21 +192,21 @@ int startPhotoMini(int VENUE, int KEY, int *GUESS_MEMORY, int *AP) {
 	);
 	if(isFinish) {
 		printf(
-			"\033[1;31m ANYA : \033[0m Anya took super good photo! Heh-heh!\n"
-			"\033[31m YOR : \033[0mOh my— that’s amazing, Anya! You're really talented!\n"
+			"\033[1;31m ANYA : \033[0m Anya took super good photo! Heh-heh!\n\n"
+			"\033[31m YOR : \033[0mOh my— that’s amazing, Anya! You're really talented!\n\n"
 			"\033[32m LOID : \033[0mImpressive work. You captured the moment perfectly.... well done, Anya\n\n"
 			" >> Guessed the special number perfectly!\n"
 		);
 	}
 	else {
 	
-	    if(*AP == 0) printf(" \033[1;31m ANYA : \033[0m Huff! Anya is tired!\n\n");
+	    if(*AP == 0) printf(" \033[1;31mANYA : \033[0mHuff! Anya is tired!\n\n");
 	    else if(camRolls == 0) printf(" \033[1;31m ANYA : \033[0m Ah! Anya ran out of camera rolls!\n\n");
 	
 		printf(
-			"\033[32m LOID : \033[0mGood job Anya, but it's time to go home\n"
-			"\033[1;31m ANYA : \033[0m But! Anya wants MORE photos! For mission....\n"
-			"\033[31m YOR : \033[0mAh.... um.... M-Miss Anya, maybe you should rest a bit? We can take more another time\n"
+			"\033[32m LOID : \033[0mGood job Anya, but it's time to go home\n\n"
+			"\033[1;31m ANYA : \033[0m But! Anya wants MORE photos! For mission....\n\n"
+			"\033[31m YOR : \033[0mAh.... um.... M-Miss Anya, maybe you should rest a bit? We can take more another time\n\n"
 			"\033[1;31m ANYA : \033[0m Okayyyy....\n\n"
 			" >> The guess closest to the special numer is %d\n", 
 			*GUESS_MEMORY

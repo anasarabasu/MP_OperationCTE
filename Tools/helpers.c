@@ -300,9 +300,9 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 			if(SKILL == 0) printf("\033[32m LOID : \033[0mWell done Anya! You got everything correct!\n");
 			
 			//pe
-			else printf("\033[31m  YOR: \033[0m\Wow! Miss Anya got everything right!\n");
+			else printf("\033[31m YOR: \033[0m\Wow! Miss Anya got everything right!\n");
 			
-			printf("\033[1;31m ANYA : \033[0m Yahoo!\n");
+			printf("\033[1;31m ANYA : \033[0mYahoo!\n");
 		}
 	}
 }
@@ -329,7 +329,7 @@ void levelUp(int *LVL, int EXP) {
 			);
 			*LVL = 2;
 		}
-		printf(" >> Anya needs %d more to get to the next level", 15-EXP);
+		printf(" >> Anya needs %d more EXP to get to the next level", 15-EXP);
 	}
 
 	//lvl 3

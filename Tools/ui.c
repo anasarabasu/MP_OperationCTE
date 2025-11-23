@@ -257,7 +257,7 @@ void displayInstructions(int INDEX) {
                 "\033[31m\t\t\t\t\t\t\t\t\t    NOT GOOD....Too far of range\n"
                 "\033[0m\t\t\t\t\t\t\t\t\t    OKAY........Within a range of 100 from the special number\n"
                 "\033[33m\t\t\t\t\t\t\t\t\t    VERY GOOD...Within a range of 10 from the special number\n"
-                "\033[32m\t\t\t\t\t\t\t\t\t    PERFECT.....Exactly the special number \n\n"
+                "\033[32m\t\t\t\t\t\t\t\t\t    PERFECT.....Exactly the special number \n\n\033[0m"
 				"\t\t\t\t\t\t\t=================================================================================================\n\n"
 			);
 			break;
