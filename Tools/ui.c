@@ -292,7 +292,7 @@ void dayBefore() {
 	printf(
 		"\n\033[1;30m BOND : \033[0mBorf!\n\n"
 		"\033[1;31m ANYA : \033[0mHehe! Bond thinks Anya will win too!\n"
-		"        Anya can feel it in his fluffy tail!"
+		"        Anya can feel it in his fluffy tail!\n"
 	);
 }
 
@@ -393,7 +393,7 @@ void theDayTM(int ENDING) {
     getch();
 
     printf(
-        "\n\033[34m MR. HENDERSON : \033[0mStudents. It is time to announce the recipients of the Stella Star\n"
+        "\n\n\033[34m MR. HENDERSON : \033[0mStudents. It is time to announce the recipients of the Stella Star\n"
         "                 \033[0mThe first Stella goes to....\n\n"
 		"\033[1;31m ANYA : \033[0mAnya is so nervous.... will Anya get one?\n"
         "\033[1;30m >>"
@@ -401,7 +401,7 @@ void theDayTM(int ENDING) {
     getch();
 
     printf(
-        "\n\033[34m MR. HENDERSON : \033[0m....is awarded a Stella for his outstanding....\n\n"
+        "\n\n\033[34m MR. HENDERSON : \033[0m....is awarded a Stella for his outstanding....\n\n"
 		"\033[1;31m ANYA : \033[0mAnya doesn't want to disappoint papa....\n"
         "\033[1;30m >>"
         );
@@ -410,14 +410,14 @@ void theDayTM(int ENDING) {
     //PERFECT
     if(ENDING == 1)
         printf(
-            "\n\033[34m MR. HENDERSON : \033[0mAnd finally....\n"
+            "\n\n\033[34m MR. HENDERSON : \033[0mAnd finally....\n"
             "                 The last Stella Star goes to Anya Forger in recognition of her remarkable collage and assessment results\n\n"
             "\033[1;31m ANYA : \033[0mEeee! Anya got a Stella…! Wow!\n"
         );
     else 
         //NEUTRAL + beginning of BAD
         printf(
-            "\n\033[34m MR. HENDERSON : \033[0m....That concludes the list of Stella awardees for this term\n\n"
+            "\n\n\033[34m MR. HENDERSON : \033[0m....That concludes the list of Stella awardees for this term\n\n"
             "\033[1;31m ANYA : \033[0mOh....Anya didn't get one....maybe next time....?\n"
             "        But papa....\n"
             "        ....\n"
@@ -425,7 +425,7 @@ void theDayTM(int ENDING) {
         );
     getch();
 
-    printf("\n\033[1;31m ANYA : \033[0m....Time to go home....\n");
+    printf("\n\n\033[1;31m ANYA : \033[0m....Time to go home....\n");
     
     //BAD
     if(ENDING == 3) {
@@ -433,7 +433,7 @@ void theDayTM(int ENDING) {
         getch();
 
         printf(
-            "\n\033[34m MR. HENDERSON : \033[0mA moment of your time, Anya Forger\n\n"
+            "\n\n\033[34m MR. HENDERSON : \033[0mA moment of your time, Anya Forger\n\n"
             "\033[1;31m ANYA : \033[0mY-yes Nr. Henderson?\n"
             "        (Anya....Anya doesn't think this sounds good...)\n"
             "\033[1;30m >>"

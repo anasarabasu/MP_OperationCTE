@@ -85,8 +85,8 @@ int startPhotoMini(int VENUE, int KEY, int *GUESS_MEMORY, int *AP) {
 	int input;
 	
 	printf(
-		"\033[1;31m ANYA : \033[0m Time to take some photos!\n"
-		"\033[1;31m ANYA : \033[0m Is Anya ready?\n\n"
+		"\033[1;31m ANYA : \033[0mTime to take some photos!\n"
+		"\033[1;31m ANYA : \033[0mOkay, Anya must make sure she is ready!\n\n"
 		"\033[32m\t[Y]\033[0m Yes\t\t\t\t\033[31m[N]\033[0m No, view instructions\n\n >> "
 	);
 	
@@ -192,7 +192,7 @@ int startPhotoMini(int VENUE, int KEY, int *GUESS_MEMORY, int *AP) {
 	);
 	if(isFinish) {
 		printf(
-			"\033[1;31m ANYA : \033[0m Anya took super good photo! Heh-heh!\n\n"
+			"\033[1;31m ANYA : \033[0m Anya took a super good photo! Heh-heh!\n\n"
 			"\033[31m YOR : \033[0mOh my— that’s amazing, Anya! You're really talented!\n\n"
 			"\033[32m LOID : \033[0mImpressive work. You captured the moment perfectly.... well done, Anya\n\n"
 			" >> Guessed the special number perfectly!\n"
