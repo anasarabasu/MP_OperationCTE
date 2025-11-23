@@ -292,8 +292,90 @@ void dayBefore() {
 	printf(
 		"\n\033[1;30m BOND : \033[0mBorf!\n\n"
 		"\033[1;31m ANYA : \033[0mHehe! Bond thinks Anya will win too!\n"
-		"        Anya can feel it in his fluffy tail!\n"
+		"        Anya can feel it in his fluffy tail!"
 	);
+}
+
+
+/* A bit of fluff before the end */
+void momentOfTruth(int ENDING) {
+    char input[99];
+    printf(
+        "\n   Project submission & Assessment exam\n"
+        "\033[31m   Morning\n"
+        "\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" 
+        "\033[33m\t\t\t\t\t\t\t\t\t\t\tE  D  E  N    A  C  A  D  E  M  Y\n"
+		"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+		"\033[34m MR. HENDERSON : \033[0mStudents.... it is time\n"
+        "                 Please \033[33mSUBMIT\033[0m\ your collage with elegance\n\n"
+        "\033[1;30m [ TYPE SUBMIT ] \033[0m>> "
+    );
+
+    bool check = false;
+
+    do {
+        scanf("%s", &input);
+        if(strcasecmp(input, "submit") == 0) {
+            check = true;   
+            printf(
+                "\n\033[1;31m ANYA : \033[0mH-here Mr. Henderson!\n"
+                "        \033[0m(Anya feels.... %s)\n\n", 
+                getEndingThoughts(ENDING, 0)
+            );
+        }
+        else 
+            printf(
+                "\n\033[34m MR. HENDERSON : \033[0mAnya, please submit your work\n\n"
+                "\033[1;31m ANYA : \033[0mOh-oh! Sorry!\n"
+                " >> "
+            );
+    }
+    while(!check);
+    check = false;
+
+    printf(
+        "\033[34m MR. HENDERSON : \033[0m%s\n\n"
+        "\033[1;31m ANYA : \033[0m(Huh? W-what does he mean by that....?)\n", getEndingThoughts(ENDING, 3)
+    );
+
+    awaitInput();
+
+    printf(
+		"\n\033[34m MR. HENDERSON : \033[0mIt is now time to \033[33mBEGIN\033[0m the assessments\n                 I expect each of you to focus and perform to the best of your abilities\n\n"
+        " >> "
+    );
+
+    do {
+    scanf("%s", &input);
+    if(strcasecmp(input, "begin") == 0) {
+        check = true;   
+        printf(
+            "\n\033[1;31m ANYA : \033[0mO-kay.... Anya can do this!\n"
+            "        \033[0m(Anya feels.... %s)\n", 
+            getEndingThoughts(ENDING, 0)
+        );
+    }
+    else 
+        printf(
+            "\n\033[35m BECKY : \033[0mC'mon on Anya! You've got this!\n\n"
+            "\033[33m DAMIAN : \033[0mHmph… don't mess it up, Anya.\n\n"
+            "\033[1;31m ANYA : \033[0mOh-oh! Sorry!\n"
+            " >> "
+        );
+    }
+    while(!check);
+    check = false;
+
+    awaitInput();
+    printf(
+            "\n\033[35m BECKY : \033[0mSee you next time! Byeeee!\n\n"
+            "\033[1;31m ANYA : \033[0mHah! Everything's finally over!\n"
+            "        Maybe.... maybe Anya can get a Stella....?\n\n"
+            "\033[33m DAMIAN : \033[0mHmph… don't get too excited, Anya. The Stella isn't guaranteed\n\n"
+            "\033[1;31m ANYA : \033[0m....\n\n"
+            "\033[34m MR. HENDERSON : \033[0mVery well, students. Head home safely\n"
+            "                 The Stella results will be announced soon. Let's see who truly earns it\n"
+    );
 }
 
 
@@ -337,15 +419,21 @@ void theDayTM(int ENDING) {
         printf(
             "\n\033[34m MR. HENDERSON : \033[0m....That concludes the list of Stella awardees for this term\n\n"
             "\033[1;31m ANYA : \033[0mOh....Anya didn't get one....maybe next time....?\n"
-            "        But papa....?\n"
+            "        But papa....\n"
+            "        ....\n"
+            "\033[1;30m >>"
         );
+    getch();
+
+    printf("\n\033[1;31m ANYA : \033[0m....Time to go home....\n");
     
     //BAD
     if(ENDING == 3) {
-        awaitInput();
+        printf("\033[1;30m >>");
+        getch();
 
         printf(
-            "\033[34m MR. HENDERSON : \033[0mA moment of your time, Anya Forger\n\n"
+            "\n\033[34m MR. HENDERSON : \033[0mA moment of your time, Anya Forger\n\n"
             "\033[1;31m ANYA : \033[0mY-yes Nr. Henderson?\n"
             "        (Anya....Anya doesn't think this sounds good...)\n"
             "\033[1;30m >>"
@@ -367,4 +455,31 @@ void displayEnding(int ENDING) {
 		"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n",
         getEndingBanner(ENDING)
     );
+
+    switch(ENDING) {
+        case 1:
+            printf(
+                "\t\t\t\t\t\t\t\tGG!\n\n"
+                "\t\t\t\t\t\t\t\tBecause of your help, Anya got a Stella Star!\n\n"
+                "\t\t\t\t\t\t\t\tYou maxed out Anya's Math and PE skills\n"
+                "\t\t\t\t\t\t\t\tAnd got a perfect rating on all the venues!\n\n"
+            );
+            break;
+        case 2:
+            printf(
+                "\t\t\t\t\t\t\t\tYou did ok\n\n"
+                "\t\t\t\t\t\t\t\tYou managed to max out Anya's Math and PE skills\n"
+                "\t\t\t\t\t\t\t\tAnd managed to get a perfect on some of the venues\n\n"
+            );
+            break;
+        case 3:
+            printf(
+                "\t\t\t\t\t\t\t\tL\n\n"
+                "\t\t\t\t\t\t\t\tPoor Anya\n\n"
+                "\t\t\t\t\t\t\t\tAnya failed at Math and PE because you couldn't be bothered to level it up\n"
+                "\t\t\t\t\t\t\t\tAnya wasn't able to complete her probject because the photos she took were\n"
+                "\t\t\t\t\t\t\t\tnon-existent or just plain terrible\n\n"
+            );
+            break;
+    }
 }

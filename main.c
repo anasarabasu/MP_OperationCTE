@@ -59,7 +59,7 @@ int main() {
 
 	srand(time(NULL)); //i noticed that randomly generated numbers are the same across several runs, this should fix it
 
-    printf("Please set the window to full screen\nAnd the terminal colour scheme to One Half Dark ^^\n");
+    printf("Please set the window to full screen\nAdjust the zoom\nAnd the terminal colour scheme to One Half Dark ^^\n");
     wipeScreen();
 
     title();
