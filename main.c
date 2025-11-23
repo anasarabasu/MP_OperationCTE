@@ -28,12 +28,17 @@ ACKNOWLEDGEMENTS:
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <string.h>
 
 //this is here for cross compatibility testing because im on linux :)
 #if defined(_WIN32) || defined(_WIN64)
     #include <conio.h>
+    #define strcasecmp _stricmp
+    #define CLEAR_SCREEN() system("cls");
+#else 
+    #define getch getchar
+    #define CLEAR_SCREEN() system("clear");
 #endif
-
 
 #include "Tools/helpers.c"
 #include "Tools/art.c"
@@ -44,7 +49,6 @@ ACKNOWLEDGEMENTS:
 #include "Sections/math.c"
 #include "Sections/pe.c"
 #include "Sections/photo.c"
-#include "Sections/theEnd.c"
 
 #include "state.c"
 
@@ -55,11 +59,8 @@ int main() {
 
 	srand(time(NULL)); //i noticed that randomly generated numbers are the same across several runs, this should fix it
 
-	int ending;
-
-    title();
-    gameLoop(&ending);   
-    theEnd(ending);
+    // title();
+    gameLoop();   
 
     return 0;
 }

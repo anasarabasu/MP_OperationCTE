@@ -5,10 +5,104 @@ void title() {
 }
 
 
+/* A bit of fluff before the end */
+void momentOfTruth(int ENDING) {
+    char input[99];
+    printf(
+        "   Project submission & Assessment exam\n"
+        "\033[31m   Morning\n"
+        "\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" 
+        "\033[33m\t\t\t\t\t\t\t\t\t\t\tE  D  E  N    A  C  A  D  E  M  Y\n"
+		"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+		"\033[34m MR. HENDERSON : \033[0mStudents.... it is time\n"
+        "                 Please \033[33mSUBMIT\033[0m\ your collage with elegance\n\n"
+        "\033[30m [ TYPE SUBMIT ] \033[0m>> "
+    );
+
+    bool check = false;
+
+    do {
+        scanf("%s", &input);
+        if(strcasecmp(input, "submit") == 0) {
+            check = true;   
+            printf(
+                "\n\033[1;31m ANYA : \033[0mH-here Mr. Henderson!\n"
+                "        \033[0m(Anya feels.... %s)\n\n", 
+                getEndingThoughts(ENDING, 0)
+            );
+        }
+        else 
+            printf(
+                "\n\033[34m MR. HENDERSON : \033[0mAnya, please submit your work\n\n"
+                "\033[1;31m ANYA : \033[0mOh-oh! Sorry!\n"
+                " >> "
+            );
+    }
+    while(!check);
+    check = false;
+
+    printf(
+        "\033[34m MR. HENDERSON : \033[0m%s\n\n"
+        "\033[1;31m ANYA : \033[0m(Huh? W-what does he mean by that....?)\n", getEndingThoughts(ENDING, 3)
+    );
+
+    awaitInput();
+
+    printf(
+		"\n\033[34m MR. HENDERSON : \033[0mIt is now time to \033[33mBEGIN\033[0m the assessments\n                 I expect each of you to focus and perform to the best of your abilities\n\n"
+        " >> "
+    );
+
+    do {
+    scanf("%s", &input);
+    if(strcasecmp(input, "begin") == 0) {
+        check = true;   
+        printf(
+            "\n\033[1;31m ANYA : \033[0mO-kay.... Anya can do this!\n"
+            "        \033[0m(Anya feels.... %s)\n", 
+            getEndingThoughts(ENDING, 0)
+        );
+    }
+    else 
+        printf(
+            "\n\033[35m BECKY : \033[0mC'mon on Anya! You've got this!\n\n"
+            "\033[33m DAMIAN : \033[0mHmph… don't mess it up, Anya.\n\n"
+            "\033[1;31m ANYA : \033[0mOh-oh! Sorry!\n"
+            " >> "
+        );
+    }
+    while(!check);
+    check = false;
+
+    awaitInput();
+    printf(
+            "\n\033[1;31m ANYA : \033[0mHah! Everything's finally over!\n"
+            "        Maybe.... maybe Anya can get a Stella....?\n\n"
+            "\n\033[35m BECKY : \033[0mSee you tomorow! Byeeee!\n\n"
+            "\033[33m DAMIAN : \033[0mHmph… don't get too excited, Anya. The Stella isn't guaranteed\n\n"
+            "\033[1;31m ANYA : \033[0m....\n\n"
+            "\033[34m MR. HENDERSON : \033[0mVery well, students. Head home safely\n"
+            "                 The Stella results will be announced soon. Let's see who truly earns it\n"
+    );
+}
+
+
+/* the end */
+void theEnd(int ENDING) {
+	momentOfTruth(ENDING);
+    endDay(40, 0);
+
+    theDayTM(ENDING);
+    wipeScreen();
+
+    displayEnding(ENDING);
+}
+
+
 /* the core of the program 
 	@END pointer to the variable that will determine the ending
 */
-void gameLoop(int *END) {
+void gameLoop() {
     bool showIntro = true;
 
     int AP = 0;
@@ -61,7 +155,8 @@ void gameLoop(int *END) {
                         		venue,
                                 mthLVL, peLVL,
                                 BP_Damian, BP_Becky, BP_Henderson, BP_Bond,
-                                PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
+                                PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7,
+                                &day
 							);
 							printf("\033[1;31m ANYA : \033[0mAnya will.... %s\n", getActivity(action + 8));
 							
@@ -91,7 +186,7 @@ void gameLoop(int *END) {
 						}
                         case 2: { //venue selection
                         	if(day == 40) { //skip this because its already the last day lol
-								printf("Did you do well?");
+                                dayBefore();
 								day++; 
 							}
 							else {
@@ -104,11 +199,12 @@ void gameLoop(int *END) {
 	                                venue,
 	                                mthLVL, peLVL,
 	                                BP_Damian, BP_Becky, BP_Henderson, BP_Bond,
-	                                PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
+	                                PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7,
+                                    &day
 	                            );
 	                            printf("\033[1;31m ANYA : \033[0mAnya decided she wants to go to the.... %s!\n", getVenue(venue));
 							}
-                                                    //possible linux-specific bug? YES WTF
+                            //possible linux-specific bug? YES WTF
                             #if !defined(_WIN32) || !defined(_WIN64)
                                 getchar();
                             #endif
@@ -130,7 +226,8 @@ void gameLoop(int *END) {
                             venue,
                             mthLVL, peLVL,
                             BP_Damian, BP_Becky, BP_Henderson, BP_Bond,
-                            PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
+                            PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7,
+                            &day
                         );
                         printf("\033[1;31m ANYA : \033[0mAnya will.... %s!\n", getActivity(activity));
                         
@@ -159,7 +256,8 @@ void gameLoop(int *END) {
                             venue,
                             mthLVL, peLVL,
                             BP_Damian, BP_Becky, BP_Henderson, BP_Bond,
-                            PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
+                            PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7,
+                            &day
                         );
                         printf(
 							"\033[1;31m ANYA : \033[0m Anya will.... %s!\n",
@@ -207,15 +305,23 @@ void gameLoop(int *END) {
     }
     
     // ENDING CHECK
-    PH_1 = PH_1 % 4 == 0;
-    PH_2 = PH_2 % 4 == 0;
-    PH_3 = PH_3 % 4 == 0;
-    PH_4 = PH_4 % 4 == 0;
-    PH_5 = PH_5 % 4 == 0;
-    PH_6 = PH_6 % 4 == 0;
-    PH_2 = PH_7 % 4 == 0;
-    
-    if(PH_1 + PH_2 + PH_3 + PH_4 + PH_5 + PH_6 + PH_7 == 7) *END = 1;
-    else if(PH_1 + PH_2 + PH_3 + PH_4 + PH_5 + PH_6 + PH_7 >= 3 && mthLVL == 4 && peLVL == 4) *END = 0;
-    else *END = -1;
+    int venueTotal = ((PH_1 + 1) % 5 == 0) + ((PH_2 + 1) % 5 == 0) + ((PH_3 + 1) % 5 == 0) + ((PH_4 + 1) % 5 == 0) + ((PH_5 + 1) % 5 == 0) + ((PH_6 + 1) % 5 == 0) + ((PH_7 + 1) % 5 == 0);
+    int skillTotal = mthLVL == 4 && peLVL == 4;
+
+    int END;
+    if(venueTotal == 7 && skillTotal) END = 1;
+    else if(venueTotal >= 3 && skillTotal) END = 2;
+    else END = 3;
+
+    theEnd(END);
+
+    viewStats(
+        AP,
+        venue,
+        mthLVL, peLVL,
+        BP_Damian, BP_Becky, BP_Henderson, BP_Bond,
+        PH_1, PH_2, PH_3, PH_4, PH_5, PH_6, PH_7
+    );
+
+    getchar();
 }

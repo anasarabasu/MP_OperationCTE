@@ -30,7 +30,7 @@ char *mathQuestion(int OPERATION) {
 }
 
 
-/* to "even it out" because the rng prefers to pick mostly 3 digits :( */
+/* to "even it out" because the rng prefers to pick mostly 3 digits poor Anya :( */
 int balanceRange(int RANGE) {
 	return rng(RANGE % (int)pow(10, rng(3, 1)), 1);
 }
@@ -73,28 +73,28 @@ int startMathMini(int LVL) {
     int input;
     
     printf(
-		" \033[32m LOID : \033[0mAlright Anya, I'm going to ask you %d questions. Are you ready?\n"
-		"\t[Y] Yes\t\t\t\t[N] No, view instructions\n\n >> ",
+		" \033[32m LOID : \033[0mAlright Anya, I'm going to ask you %d questions. Are you ready?\n\n"
+		"\033[32m\t[Y] Yes\t\t\t\t\033[31m[N] No, view instructions\n\n >> ",
 		totalQuestions
 	);
 	
 	scanf(" %c", &input);
 	
 	if((char) tolower(input) == 'y')
-		printf(" \033[1;31m ANYA : \033[0m Yes! Anya will do her best papa!\n");
+		printf("\033[1;31m ANYA : \033[0m Yes! Anya will do her best papa!\n");
 	else if((char) tolower(input) == 'n') {
-		printf(" \033[1;31m ANYA : \033[0m Ummmm.... What will Anya do again? Hehe\n");
+		printf("\033[1;31m ANYA : \033[0m Ummmm.... What will Anya do again? Hehe\n");
 		displayInstructions(0);
-		printf(" \033[1;31m ANYA : \033[0m Yes! Anya will do her best papa!\n");
+		printf("\033[1;31m ANYA : \033[0m Yes! Anya will do her best papa!\n");
 	}
 	else {	
 		printf(
-			" \033[1;31m ANYA : \033[0m Uhhhh....?\n\n"
-			" \033[32m LOID : \033[0mHuh?\n"
-			" \033[32m LOID : \033[0mI’ll take it that you’re asking for instructions\n"
+			"\033[1;31m ANYA : \033[0m Uhhhh....?\n\n"
+			"\033[32m LOID : \033[0mHuh?\n"
+			"\033[32m LOID : \033[0mI’ll take it that you’re asking for instructions\n"
 		);
 		displayInstructions(0);
-		printf(" \033[1;31m ANYA : \033[0m Yes! Anya will do her best papa!\n");
+		printf("\033[1;31m ANYA : \033[0m Yes! Anya will do her best papa!\n");
 	} 
 	
 	awaitInput();
@@ -106,7 +106,7 @@ int startMathMini(int LVL) {
         
         printf(
 			"\n QUESTION %d\n\n"
-			" \033[32m LOID : \033[0m", 
+			"\033[32m LOID : \033[0m", 
 			questionIndex
 		);
         switch(operation) {   
@@ -138,16 +138,16 @@ int startMathMini(int LVL) {
 		while(scanf("%d", &input) != 1) { //user input is not a number
     		returnInvalid(); 
 
-			printf(" \033[32m LOID : \033[0mThat doesn't seem right let's try again\n \033[32m LOID : \033[0m");
+			printf("\033[32m LOID : \033[0mThat doesn't seem right let's try again\n \033[32m LOID : \033[0m");
 			printf(mathQuestion(operation), x, y);
     		printf("\n >> ");
 		}
 		
-    	printf("\n \033[32m LOID : \033[0m");
+    	printf("\n\033[32m LOID : \033[0m");
         if(input == answer) {
             printf(
 				"You're right!\n"
-				" \033[1;31m ANYA : \033[0m Anya is doing great at math!\n\n"
+				"\033[1;31m ANYA : \033[0m Anya is doing great at math!\n\n"
 			);
 			score++;
     	}
@@ -158,10 +158,10 @@ int startMathMini(int LVL) {
         else {
 			printf(
 				"Ah.... That's not correct Anya. The answer is actually %d\n"
-				" \033[1;31m ANYA : \033[0m Awww....\n\n", answer
+				"\033[1;31m ANYA : \033[0m Awww....\n\n", answer
 			);
 		}
-		printf("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+		printf("\033[1;30m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\033[0m\n");
     	questionIndex++;
     }
     while(questionIndex <= totalQuestions);

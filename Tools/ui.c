@@ -39,48 +39,36 @@ void introduction() { //henderson  talking about the exam and the project or som
     	"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
         "\033[34m MR. HENDERSON : \033[0mLadies and gentlemen of Edn Academy, your attention, if I may....\n"
 		"                 Each of you has been assigned an undertaking of considerabl educational value!\n\n"
-		"\033[1;31m ANYA : \033[0mUh oh! Fancy teacher word means big homework!\033[30m >> PRESS ANY KEY TO CONTINUE"
+		"\033[1;31m ANYA : \033[0mUh oh! Fancy teacher word means big homework!\n"
+        "\033[30m        >> PRESS ANY KEY TO CONTINUE"
 	);
-    #if defined(_WIN32) || defined(_WIN64) //this is annoying....
-	    getch();
-    #else 
-        getchar();
-    #endif
+    getch();
 
-	printf(
+    printf(
 		"\033[34m\n\n MR. HENDERSON : \033[0mYou are to create a photo college, one that captures meaningful moments spent among your perers and respective communities\n"
 		"                 This collage must demonstrate the elegance befitting stuents of our esteemed insitution\n\n"
-		"\033[1;31m ANYA : \033[0mElegance....?\033[30m >>"
+		"\033[1;31m ANYA : \033[0mEle-elegance....?\n"
+        "\033[30m        >>"
 	);
-    #if defined(_WIN32) || defined(_WIN64)
-	    getch();
-    #else 
-        getchar();
-    #endif
+    getch();
 
 	printf(
 		"\033[34m\n\n MR. HENDERSON : \033[0mIn addition....\n"
 		"                 I must remind you of the upcoming series of assessments, evaluating both your mathematical prowess\n"
 		"                 and physical capabilities\n\n"
-		"\033[1;31m ANYA : \033[0mMath AND Exercise!? This is double scary!\033[30m >>"
+		"\033[1;31m ANYA : \033[0mMath AND Exercise!? This is double scary!\n"
+        "\033[30m        >>"
 	);
-    #if defined(_WIN32) || defined(_WIN64)
-	    getch();
-    #else 
-        getchar();
-    #endif
+    getch();
 
 	printf(
 		"\033[34m\n\n MR. HENDERSON : \033[0mYour performance in these examinations, combined with the quality of your collage, will determine which among you\n"
 		"                 shall be deemed worthy of receiving a Stella Star\n\n"
 		"\033[1;31m ANYA : \033[0m....But Stella Star means papa happy!\n"
-		"        So Anya must! Try very! very! Hard!\033[30m >>"
+		"        So Anya must! Try very! very! Hard!\n"
+        "\033[30m        >>"
 	);
-    #if defined(_WIN32) || defined(_WIN64)
-	    getch();
-    #else 
-        getchar();
-    #endif
+    getch();
 
 	printf(
 		"\033[34m\n\n MR. HENDERSON : \033[0mYou are allotted precisely 40 days to complete this project\n"
@@ -88,6 +76,7 @@ void introduction() { //henderson  talking about the exam and the project or som
 		"                 Elegance\n\n"
 		"\033[1;31m ANYA : \033[0mForty days.... Okay!\n"
 		"        Anya will make the most elegant collage ever!\n"
+        "        And! Pass the exams!\n"
     );
 
     wipeScreen();
@@ -170,7 +159,7 @@ void displayOutingVenueSelection(int DAMIAN, int BECKY, int HENDERSON, int BOND)
         "\033[1;31m ANYA : \033[0mUhhhh.... Ummmm....\n\n"
         "\033[31m YOR : \033[0mThese are some places that seem good to go to....\n\n"
         "\033[1;30m BOND : \033[0mBorf!\n\n"
-		"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+		"\033[1;30m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\033[0m\n\n"
 		"\033[1;31m ANYA : \033[0mHmmmm.... where should Anya go?\n\n"
 		"\033[36m\t[0] \033[0mView Stats\n"
         "\033[33m\t[1] \033[0mPark\t\t\t"
@@ -192,15 +181,15 @@ void displayMorningSelection() {
 	printf(
 		"\033[33m\t\t\t\t\t\t\t\t\t\t\tE  D  E  N    A  C  A  D  E  M  Y\n"
 		"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
-		" %s\n\n"		
-		"-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"		
+		"%s\n\n"		
+		"\033[1;30m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\033[0m\n\n"
 		"\033[1;31m ANYA : \033[0mUhhhh.... What should Anya do?\n\n"
 		"\033[36m\t[0] \033[0mView Stats\n"
 	    "\033[33m\t[1] \033[0mAnnoy Damian\t\t"
 	    "\033[33m\t[2] \033[0mPlay with Becky\t\t"
 	    "\033[33m\t[3] \033[0mTalk to Mr. Henderson\t\t"
 	    "\033[33m\t[4] \033[0mGo home\n\n",
-	    getSelectionMessage(1)
+	    getSelectionMessage(0)
 	);	
 }
 
@@ -213,8 +202,8 @@ void displayAfternoonSelection() {
         "\033[31m YOR : \033[0mWelcome back, Anya! Were you safe today? No injuries? No suspicious people following you?\n\n"
         "\033[32m LOID : \033[0mWelcome home. How was school? Did anything.... noteworthy happen?\n\n"
         "\033[1;31m ANYA : \033[0mAh.... Finally home! Couch!\n\n"
-        " %s\n\n"
-	    "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+        "%s\n\n"
+		"\033[1;30m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\033[0m\n\n"
 		"\033[1;31m ANYA : \033[0mHmmmm.... What should Anya do?\n\n"
 		"\033[36m\t[0] \033[0mView Stats\n"
         "\033[33m\t[1] \033[0mStudy with Loid\t\t"
@@ -273,4 +262,109 @@ void displayInstructions(int INDEX) {
 			);
 			break;
 	}
+}
+
+
+/* A bit of fluff before the end */
+void dayBefore() {
+    printf(
+		"\n\033[1;31m ANYA : \033[0mAh! Home!\n"
+		"\033[30m        >>"
+		);
+    getch();
+
+	printf(
+		"\n\033[32m LOID : \033[0mTomorrow is the deadline.... I hope Anya feels confident about her results\n\n"
+		"\033[1;31m ANYA : \033[0mEhehe.... A-anya tried super duper hard! Should be fine!\n"
+		"        Probably!\n"
+		"\033[30m        >>"
+		);
+        getch();
+
+		printf(
+		"\n\033[31m YOR : \033[0mAnya.... I'm so proud of you! No matter what the results say!\n\n"
+		"\033[1;31m ANYA : \033[0mMama....! Anya will do her best!\n"
+		"        Papa and mama believing in Anya makes her power go up!\n"
+		"\033[30m        >>"
+		);
+    getch();
+
+	printf(
+		"\n\033[30m BOND : \033[0mBorf!\n\n"
+		"\033[1;31m ANYA : \033[0mHehe! Bond thinks Anya will win too!\n"
+		"        Anya can feel it in his fluffy tail!"
+	);
+}
+
+
+/* more ending fluff*/
+void theDayTM(int ENDING) {
+    printf(
+        "   Release of Results\n"
+        "\033[31m   Morning\n"
+        "\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" 
+        "\033[33m\t\t\t\t\t\t\t\t\t\t\tE  D  E  N    A  C  A  D  E  M  Y\n"
+		"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
+		"\033[1;31m ANYA : \033[0mTodays the day!\n"
+        "\033[30m >>"
+    );
+    getch();
+
+    printf(
+        "\n\033[34m MR. HENDERSON : \033[0mStudents. It is time to announce the recipients of the Stella Star\n"
+        "                 \033[0mThe first Stella goes to....\n\n"
+		"\033[1;31m ANYA : \033[0mAnya is so nervous.... will Anya get one?\n"
+        "\033[30m >>"
+    );
+    getch();
+
+    printf(
+        "\n\033[34m MR. HENDERSON : \033[0m....is awarded a Stella for his outstanding....\n\n"
+		"\033[1;31m ANYA : \033[0mAnya doesn't want to disappoint papa....\n"
+        "\033[30m >>"
+        );
+    getch();
+
+    //PERFECT
+    if(ENDING == 1)
+        printf(
+            "\n\033[34m MR. HENDERSON : \033[0mAnd finally....\n"
+            "                 The last Stella Star goes to Anya Forger in recognition of her remarkable collage and assessment results\n\n"
+            "\033[1;31m ANYA : \033[0mEeee! Anya got a Stella…! Wow!\n"
+        );
+    else 
+        //NEUTRAL + beginning of BAD
+        printf(
+            "\n\033[34m MR. HENDERSON : \033[0m....That concludes the list of Stella awardees for this term\n\n"
+            "\033[1;31m ANYA : \033[0mOh....Anya didn't get one....maybe next time....?\n"
+            "        But papa....?\n"
+        );
+    
+    //BAD
+    if(ENDING == 3) {
+        awaitInput();
+
+        printf(
+            "\033[34m MR. HENDERSON : \033[0mA moment of your time, Anya Forger\n\n"
+            "\033[1;31m ANYA : \033[0mY-yes Nr. Henderson?\n"
+            "        (Anya....Anya doesn't think this sounds good...)\n"
+            "\033[30m >>"
+        );
+        getch();
+
+        printf(
+            "\n\033[34m MR. HENDERSON : \033[0mI regret to inform you that you have been issued a Tonitrus Bolt\n\n"
+            "\033[1;31m ANYA : \033[0mUh-oh....\n"
+        );
+    }
+}
+
+/* ending display */
+void displayEnding(int ENDING) {
+    printf(
+		"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
+        "%s"
+		"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n",
+        getEndingBanner(ENDING)
+    );
 }

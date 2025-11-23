@@ -1,15 +1,7 @@
 /* waits for key press before proceeding */
 void awaitInput() {
     printf("\n\033[30m------------------------------------------------------------------------------------------> \033[33mPRESS ANY KEY TO CONTINUE\033[30m <------------------------------------------------------------------------------------------\033[0m \n");
-    
-    //this is here for cross compatibility testing because im on linux :)
-    #if defined(_WIN32) || defined(_WIN64)
-		getch();
-    
-	#else
-		getchar();
-	
-	#endif
+	getch();
 }
 
 
@@ -17,16 +9,8 @@ void awaitInput() {
 void wipeScreen() {
     printf("\n\033[1;30m------------------------------------------------------------------------------------------> \033[33mPRESS ANY KEY TO CONTINUE\033[1;30m <------------------------------------------------------------------------------------------\033[0m \n");
     
-    //this is here for cross compatibility testing because im on linux :)
-    #if defined(_WIN32) || defined(_WIN64)
-		getch();
-		system("cls");
-    
-	#else
-		getchar();
-		system("clear");
-	
-	#endif
+	getch();
+	CLEAR_SCREEN();
 }
 
 
@@ -35,14 +19,7 @@ void endDay(int DAY, int *AP) {
 	printf("\n\033[1;30m------------------------------------------------------------------------------------------> \033[33mPRESS ANY KEY TO CONTINUE\033[1;30m <------------------------------------------------------------------------------------------\033[0m \n");
    
    
-    //this is here for cross compatibility testing because im on linux :)
-    #if defined(_WIN32) || defined(_WIN64)
-		getch();
-    
-	#else
-		getchar();
-	
-	#endif
+	getch();
 	
 	printf("[ DAY END ]");
 	
@@ -85,7 +62,7 @@ void returnInvalid() {
     scanf("%*[^\n]"); 
     getchar();
     
-    printf(" \033[1;31m ANYA : \033[0m ");
+    printf(" \033[1;31mANYA : \033[0m ");
     switch(rng(4, 0)) {
         case 0:
             printf("Huuuuh?");
@@ -184,12 +161,12 @@ char *getSelectionMessage(int INDEX) {
 		//1
 		case 0: return "\033[32m LOID : \033[0mAnya, remember to behave properly at school today\n\n \033[1;31m ANYA : \033[0m Okay! Anya will do her best.... probably";
 		case 1: return "\033[31m YOR : \033[0mGood luck, Anya! I hope you have a safe and peaceful day!\n\n \033[1;31m ANYA : \033[0m Mama, Anya will survive!";
-		case 2: return "\033[1;30m BOND : \033[0mBorf!\n\n \033[1;31m ANYA : \033[0m Bond can’t come to school, but Anya will tell him everything later!";
+		case 2: return "\033[1;30m BOND : \033[0mBorf!\n\n\033[1;31m ANYA : \033[0m Bond can't come to school, but Anya will tell him everything later!";
 		
 		//2
-		case 3: return "\033[1;30mBOND : \033[0mBorf!";
-		case 4: return "\033[31mYOR : \033[0mW-wait, Anya! Maybe.... not at a full sprint toward the couch? You might get hurt!";
-		case 5: return "\033[32mLOID : \033[0mMaybe.... slow down a little?";
+		case 3: return "\033[1;30m BOND : \033[0mBorf!";
+		case 4: return "\033[31m YOR : \033[0mW-wait, Anya! Maybe.... not at a full sprint toward the couch? You might get hurt!";
+		case 5: return "\033[32m LOID : \033[0mMaybe.... slow down a little?";
 
 		default:  return 0;
 	}
@@ -228,7 +205,7 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 	//fail
 	if(percent < 60) {
 		(*AP)--;
-		printf(" [ +0 EXP ] [ -1 AP ]\n\n");
+		printf(" [ +0 EXP ]\033[31m [ -1 AP ]\n\n");
 
 		//math
 		if(SKILL == 0)
@@ -248,7 +225,7 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 	else if(percent < 80) {
 		(*EXP)++;
 		(*AP)--;
-		printf(" [ +1 EXP ] [ -1 AP ]\n\n");
+		printf("\033[33m [ +1 EXP ]\033[31m [ -1 AP ]\n\n");
 
 		//math
 		if(SKILL == 0)
@@ -272,7 +249,7 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 	else if(percent < 100) {
 		*EXP += 2;
 		(*AP)--;
-		printf(" [ +2 EXP ] [ -1 AP ]\n\n");
+		printf("\033[33m [ +2 EXP ]\033[31m [ -1 AP ]\n\n");
 
 		//math
 		if(SKILL == 0) printf(" \033[32m LOID : \033[0mGood job Anya! You did well!\n");
@@ -288,7 +265,7 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 		if(*EXP >= 30) { //equivalent to max math level
 			if (rng(100, 0) < 60) {
 				*AP += 2;
-				printf(" [ MAX LEVEL ] [ +2 AP BONUS ]\n\n");
+				printf("\033[33m [ MAX LEVEL ]\033[32m [ +2 AP BONUS ]\n\n");
 				
 				//math
 				if(SKILL == 0) printf(" \033[32m LOID : \033[0mWell done, Anya! You've mastered math!\n");
@@ -302,11 +279,11 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 			*EXP += 3;
 			if(rng(100, 0) < 50) { //ap consumption chance
 				(*AP)--;
-				printf(" [ +3 EXP ] [ +1 AP BONUS ]\n\n");
+				printf("\033[33m [ +3 EXP ]\033[32m [ +1 AP BONUS ]\n\n");
 			}
 			else {
 				(*AP)++;
-				printf(" [ +3 EXP ] [ -1 AP ]\n\n");
+				printf("\033[33m [ +3 EXP ]\033[31m [ -1 AP ]\n\n");
 			}
 			//math
 			if(SKILL == 0) printf(" \033[32m LOID : \033[0mWell done Anya! You got everything correct!\n");
@@ -336,7 +313,7 @@ void levelUp(int *LVL, int EXP) {
 	else if(EXP < 15) {
 		if(*LVL == 1) {
 			printf(
-				" [ LEVEL UP ]\n"
+				"\033[34m [ LEVEL UP ]\n"
 				" >> Anya's is now level 2!\n"
 			);
 			*LVL = 2;
@@ -366,4 +343,31 @@ void levelUp(int *LVL, int EXP) {
 	}
 		
 	printf("\n");
+}
+
+
+char *getEndingThoughts(int INDEX, int CHAR) {
+	switch(INDEX + CHAR) {
+		//anya
+		case 1: return "Confident! Yay!";
+		case 2: return "Okay....? Maybe?";
+		case 3: return "S-scared.... Ehehe";
+
+		//henderson
+		case 4: return "Not bad.... let's see how it turns out";
+		case 5: return "Hm.... quite something, I suppose";
+		case 6: return "Hmmmm.... we'll have to think about this";
+		
+		default: return 0;
+	}
+}
+
+
+char *getEndingBanner(int INDEX) {
+	switch(INDEX) {
+		case 1: return "\033[32m\t\t\t\t\t\t\t\t\t\t     P  E  R  F  E  C  T    E  N  D  I  N  G\n";
+		case 2: return "\033[33m\t\t\t\t\t\t\t\t\t\t\t    O  K     E  N  D  I  N  G\n";
+		case 3: return "\033[31m\t\t\t\t\t\t\t\t\t\t\t   B  A  D    E  N  D  I  N  G\n";
+		default: return 0;
+	}
 }

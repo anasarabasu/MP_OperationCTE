@@ -1,25 +1,58 @@
 /* RETURN the bonding tip string based on the INDEX */
-char *bondingTip(bool SUCCEED, int INDEX) {
+char *bondingTip(bool SUCCEED, int INDEX, int LVL) {
     if(SUCCEED) 
         switch(INDEX) {
             case 1:
-                return " \033[32m DAMIAN : \033[0m Hmph.... not bad. You actually managed to keep up\n        I suppose I can tolerate your efforts a little more\n\n\033[1;31mm ANYA : \033[0mHehe! Take that, Sy-on-boy! Don't get too proud!";
+                return 
+                    "\033[32m DAMIAN : \033[0m Hmph.... not bad. You actually managed to keep up\n"
+                    "          I suppose I can tolerate your efforts a little more\n\n"
+                    "\033[1;31mm ANYA : \033[0mHehe! Take that, Sy-on-boy! Don't get too proud!";
             case 2:
-                return "\033[35m BECKY : \033[0mAhaha! That was so much fun! Let's do this again sometime!\n\n\033[1;31m ANYA : \033[0m Yosh! Let's play again next time!";
+                return 
+                    "\033[35m BECKY : \033[0mAhaha! That was so much fun! Let's do this again sometime!\n\n"
+                    "\033[1;31m ANYA : \033[0mYosh! Let's play again next time!";
             case 3:
-                return "\033[34m MR. HENDERSON : \033[0mExcellent work! Your performance shows considerable refinement\n             Truly admirable\n\n\033[1;31m ANYA : \033[0m Yahooo! That was fun, even if he said boring stuff....";
+                return 
+                    "\033[34m MR. HENDERSON : \033[0mExcellent work! Your performance shows considerable refinement\n"
+                    "                 Truly admirable\n\n"
+                    "\033[1;31m ANYA : \033[0mYahooo! That was fun, even if he said boring stuff....";
             case 4:
-                return "\033[1;30m BOND : \033[0mBorf! *wags tail*\n\n\033[31m YOR: \033[0mHmmm... Bond seems very pleased! Maybe miss Anya can try again later and keep this up!\n\n\033[1;31m ANYA : \033[0m Hehe! Bond likes me mama!";
+                return 
+                    "\033[1;30m BOND : \033[0mBorf! *wags tail*\n\n"
+                    "\033[31m YOR: \033[0mHmmm... Bond seems very pleased! Maybe miss Anya can try again later and keep this up!\n\n"
+                    "\033[1;31m ANYA : \033[0m Hehe! Bond likes me mama!";
             default: return 0;
         }
     else
         switch(INDEX) {
             case 1:
-                return "\033[33m DAMIAN : \033[0mHmph.... you might want to focus on improving your PE skills first\n          Do try to keep up\n\n\033[1;31m ANYA : \033[0m Huuhh! Meanie! Does Sy-on boy wanna get punched again?";
+                if(LVL == 4)
+                    return
+                        "\033[33m DAMIAN : \033[0mHmmmm.... today doesnt seem like the right time for this. Try again later\n"
+                        "\033[30m          (Not really in the mood for this today....)\n\n"
+                        "\033[1;31m ANYA : \033[0mHuuhh! Meanie! Does Sy-on boy wanna get punched again?";
+                else return
+                        "\033[33m DAMIAN : \033[0mHmm.... today doesnt seem like the right time for this. Try again later\n"
+                        "\033[30m          (Hmph.... you might want to focus on improving your PE skills first)\n\n"
+                        "\033[1;31m ANYA : \033[0m Huuhh! Meanie! Does Sy-on boy wanna get punched again?";
             case 2:
-                return "\033[35m BECKY : \033[0mHehe! Sorry, I'm not quite up for it right now.... \n         But let's try this again soon!\n\n\033[1;31m ANYA : \033[0m Okay.... Next time we'll make it super fun!";
+                return 
+                    "\033[35m BECKY : \033[0mHehe! This was a bit fun!.... \n"
+                    "         Let's try this again soon!\n"
+                    "\033[30m         (I'm not really fealling it right now....)\n\n"
+                    "\033[1;31m ANYA : \033[0m Okay.... Next time we'll make it super fun!";
             case 3:
-                return "\033[34m MR. HENDERSON : \033[0mMy, perhaps honing your math skills would be a most prudent endeavor before progressing further\n\n\033[1;31m ANYA : \033[0m I don't wanna go to school anymore....";
+                if(LVL == 4)
+                    return  
+                        "\033[34m MR. HENDERSON : \033[0mA most commendable effort, but there is room for improvement\n"
+                        "                 You should strive to sharpen your skills before the next lesson\n"
+                        "\033[30m                 (Not quite the right day for this… perhaps another attempt will be better)\n\n"
+                        "\033[1;31m ANYA : \033[0m Anya doesn't don't wanna go to school anymore....";
+                else return
+                        "\033[34m MR. HENDERSON : \033[0mA most commendable effort, but there is room for improvement\n"
+                        "                 You should strive to sharpen your skills before the next lesson\n"
+                        "\033[30m                 (My, perhaps honing your math skills would be a most prudent endeavor before progressing further)\n\n"
+                        "\033[1;31m ANYA : \033[0m Anya doesn't wanna go to school anymore....";
             default: return 0;
         }
 }
@@ -70,7 +103,7 @@ void gainBP(int CHOICE, int LVL, int CHANCE, int *BP, int *AP) {
                 "\n >> Anya and %s grew a slighty more closer today!\n"
                 "\033[31m [ -1 AP ]\033[32m [ +1 BP ]\n\n"
                 "%s\n",
-                getName(CHOICE), bondingTip(true, CHOICE)
+                getName(CHOICE), bondingTip(true, CHOICE, LVL)
             );
             (*BP)++;
         }
@@ -79,7 +112,7 @@ void gainBP(int CHOICE, int LVL, int CHANCE, int *BP, int *AP) {
                 "\n >> Anya and %s spent time together, nothing much happened though....\n"
                 "\033[31m [ -1 AP ]\033[1;30m [ -0 BP ]\n\n"
                 "%s\n",
-                getName(CHOICE), bondingTip(false, CHOICE)
+                getName(CHOICE), bondingTip(false, CHOICE, LVL)
             );
 		}
         (*AP)--;

@@ -46,7 +46,7 @@ bool checkAP(int INPUT, int MAX, int AP) {
 
 /* displays message for low AP */
 void lowAP() {
-    printf(" \033[1;31m ANYA : \033[0m ");
+    printf(" \033[1;31mANYA : \033[0m ");
     switch(rng(4, 0)) {
         case 0:
             printf("Anya wants to sleep!");
@@ -89,7 +89,8 @@ int checkSelection(
 		int VENUE,
 		int MATH, int PE,
 		int DAMIAN, int BECKY, int HENDERSON, int BOND, 
-	    int PH_1, int PH_2, int PH_3, int PH_4, int PH_5, int PH_6, int PH_7) {
+	    int PH_1, int PH_2, int PH_3, int PH_4, int PH_5, int PH_6, int PH_7,
+		int *FAST_FORWARD) {
 	int input;
 	do {
 		printf(" >> ");
@@ -97,6 +98,10 @@ int checkSelection(
 		//not a number
 		if(scanf(" %d", &input) != 1) returnInvalid();
 			
+		//i dont have time for this
+		else if(input == 464646)
+			*FAST_FORWARD = 35;
+
 		//number but not in range
 		else if(input < 0 || input > MAX) returnInvalid();
 
