@@ -40,7 +40,7 @@ void introduction() { //henderson  talking about the exam and the project or som
         "\033[34m MR. HENDERSON : \033[0mLadies and gentlemen of Eden Academy, your attention, if I may....\n"
 		"                 Each of you has been assigned an undertaking of considerabl educational value!\n\n"
 		"\033[1;31m ANYA : \033[0mUh oh! Fancy teacher word means big homework!\n"
-        "\033[30m        >> PRESS ANY KEY TO CONTINUE"
+        "\033[1;30m >> PRESS ANY KEY TO CONTINUE"
 	);
     getch();
 
@@ -48,7 +48,7 @@ void introduction() { //henderson  talking about the exam and the project or som
 		"\033[34m\n\n MR. HENDERSON : \033[0mYou are to create a photo college, one that captures meaningful moments spent among your perers and respective communities\n"
 		"                 This collage must demonstrate the elegance befitting stuents of our esteemed insitution\n\n"
 		"\033[1;31m ANYA : \033[0mEle-elegance....?\n"
-        "\033[30m        >>"
+        "\033[1;30m >>"
 	);
     getch();
 
@@ -57,7 +57,7 @@ void introduction() { //henderson  talking about the exam and the project or som
 		"                 I must remind you of the upcoming series of assessments, evaluating both your mathematical prowess\n"
 		"                 and physical capabilities\n\n"
 		"\033[1;31m ANYA : \033[0mMath AND Exercise!? This is double scary!\n"
-        "\033[30m        >>"
+        "\033[1;30m >>"
 	);
     getch();
 
@@ -66,7 +66,7 @@ void introduction() { //henderson  talking about the exam and the project or som
 		"                 shall be deemed worthy of receiving a Stella Star\n\n"
 		"\033[1;31m ANYA : \033[0m....But Stella Star means papa happy!\n"
 		"        So Anya must! Try very! very! Hard!\n"
-        "\033[30m        >>"
+        "\033[1;30m >>"
 	);
     getch();
 
@@ -269,7 +269,7 @@ void displayInstructions(int INDEX) {
 void dayBefore() {
     printf(
 		"\n\033[1;31m ANYA : \033[0mAh! Home!\n"
-		"\033[30m        >>"
+		"\033[1;30m        >>"
 		);
     getch();
 
@@ -277,7 +277,7 @@ void dayBefore() {
 		"\n\033[32m LOID : \033[0mTomorrow is the deadline.... I hope Anya feels confident about her results\n\n"
 		"\033[1;31m ANYA : \033[0mEhehe.... A-anya tried super duper hard! Should be fine!\n"
 		"        Probably!\n"
-		"\033[30m        >>"
+		"\033[1;30m        >>"
 		);
         getch();
 
@@ -285,12 +285,12 @@ void dayBefore() {
 		"\n\033[31m YOR : \033[0mAnya.... I'm so proud of you! No matter what the results say!\n\n"
 		"\033[1;31m ANYA : \033[0mMama....! Anya will do her best!\n"
 		"        Papa and mama believing in Anya makes her power go up!\n"
-		"\033[30m        >>"
+		"\033[1;30m        >>"
 		);
     getch();
 
 	printf(
-		"\n\033[30m BOND : \033[0mBorf!\n\n"
+		"\n\033[1;30m BOND : \033[0mBorf!\n\n"
 		"\033[1;31m ANYA : \033[0mHehe! Bond thinks Anya will win too!\n"
 		"        Anya can feel it in his fluffy tail!\n"
 	);
@@ -306,7 +306,7 @@ void theDayTM(int ENDING) {
         "\033[33m\t\t\t\t\t\t\t\t\t\t\tE  D  E  N    A  C  A  D  E  M  Y\n"
 		"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
 		"\033[1;31m ANYA : \033[0mTodays the day!\n"
-        "\033[30m >>"
+        "\033[1;30m >>"
     );
     getch();
 
@@ -314,14 +314,14 @@ void theDayTM(int ENDING) {
         "\n\033[34m MR. HENDERSON : \033[0mStudents. It is time to announce the recipients of the Stella Star\n"
         "                 \033[0mThe first Stella goes to....\n\n"
 		"\033[1;31m ANYA : \033[0mAnya is so nervous.... will Anya get one?\n"
-        "\033[30m >>"
+        "\033[1;30m >>"
     );
     getch();
 
     printf(
         "\n\033[34m MR. HENDERSON : \033[0m....is awarded a Stella for his outstanding....\n\n"
 		"\033[1;31m ANYA : \033[0mAnya doesn't want to disappoint papa....\n"
-        "\033[30m >>"
+        "\033[1;30m >>"
         );
     getch();
 
@@ -348,7 +348,7 @@ void theDayTM(int ENDING) {
             "\033[34m MR. HENDERSON : \033[0mA moment of your time, Anya Forger\n\n"
             "\033[1;31m ANYA : \033[0mY-yes Nr. Henderson?\n"
             "        (Anya....Anya doesn't think this sounds good...)\n"
-            "\033[30m >>"
+            "\033[1;30m >>"
         );
         getch();
 

@@ -1,6 +1,6 @@
 /* waits for key press before proceeding */
 void awaitInput() {
-    printf("\n\033[30m------------------------------------------------------------------------------------------> \033[33mPRESS ANY KEY TO CONTINUE\033[30m <------------------------------------------------------------------------------------------\033[0m \n");
+    printf("\n\033[1;30m------------------------------------------------------------------------------------------> \033[33mPRESS ANY KEY TO CONTINUE\033[1;30m <------------------------------------------------------------------------------------------\033[0m \n");
 	getch();
 }
 
@@ -300,7 +300,7 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 			if(SKILL == 0) printf("\033[32m LOID : \033[0mWell done Anya! You got everything correct!\n");
 			
 			//pe
-			else printf("\033[31m  YOR: Wow! Miss Anya got everything right!\n");
+			else printf("\033[31m  YOR: \033[0m\Wow! Miss Anya got everything right!\n");
 			
 			printf("\033[1;31m ANYA : \033[0m Yahoo!\n");
 		}
@@ -324,7 +324,7 @@ void levelUp(int *LVL, int EXP) {
 	else if(EXP < 15) {
 		if(*LVL == 1) {
 			printf(
-				"\033[34m [ LEVEL UP ]\n"
+				"\033[34m [ LEVEL UP ]\033[0m\n"
 				" >> Anya's is now level 2!\n"
 			);
 			*LVL = 2;
@@ -336,7 +336,7 @@ void levelUp(int *LVL, int EXP) {
 	else if(EXP < 30) {
 		if(*LVL == 2) {
 			printf(
-				" [ LEVEL UP ]\n"
+				"\033[34m [ LEVEL UP ]\033[0m\n"
 				" >> Anya's is now level 3!\n"
 			);
 			*LVL = 3;
@@ -347,7 +347,7 @@ void levelUp(int *LVL, int EXP) {
 	//lvl max
 	else if(EXP >= 30) {
 		if(*LVL == 3) {
-			printf(" [ LEVEL UP ]\n");
+			printf("\033[34m [ LEVEL UP ]\033[0m\n");
 			*LVL = 4; 
 		}
 		printf(" >> Anya has reached the max level!");

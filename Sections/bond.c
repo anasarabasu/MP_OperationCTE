@@ -29,29 +29,29 @@ char *bondingTip(bool SUCCEED, int INDEX, int LVL) {
                 if(LVL == 4)
                     return
                         "\033[33m DAMIAN : \033[0mHmmmm.... today doesnt seem like the right time for this. Try again later\n"
-                        "\033[30m          (Not really in the mood for this today....)\n\n"
+                        "\033[1;30m          (Not really in the mood for this today....)\n\n"
                         "\033[1;31m ANYA : \033[0mHuuhh! Meanie! Does Sy-on boy wanna get punched again?";
                 else return
                         "\033[33m DAMIAN : \033[0mHmm.... today doesnt seem like the right time for this. Try again later\n"
-                        "\033[30m          (Hmph.... you might want to focus on improving your PE skills first)\n\n"
+                        "\033[1;30m          (Hmph.... you might want to focus on improving your PE skills first)\n\n"
                         "\033[1;31m ANYA : \033[0m Huuhh! Meanie! Does Sy-on boy wanna get punched again?";
             case 2:
                 return 
                     "\033[35m BECKY : \033[0mHehe! This was a bit fun!.... \n"
                     "         Let's try this again soon!\n"
-                    "\033[30m         (I'm not really fealling it right now....)\n\n"
+                    "\033[1;30m         (I'm not really fealling it right now....)\n\n"
                     "\033[1;31m ANYA : \033[0m Okay.... Next time we'll make it super fun!";
             case 3:
                 if(LVL == 4)
                     return  
                         "\033[34m MR. HENDERSON : \033[0mA most commendable effort, but there is room for improvement\n"
                         "                 You should strive to sharpen your skills before the next lesson\n"
-                        "\033[30m                 (Not quite the right day for this… perhaps another attempt will be better)\n\n"
+                        "\033[1;30m                 (Not quite the right day for this… perhaps another attempt will be better)\n\n"
                         "\033[1;31m ANYA : \033[0m Anya doesn't don't wanna go to school anymore....";
                 else return
                         "\033[34m MR. HENDERSON : \033[0mA most commendable effort, but there is room for improvement\n"
                         "                 You should strive to sharpen your skills before the next lesson\n"
-                        "\033[30m                 (My, perhaps honing your math skills would be a most prudent endeavor before progressing further)\n\n"
+                        "\033[1;30m                 (My, perhaps honing your math skills would be a most prudent endeavor before progressing further)\n\n"
                         "\033[1;31m ANYA : \033[0m Anya doesn't wanna go to school anymore....";
             default: return 0;
         }
@@ -88,7 +88,7 @@ char *maxBondMessage(int INDEX) {
     @AP - pointer to the current AP
 */
 void gainBP(int CHOICE, int LVL, int CHANCE, int *BP, int *AP) {
-    printf("\033[30m\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\033[0m\n");
+    printf("\033[1;30m\n-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\033[0m\n");
 
     int random = rng(100, 0);
     
@@ -133,7 +133,7 @@ void gainBP(int CHOICE, int LVL, int CHANCE, int *BP, int *AP) {
     else { 
         if (rng(100, 0) < 50) { 
             printf(
-                "\033[30m\n >> Bonding with %s made Anya a little more motivated for the day!\n"
+                "\033[1;30m\n >> Bonding with %s made Anya a little more motivated for the day!\n"
                 "\033[32m [ +2 AP BONUS ] \033[1;30m[ MAX BP ]\n",
                 getName(CHOICE)
             );
@@ -141,7 +141,7 @@ void gainBP(int CHOICE, int LVL, int CHANCE, int *BP, int *AP) {
         }
         else {
             printf(
-                "\033[30m\n >> Anya and %s spent time together, nothing much happened though\n"
+                "\033[1;30m\n >> Anya and %s spent time together, nothing much happened though\n"
                 "\033[31m [ -1 AP ] \033[1;30m[ MAX BP ]\n",
                 getName(CHOICE)
             );
