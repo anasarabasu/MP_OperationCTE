@@ -16,8 +16,7 @@ void wipeScreen() {
 
 /* modification of the wipeScreen which displays AP change */
 void endDay(int DAY, int *AP) {
-	printf("\n\033[1;30m------------------------------------------------------------------------------------------> \033[33mPRESS ANY KEY TO CONTINUE\033[1;30m <------------------------------------------------------------------------------------------\033[0m \n");
-   
+	printf("\n\033[1;30m------------------------------------------------------------------------------------------> \033[33mPRESS ANY KEY TO CONTINUE\033[1;30m <------------------------------------------------------------------------------------------\033[0m \n\n");
    
 	getch();
 	
@@ -159,14 +158,26 @@ char *getName(int INDEX) {
 char *getSelectionMessage(int INDEX) {
 	switch(rng(3, 0) + INDEX) {
 		//1
-		case 0: return "\033[32m LOID : \033[0mAnya, remember to behave properly at school today\n\n \033[1;31m ANYA : \033[0m Okay! Anya will do her best.... probably";
-		case 1: return "\033[31m YOR : \033[0mGood luck, Anya! I hope you have a safe and peaceful day!\n\n \033[1;31m ANYA : \033[0m Mama, Anya will survive!";
-		case 2: return "\033[1;30m BOND : \033[0mBorf!\n\n\033[1;31m ANYA : \033[0m Bond can't come to school, but Anya will tell him everything later!";
+		case 0: 
+			return 
+				"\033[32m LOID : \033[0mAnya, remember to behave properly at school today\n\n"
+				"\033[1;31m ANYA : \033[0m Okay! Anya will do her best.... probably";
+		case 1: 
+			return 
+				"\033[31m YOR : \033[0mGood luck, Anya! I hope you have a safe and peaceful day!\n\n"
+				"\033[1;31m ANYA : \033[0m Mama, Anya will survive!";
+		case 2: 
+			return 
+				"\033[1;30m BOND : \033[0mBorf!\n\n"
+				"\033[1;31m ANYA : \033[0mBond can't come to school, but Anya will tell him everything later!";
 		
 		//2
-		case 3: return "\033[1;30m BOND : \033[0mBorf!";
-		case 4: return "\033[31m YOR : \033[0mW-wait, Anya! Maybe.... not at a full sprint toward the couch? You might get hurt!";
-		case 5: return "\033[32m LOID : \033[0mMaybe.... slow down a little?";
+		case 3: 
+			return "\033[1;30m BOND : \033[0mBorf!";
+		case 4: 
+			return "\033[31m YOR : \033[0mW-wait, Anya! Maybe.... not at a full sprint toward the couch? You might get hurt!";
+		case 5: 
+			return "\033[32m LOID : \033[0mMaybe.... slow down a little?";
 
 		default:  return 0;
 	}
@@ -198,7 +209,7 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 	printf(
 		"\t\t\t\t\t\t\t\t\t\t\t\tF  I  N  I  S  H !\n"
         "\033[1;30m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\033[0m \n\n"
-		" \033[1;31m ANYA : \033[0m Huff.... Anya is tired!\n\n"
+		" \033[1;31mANYA : \033[0m Huff.... Anya is tired!\n\n"
 		" >> Anya achieved an overall score of %d%%\n", percent
 	);
 
@@ -210,14 +221,14 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 		//math
 		if(SKILL == 0)
 			printf(
-				" \033[32m LOID : \033[0mThis.... is not good Anya....\n"
-				" \033[1;31m ANYA : \033[0m Um! Anya promises to do better next time papa!\n"
+				" \033[32mLOID : \033[0mThis.... is not good Anya....\n"
+				" \033[1;31mANYA : \033[0m Um! Anya promises to do better next time papa!\n"
 			);
 		//pe
 		else
 			printf(
-				" \033[31m YOR : \033[0mOh no.... I'm sure Miss Anya will do better next time!\n"
-				" \033[1;31m ANYA : \033[0m Yes! Anya promises mama!\n"
+				" \033[31mYOR : \033[0mOh no.... I'm sure Miss Anya will do better next time!\n"
+				" \033[1;31mANYA : \033[0m Yes! Anya promises mama!\n"
 			);
 	}
 
@@ -230,18 +241,18 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 		//math
 		if(SKILL == 0)
 			printf(
-				" \033[32m LOID : \033[0mWell.... It's not bad\n"
-				" \033[1;31m ANYA : \033[0m Yay-\n"
-				" \033[32m LOID : \033[0mBut it's not good either....\n"
-				" \033[1;31m ANYA : \033[0m .... Anya promises to do better next time papa!\n"
+				"\033[32m LOID : \033[0mWell.... It's not bad\n"
+				"\033[1;31m ANYA : \033[0m Yay-\n"
+				"\033[32m LOID : \033[0mBut it's not good either....\n"
+				"\033[1;31m ANYA : \033[0m .... Anya promises to do better next time papa!\n"
 			);
 		//pe
 		else
 			printf(
-				" \033[31m YOR : \033[0mMiss Anya did all right!\n"
-				" \033[1;31m ANYA : \033[0m Yay-\n"
-				" \033[31m YOR : \033[0mBut, hmmmm.... I think you can do better!\n"
-				" \033[1;31m ANYA : \033[0m .... Anya promises to do better next time mama!\n"
+				"\033[31m YOR : \033[0mMiss Anya did all right!\n"
+				"\033[1;31m ANYA : \033[0m Yay-\n"
+				"\033[31m YOR : \033[0mBut, hmmmm.... I think you can do better!\n"
+				"\033[1;31m ANYA : \033[0m .... Anya promises to do better next time mama!\n"
 			);
 	}
 	
@@ -252,12 +263,12 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 		printf("\033[33m [ +2 EXP ]\033[31m [ -1 AP ]\n\n");
 
 		//math
-		if(SKILL == 0) printf(" \033[32m LOID : \033[0mGood job Anya! You did well!\n");
+		if(SKILL == 0) printf("\033[32m LOID : \033[0mGood job Anya! You did well!\n");
 
 		//pe
-		else printf(" \033[31m YOR : \033[0mGood job Miss Anya! You got most of it right!\n");
+		else printf("\033[31m YOR : \033[0mGood job Miss Anya! You got most of it right!\n");
 			
-		printf(" \033[1;31m ANYA : \033[0m .... Anya will keep up!\n");
+		printf("\033[1;31m ANYA : \033[0m .... Anya will keep up!\n");
 	}
 
 	//perfect
@@ -268,12 +279,12 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 				printf("\033[33m [ MAX LEVEL ]\033[32m [ +2 AP BONUS ]\n\n");
 				
 				//math
-				if(SKILL == 0) printf(" \033[32m LOID : \033[0mWell done, Anya! You've mastered math!\n");
+				if(SKILL == 0) printf("\033[32m LOID : \033[0mWell done, Anya! You've mastered math!\n");
 				
 				//pe
-				else printf(" \033[31m YOR : \033[0mCongratulations Mis Anya! You've masterd PE!\n");
+				else printf("\033[31m YOR : \033[0mCongratulations Mis Anya! You've masterd PE!\n");
 			}
-			printf(" \033[1;31m ANYA : \033[0m Yay! I’m amazing!\n");
+			printf("\033[1;31m ANYA : \033[0m Yay! I’m amazing!\n");
 		}
 		else {
 			*EXP += 3;
@@ -286,12 +297,12 @@ void finishMini(int SCORE, int TOTAL, int *AP, int *EXP, int SKILL) {
 				printf("\033[33m [ +3 EXP ]\033[31m [ -1 AP ]\n\n");
 			}
 			//math
-			if(SKILL == 0) printf(" \033[32m LOID : \033[0mWell done Anya! You got everything correct!\n");
+			if(SKILL == 0) printf("\033[32m LOID : \033[0mWell done Anya! You got everything correct!\n");
 			
 			//pe
-			else printf(" YOR: Wow! Miss Anya got everything right!\n");
+			else printf("\033[31m  YOR: Wow! Miss Anya got everything right!\n");
 			
-			printf(" \033[1;31m ANYA : \033[0m Yahoo!\n");
+			printf("\033[1;31m ANYA : \033[0m Yahoo!\n");
 		}
 	}
 }

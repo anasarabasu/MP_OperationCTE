@@ -37,7 +37,7 @@ void introduction() { //henderson  talking about the exam and the project or som
     printf(
     	"\033[33m\t\t\t\t\t\t\t\t\t\t\t     I N T R O D U C T I O N\n"
     	"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n"
-        "\033[34m MR. HENDERSON : \033[0mLadies and gentlemen of Edn Academy, your attention, if I may....\n"
+        "\033[34m MR. HENDERSON : \033[0mLadies and gentlemen of Eden Academy, your attention, if I may....\n"
 		"                 Each of you has been assigned an undertaking of considerabl educational value!\n\n"
 		"\033[1;31m ANYA : \033[0mUh oh! Fancy teacher word means big homework!\n"
         "\033[30m        >> PRESS ANY KEY TO CONTINUE"
@@ -292,7 +292,7 @@ void dayBefore() {
 	printf(
 		"\n\033[30m BOND : \033[0mBorf!\n\n"
 		"\033[1;31m ANYA : \033[0mHehe! Bond thinks Anya will win too!\n"
-		"        Anya can feel it in his fluffy tail!"
+		"        Anya can feel it in his fluffy tail!\n"
 	);
 }
 
@@ -300,7 +300,7 @@ void dayBefore() {
 /* more ending fluff*/
 void theDayTM(int ENDING) {
     printf(
-        "   Release of Results\n"
+        "\n   Release of Results\n"
         "\033[31m   Morning\n"
         "\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" 
         "\033[33m\t\t\t\t\t\t\t\t\t\t\tE  D  E  N    A  C  A  D  E  M  Y\n"
@@ -362,7 +362,7 @@ void theDayTM(int ENDING) {
 /* ending display */
 void displayEnding(int ENDING) {
     printf(
-		"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
+		"\n\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n"
         "%s"
 		"\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n\n",
         getEndingBanner(ENDING)

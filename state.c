@@ -9,7 +9,7 @@ void title() {
 void momentOfTruth(int ENDING) {
     char input[99];
     printf(
-        "   Project submission & Assessment exam\n"
+        "\n   Project submission & Assessment exam\n"
         "\033[31m   Morning\n"
         "\033[0m-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n" 
         "\033[33m\t\t\t\t\t\t\t\t\t\t\tE  D  E  N    A  C  A  D  E  M  Y\n"
